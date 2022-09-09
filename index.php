@@ -126,21 +126,21 @@
                     </div>
                     <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="assents/img/Checklist.jpg'" data-bs-interval="30" class="d-block" alt="">
+                        <img src="assents/img/Checklist.jpg" data-bs-interval="30" class="d-block" alt="">
                         <div class="carousel-caption d-none d-md-block">
                         <h5>Visitas En Terreno</h5>
                         <p>Por medio de los Checklist los Profesionales podrán supervisar.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="assents/img/Asesoria en seguridad.jpg'" data-bs-interval="30" class="d-block" alt="">
+                        <img src="assents/img/Asesoria en seguridad.jpg" data-bs-interval="30" class="d-block" alt="">
                         <div class="carousel-caption d-none d-md-block">
                         <h5>Asesoría</h5>
                         <p>Nuestros profesionales te podrán asesorar y orientarte por una solución.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="assents/img/Gestión en Seguridad.jpg'" data-bs-interval="30" class="d-block" alt="">
+                        <img src="assents/img/Gestión en Seguridad.jpg" data-bs-interval="30" class="d-block" alt="">
                         <div class="carousel-caption d-none d-md-block">
                         <h5>Gestión</h5>
                         <p>Con nuestra plataforma tendrás fácil acceso a un Profesional en Prevención.</p>
