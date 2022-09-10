@@ -9,11 +9,15 @@ $_SESSION['usuario']=$usuario;
 $conexion=mysqli_connect("localhost","root","","sistema_administrativo");
 
 $consulta="SELECT*FROM usuario where usuario='$usuario' and contraseña='$contraseña'";
+$consulta2="SELECT*FROM cliente where usuario='$usuario' and contraseña='$contraseña'";
 $resultado=mysqli_query($conexion,$consulta);
+$resultado2=mysqli_query($conexion,$consulta2);
 
 $filas=mysqli_num_rows($resultado);
+$filas2=mysqli_num_rows($resultado2);
 
-if($filas){
+
+if($filas || $filas2){
   
     header("location:home.php");
 
