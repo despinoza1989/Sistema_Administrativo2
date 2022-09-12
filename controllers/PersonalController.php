@@ -7,7 +7,7 @@ class PersonalController{
     }
 
     public function registro(){
-        require_once 'views/registros/registro_personal.php'
+        require_once 'views/registros/registro_personal.php';
     }
 
     public function save(){
