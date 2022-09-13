@@ -10,16 +10,16 @@ class PersonalController{
 
         //Llamar a la vista 
 
-        require_once "views/layout/carrusel/carrusel.php";
+        require_once "views/layout/registros/registro_cliente.php";
 
     }
 
-    public function carrusel(){
+    public function registrocliente(){
 
-        //Llamar a model del carrusel
-
+        //Llamar models del Personal
+        
         require_once "models/AutentificacionModel.php";
-
+   
     }
 
 }
