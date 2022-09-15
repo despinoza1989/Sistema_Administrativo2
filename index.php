@@ -13,14 +13,54 @@ session_start();
     <title>Sistema Administrativo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
     <link href="assents/css/login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assents/css/footers.css"/>
 </head>
 <body>
     <?php
         if(!isset($_SESSION["activa"])){
+
             require_once "controllers/LoginController.php";
             $ctrl = new LoginController();
+
         }else{
-            echo "Hola mundo". $_SESSION["activa"];
+
+            $request= "";
+
+            if(is_null($_GET['view'])){
+                $request= "/";
+            }else{
+                $request = $_GET['view'];
+            }          
+
+            switch ($request) {
+                case '':
+                case '/':
+                    require_once "controllers/HomeController.php";
+                    $ctrl = new HomeController();
+                    break;
+                
+                case 'home':
+                    require_once "controllers/HomeController.php";
+                    $ctrl = new HomeController();
+                    break;
+
+                case 'registro-personal':
+                    require_once "controllers/PersonalController.php";
+                    $ctrl = new PersonalController();
+                    break;
+                
+                case 'logout':
+                    session_unset();
+                    header("refresh: 1; url=index.php");
+                    break;
+
+                default :
+                    require_once "controllers/HomeController.php";
+                    $ctrl = new HomeController();
+                    break;
+                    
+            }
+                
         }
         
     ?>

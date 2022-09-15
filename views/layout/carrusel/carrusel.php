@@ -1,4 +1,3 @@
-
 <div id="contenido">
     <div class="card-body">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">

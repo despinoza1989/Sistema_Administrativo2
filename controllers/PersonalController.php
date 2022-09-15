@@ -9,8 +9,9 @@ class PersonalController{
         //Llamar datos del modelo
 
         //Llamar a la vista 
-
+        require_once "views/layout/header.php";
         require_once "views/layout/registros/registro_personal.php";
+        require_once "views/layout/footer.php";
 
     }
 
