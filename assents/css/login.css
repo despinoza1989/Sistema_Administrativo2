@@ -1,16 +1,24 @@
-.contenedor_principal{
-  background-image: url(../img/fondo.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+body{
+  display: flex;
+  flex-direction: column;
+  height:100vh;
 
 }
 
-p{
+.contenedor_principal{
+  margin: 0;
+  background-image: url(../img/fondo.jpg);
+  height: 100%;
+  width: 100%;
+  display:flex;
+
+}
+
+.p_login{
   text-align: center;
 }
 
-h2{
+.h2_login{
   text-align: center;
 }
 

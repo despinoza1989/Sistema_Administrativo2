@@ -18,7 +18,7 @@ class PersonalController{
 
         //Llamar models del Personal
         
-        require_once "models/AutentificacionModel.php";
+        require_once "models/ClienteModel.php";
    
     }
 

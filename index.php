@@ -14,6 +14,7 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
     <link href="assents/css/login.css" rel="stylesheet" />
     <link rel="stylesheet" href="assents/css/footers.css"/>
+    
 </head>
 <body>
     <?php
@@ -47,6 +48,11 @@ session_start();
                 case 'registro-personal':
                     require_once "controllers/PersonalController.php";
                     $ctrl = new PersonalController();
+                    break;
+
+                case 'asignar-profesional':
+                    require_once "controllers/AsignarProfesionalController.php";
+                    $ctrl = new AsignarProfesionalController();
                     break;
                 
                 case 'logout':

@@ -9,7 +9,7 @@
                 <div class="card ">
                     <div class="card-body ">
 
-                        <h2>Ingresa tus credenciales</h2>
+                        <h2 class="h2_login">Ingresa tus credenciales</h2>
                         <hr>
                         <form method="POST">
                         
@@ -31,8 +31,8 @@
                                 } 
                             ?>
                             <br>
-                            <p>Sistema de Asesorias en Prevención</p>
-                            <p>Administrativo</p>
+                            <p class="p_login">Sistema de Asesorias en Prevención</p>
+                            <p class="p_login">Administrativo</p>
                             <div>
                             <div class="logo">
                                 <img src="assents/img/Logo Empresa 2.png" alt="logo">
