@@ -50,6 +50,11 @@ session_start();
                     $ctrl = new PersonalController();
                     break;
 
+                case 'registro-cliente':
+                    require_once "controllers/ClienteController.php";
+                    $ctrl = new ClienteController();
+                    break;
+
                 case 'asignar-profesional':
                     require_once "controllers/AsignarProfesionalController.php";
                     $ctrl = new AsignarProfesionalController();

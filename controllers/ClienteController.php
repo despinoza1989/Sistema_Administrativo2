@@ -1,6 +1,6 @@
 <?php
 
-class PersonalController{
+class ClienteController{
     function __construct(){
         //echo "esto funciona";
 

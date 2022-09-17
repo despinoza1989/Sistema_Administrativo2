@@ -19,15 +19,15 @@
                         Usuarios
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=registro-personal">Registro de Usuarios</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=registro-personal">Registro de Personal</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=registro-cliente">Registro de Cliente</a></li>
                         <li><a class="dropdown-item" href="#">Usuarios Activos</a></li>
                         <li><a class="dropdown-item" href="#">Usuarios Inactivos</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Registro de
-                                Personal</a></li>
+                        <li><a class="dropdown-item" href="#">Registro de Personal</a></li>
                         <li><a class="dropdown-item" href="#">Lista de
                                 Personal</a></li>
                         <li>
@@ -59,8 +59,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Lista de Profesionales</a></li>
-                        <li><a class="dropdown-item" href="#">Asignación
-                                Profesional</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=asignar-profesional">Asignación Profesional</a></li>
                     </ul>
                 </li>
 
