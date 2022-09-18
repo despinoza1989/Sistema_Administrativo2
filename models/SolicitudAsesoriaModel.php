@@ -2,7 +2,7 @@
 
 require_once 'config/db.php';
 
-class ClienteModel {
+class SolicitudAsesoriaModel {
 
     function getById($id_solicitud_asesoria) {
         
@@ -61,7 +61,7 @@ class ClienteModel {
         return $result;
     }
 
-    function delete($id_tipo_asesoria) {
+    function delete($id_solicitud_asesoria) {
 
         $conexion= Database::connect();
         $queryDelete = "DELETE FROM solicitud_asesoria WHERE id_solicitud_asesoria ='".$id_solicitud_asesoria."'";

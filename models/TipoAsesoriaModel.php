@@ -2,7 +2,7 @@
 
 require_once 'config/db.php';
 
-class ClienteModel {
+class TipoAsesoriaModel {
 
     function getById($id_tipo_asesoria) {
         
