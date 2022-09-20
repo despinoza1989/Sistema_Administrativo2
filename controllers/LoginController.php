@@ -1,5 +1,5 @@
 <?php
-
+include('sweetAlert.php');
 class LoginController{
     function __construct(){
         //echo "esto funciona";
@@ -31,7 +31,19 @@ class LoginController{
             
         }else{
 
-            echo "<center>Usuario no valido</center>";
+            echo '<script>
+            Swal.fire({
+             icon: "error",
+             title: "ERROR",
+             text: "El usuario o la contraseña no son correctos. Favor intentar nuevamente!",
+             showConfirmButton: true,
+             confirmButtonText: "Cerrar"
+             }).then(function(result){
+                if(result.value){                   
+                 window.location = "";
+                }
+             });
+            </script>';
         }
     }
 
