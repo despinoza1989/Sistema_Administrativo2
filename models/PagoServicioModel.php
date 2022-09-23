@@ -26,8 +26,7 @@ class PagoServicioModel {
     function getAll() {
 
         $conexion= Database::connect();
-        $query = "
-        SELECT ps.id_pago_servicio, ps.estado_pago, ps.fecha_pago, ps.monto_pago, ps.id_cliente_ps, ps.id_plan_servicio_ps, ps.id_tipo_documento_ps, ps.id_tipo_pago_ps,
+        $query = "SELECT ps.id_pago_servicio, ps.estado_pago, ps.fecha_pago, ps.monto_pago, ps.id_cliente_ps, ps.id_plan_servicio_ps, ps.id_tipo_documento_ps, ps.id_tipo_pago_ps,
         tp.tipo_pago, td.tipo_documento, pss.visita_mensual, pss.asesorias, pss.capacitaciones, c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.estado_usuario_cliente,
         c.usuario_cliente, c.tipo_usuario_c, c.id_rubro
         FROM pago_servicio AS ps

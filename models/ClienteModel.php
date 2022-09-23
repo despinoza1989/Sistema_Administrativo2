@@ -12,7 +12,7 @@ class ClienteModel {
         c.usuario_cliente, c.tipo_usuario_c, c.id_rubro,
         r.tipo_rubro
         FROM cliente AS c
-        LEFT JOIN rubro AS r ON r.id_rubro = c.id_rubro WHERE id_tipo_asesoria  = '". $id_cliente ."'";
+        LEFT JOIN rubro AS r ON r.id_rubro = c.id_rubro WHERE c.id_cliente  = '". $id_cliente ."'";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }
