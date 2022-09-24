@@ -13,7 +13,7 @@ class RespuestaAsesoriaModel {
         p.estado_usuario_personal, p.id_tipo_usuario_p, p.id_estado_civil, p.id_genero
         FROM respuesta_asesoria AS ra
         LEFT JOIN solicitud_asesoria AS sa ON sa.id_solicitud_asesoria = ra.id_solicitud_asesoria_ra
-        LEFT JOIN personal AS p ON p.id_personal = ra.id_personal_sa WHERE id_respuesta_asesoria  = '". $id_respuesta_asesoria ."'"; 
+        LEFT JOIN personal AS p ON p.id_personal = ra.id_personal_sa WHERE ra.id_respuesta_asesoria  = '". $id_respuesta_asesoria ."'"; 
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }

@@ -14,7 +14,7 @@ class SolicitudCapacitacionModel {
         c.id_rubro, t.tipo_personal_capacitacion
         FROM solicitud_capacitacion AS s
         LEFT JOIN cliente AS c ON s.id_solicitud_capacitacion = c.id_cliente
-        LEFT JOIN tipo_personal_capacitacion AS t ON t.id_tipo_personal_capacitacion = s.id_solicitud_capacitacion WHERE id_solicitud_capacitacion  = '". $id_solicitud_capacitacion ."'";
+        LEFT JOIN tipo_personal_capacitacion AS t ON t.id_tipo_personal_capacitacion = s.id_solicitud_capacitacion WHERE s.id_solicitud_capacitacion  = '". $id_solicitud_capacitacion ."'";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }

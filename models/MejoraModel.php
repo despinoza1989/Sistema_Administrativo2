@@ -19,7 +19,7 @@ class MejoraModel {
         c.usuario_cliente, c.tipo_usuario_c, c.id_rubro
         FROM mejoras AS m
         LEFT JOIN check_list AS ck ON m.id_check_list_m = ck.id_check_list
-        LEFT JOIN cliente AS c ON m.id_cliente_m = c.id_cliente WHERE id_mejoras  = '". $id_mejoras ."'";
+        LEFT JOIN cliente AS c ON m.id_cliente_m = c.id_cliente WHERE m.id_mejoras  = '". $id_mejoras ."'";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }
