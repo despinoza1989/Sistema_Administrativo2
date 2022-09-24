@@ -1,5 +1,7 @@
 <?php
+
 include('sweetAlert.php');
+
 class LoginController{
     function __construct(){
         //echo "esto funciona";
