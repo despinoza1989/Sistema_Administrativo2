@@ -21,21 +21,16 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="index.php?view=registro-personal">Registro de Personal</a></li>
                         <li><a class="dropdown-item" href="index.php?view=registro-cliente">Registro de Cliente</a></li>
-                        <li><a class="dropdown-item" href="#">Usuarios Activos</a></li>
-                        <li><a class="dropdown-item" href="#">Usuarios Inactivos</a>
+                        <li><a class="dropdown-item" href="index.php?view=usuario-activos">Usuarios Activos</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=usuarios-inactivos">Usuarios Inactivos</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Registro de Personal</a></li>
                         <li><a class="dropdown-item" href="#">Lista de
                                 Personal</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Registro de Cliente</a>
-                        </li>
                         <li><a class="dropdown-item" href="#">Lista de Clientes</a></li>
+                        </li>
 
                     </ul>
                 </li>

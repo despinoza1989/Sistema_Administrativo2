@@ -19,7 +19,7 @@ class RubroModel {
     function getAll() {
 
         $conexion= Database::connect();
-        $query = "SELECT id_rubro, tipo_rubro FROM rubro";
+        $query = "SELECT id_rubro, tipo_rubro FROM rubro ORDER BY tipo_rubro";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) {

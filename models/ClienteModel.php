@@ -41,6 +41,26 @@ class ClienteModel {
         return $response;
     }
 
+    function getAllByEstado($estado) {
+
+        $conexion= Database::connect();
+        $query = "SELECT 
+        c.id_cliente, c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.estado_usuario_cliente, 
+        c.usuario_cliente, c.tipo_usuario_c, c.id_rubro,
+        r.tipo_rubro
+        FROM cliente AS c
+        LEFT JOIN rubro AS r ON r.id_rubro = c.id_rubro WHERE c.estado_usuario_cliente  = '". $estado ."'";
+        $result = $conexion->query($query);
+        $response = array();
+        while($row = mysqli_fetch_assoc($result)) {
+
+           $response[] = $row; 
+        }
+        $result->close();
+        $conexion->close();
+        return $response;
+    }
+
     function create($data) {
 
         $conexion= Database::connect();
@@ -59,6 +79,15 @@ class ClienteModel {
         return $result;
     }
 
+    function updateEstado($id, $estado) {
+
+        $conexion= Database::connect();
+        $queryUpdate = "UPDATE cliente SET estado_usuario_cliente = '". $estado ."' WHERE id_cliente = '".$id."'";
+        $result = $conexion->query($queryUpdate);
+        $conexion->close();
+        return $result;
+    }
+
     function delete($id_tipo_asesoria) {
 
         $conexion= Database::connect();
@@ -67,5 +96,7 @@ class ClienteModel {
         $conexion->close();
         return $result;
     }
+
+    
 }
 ?>

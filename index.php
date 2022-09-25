@@ -14,7 +14,7 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
     <link href="assents/css/login.css" rel="stylesheet" />
     <link rel="stylesheet" href="assents/css/footers.css"/>
-    
+    <script src="assents/js/validacion.js"></script>
     
 </head>
 <body>
@@ -59,6 +59,16 @@ session_start();
                 case 'asignar-profesional':
                     require_once "controllers/AsignarProfesionalController.php";
                     $ctrl = new AsignarProfesionalController();
+                    break;
+
+                case 'usuario-activos':
+                    require_once "controllers/UsuarioActivosController.php";
+                    $ctrl = new UsuarioActivosController();
+                    break;
+                
+                case 'usuario-inactivos':
+                    require_once "controllers/UsuarioInactivosController.php";
+                    $ctrl = new UsuarioInactivosController();
                     break;
                 
                 case 'logout':
