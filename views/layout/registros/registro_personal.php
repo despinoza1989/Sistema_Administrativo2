@@ -1,41 +1,41 @@
 <div class="card-body" style="margin: 2em 5em;">
     <h2> Datos del Personal </h2>
     <br>
-    <form acction="index.php?controller=personal&action=save" method="POST" class="row g-3 needs-validation" novalidate>
+    <form id="registro_personal" class="row g-3 needs-validation">
         <div class="col-md-6">
-            <label for="validationCustom01" class="form-label">Rut</label>
-            <input type="text" class="form-control" id="validationCustom01" value="" required>
+            <label for="rut_personal" class="form-label">Rut</label>
+            <input type="text" class="form-control" placeholder="Ingrese Rut, Ejemplo: (11111111-3)" id="rut_personal" name="rut_personal" value=""  maxlength="10" required>
             <div class="valid-feedback">
-                Favor de introducir un Rut Valido
+                
             </div>
         </div>
         <div class="col-md-6">
-            <label for="validationCustom02" class="form-label">Telefono</label>
-            <input type="text" class="form-control" id="validationCustom02" value="" required>
+            <label for="telefono_personal" class="form-label">Telefono</label>
+            <input type="text" class="form-control" id="telefono_personal" name="telefono_personal" value="" required>
             <div class="invalid-feedback">
                 Favor de introducir un Telefono Valido
             </div>
         </div>
         <div class="col-md-3">
-            <label for="validationCustom05" class="form-label">Nombre
+            <label for="nombre_personal" class="form-label">Nombre
             </label>
-            <input type="text" class="form-control" id="validationCustom05" required>
+            <input type="text" class="form-control" id="nombre_personal" name="nombre_personal" required>
             <div class="invalid-feedback">
-                Favor de introducir un Nombre
+                
             </div>
         </div>
         <div class="col-md-3">
-            <label for="validationCustom03" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" id="validationCustom03" required>
+            <label for="apellidos_personal" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos_personal" name="apellidos_personal" required>
             <div class="invalid-feedback">
-                Favor de introducir una diercción valida
+                
             </div>
         </div>
         <div class="col-md-3">
-            <label for="validationCustomUsername" class="form-label">E-mail</label>
+            <label for="email_personal" class="form-label">E-mail</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" class="form-control" id="validationCustomUsername"
+                <input type="text" class="form-control" id="email_personal" name="email_personal"
                     aria-describedby="inputGroupPrepend" required>
                 <div class="invalid-feedback">
 
@@ -43,9 +43,9 @@
             </div>
         </div>
         <div class="col-md-3">
-            <label for="validationCustomUsername" class="form-label">Dirección</label>
+            <label for="direccion_personal" class="form-label">Dirección</label>
             <div class="input-group has-validation">
-                <input type="text" class="form-control" id="validationCustomUsername"
+                <input type="text" class="form-control" id="direccion_personal" name="direccion_personal"
                     aria-describedby="inputGroupPrepend" required>
                 <div class="invalid-feedback">
 
@@ -53,68 +53,232 @@
             </div>
         </div>
         <div class="col-md-3">
-            <label for="validationCustom03" class="form-label">Fecha de Nacimiento</label>
-            <input type="text" class="form-control" id="validationCustom03" required>
+            <label for="fecha_nacimiento_p" class="form-label">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" id="fecha_nacimiento_p" name="fecha_nacimiento_p" required>
             <div class="invalid-feedback">
-                Favor de introducir una Fecha valida
+                
             </div>
         </div>
         <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">Estado Civil</label>
-            <select class="form-select" id="validationCustom04" required>
-                <option>Soltero(a)</option>
-                <option>Casado(a)</option>
-                <option>Viudo(a)</option>
+            <label for="id_estado_civil" class="form-label">Estado Civil</label>
+            <select class="form-select" id="id_estado_civil" name="id_estado_civil" required>
+            <option selected disabled value="">Seleccione Estado Civil</option>
+                <?php foreach ($datos_estado_civil as $row){ ?>
+                    <option value="<?php echo $row["id_estado_civil"] ?>"><?php echo $row["tipo_estado_civil"] ?></option>
+                <?php } ?>
             </select>
             <div class="invalid-feedback">
             </div>
         </div>
         <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">Sexo</label>
-            <select class="form-select" id="validationCustom04" required>
-                <option>Masculino</option>
-                <option>Femenino</option>
-                <option>No Binario</option>
+            <label for="id_genero" class="form-label">Genero</label>
+            <select class="form-select" id="id_genero" name="id_genero" required>
+            <option selected disabled value="">Seleccione Genero</option>
+                <?php foreach ($datos_genero as $row){ ?>
+                    <option value="<?php echo $row["id_genero"] ?>"><?php echo $row["tipo_genero"] ?></option>
+                <?php } ?>
             </select>
             <div class="invalid-feedback">
             </div>
         </div>
         <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">Tipo Usuario</label>
-            <select class="form-select" id="validationCustom04" required>
-                <option>Administrativo</option>
-                <option>Profesional</option>
+            <label for="id_tipo_usuario_p" class="form-label">Tipo Usuario</label>
+            <select class="form-select" id="id_tipo_usuario_p" name="id_tipo_usuario_p" required>
+            <option selected disabled value="">Seleccione Tipo de Usuario</option>
+                <?php foreach ($datos_tipo_usuario as $row){ ?>
+                    <option value="<?php echo $row["id_tipo_usuario"] ?>"><?php echo $row["tipo_usuario"] ?></option>
+                <?php } ?>
             </select>
             <div class="invalid-feedback">
             </div>
         </div>
-    </form>
     <br>
     <br>
     <h2> Registrar Contraseña </h2>
     <br>
-    <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-6">
-            <div class="mb-3">
-                <label for="validationCustom02" class="form-label">Nombre de Usuario</label>
-                <input type="text" class="form-control" id="validationCustom02" value="" required>
-                <div class="invalid-feedback">
+    <div class="col-md-6">
+        <div class="mb-3">
+            <label for="usuario_personal" class="form-label">Nombre de Usuario</label>
+             <input type="text" class="form-control" id="usuario_personal" name="usuario_personal" value="" required>
+            <div class="invalid-feedback">
 
-                </div>
             </div>
+         </div>
 
-            <div class="mb-3">
-                <label for="inputPassword3" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="inputPassword3">
-            </div>
+        <div class="mb-3">
+            <label for="password_personal" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password_personal" name="password_personal">
         </div>
+    </div>
+
+        <input type="hidden" id="accion" name="accion" value="registrar">
+        <input type="hidden" id="estado_usuario_personal" name="estado_usuario_personal" value="1">
 
     </form>
     <br>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary col-2" type="submit">Registrar</button>
-        <button class="btn btn-warning col-2" type="submit">Cancelar</button>
+        <button class="btn btn-primary col-2" onclick="registrarPersonal()">Registrar</button>
+        <button class="btn btn-warning col-2" onclick="location.reload()">Limpiar</button>
     </div>
 </div>
+
+<script>
+    function registrarPersonal(){
+        var rut_personal=document.getElementById("rut_personal").value;
+        var telefono_personal=document.getElementById("telefono_personal").value;
+        var nombre_personal=document.getElementById("nombre_personal").value;
+        var apellidos_personal=document.getElementById("apellidos_personal").value;
+        var email_personal=document.getElementById("email_personal").value;
+        var direccion_personal=document.getElementById("direccion_personal").value;
+        var fecha_nacimiento_p=document.getElementById("fecha_nacimiento_p").value;
+        var id_estado_civil=document.getElementById("id_estado_civil").value;
+        var id_genero=document.getElementById("id_genero").value;
+        var id_tipo_usuario_p=document.getElementById("id_tipo_usuario_p").value;
+        var usuario_personal=document.getElementById("usuario_personal").value;
+        var password_personal=document.getElementById("password_personal").value;
+        console.log(rut_personal, telefono_personal, nombre_personal, apellidos_personal, email_personal, direccion_personal, fecha_nacimiento_p, id_estado_civil, id_genero, id_tipo_usuario_p,usuario_personal, password_personal)
+
+        if(rut_personal==undefined || rut_personal==null || rut_personal.trim()=="" || rut_personal.lengh<3 || !validacion.validaRut(rut_personal)){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'El Rut no es valido',                
+                })            
+            return;
+
+        }
+
+        if(telefono_personal==undefined || telefono_personal==null || telefono_personal.trim()=="" || !validacion.validarNumero(telefono_personal)){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe ingresar un número telefonico valido',                
+                })            
+            return;
+
+        }
+
+        if(nombre_personal==undefined || nombre_personal==null || nombre_personal.trim()=="" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe ingresar el nombre',                
+                })            
+            return;
+
+        }
+
+        if(apellidos_personal==undefined || apellidos_personal==null || apellidos_personal.trim()=="" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe ingresar el apellido',                
+                })            
+            return;
+
+        }
+
+        if(email_personal==undefined || email_personal==null || email_personal.trim()=="" || !validacion.validarEmail(email_personal)){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe ingresar un email valido',                
+                })            
+            return;
+
+        }
+
+        
+
+        if(direccion_personal==undefined || direccion_personal==null || direccion_personal.trim()=="" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe introducir una direccion valida',                
+                })            
+            return;
+
+        }
+
+        if(fecha_nacimiento_p==undefined || fecha_nacimiento_p==null || fecha_nacimiento_p.trim()=="" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe seleccionar una fecha de nacimiento',                
+                })            
+            return;
+        }
+
+        if(id_estado_civil==undefined || id_estado_civil==null || id_estado_civil.trim()=="" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe seleccionar su estado civil',                
+                })            
+            return;
+
+        }
+        if(id_genero==undefined || id_genero==null || id_genero.trim()=="" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe seleccionar un genero',                
+                })            
+            return;
+
+        }
+        if(id_tipo_usuario_p==undefined || id_tipo_usuario_p==null || id_tipo_usuario_p.trim()=="" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe seleccionar un tipo de usuario',                
+                })            
+            return;
+
+        }
+        
+
+        if(usuario_personal==undefined || usuario_personal==null || usuario_personal.trim()=="" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe ingresar un nombre de usuario valido',                
+                })            
+            return;
+
+        }
+
+        if(password_personal==undefined || password_personal==null || password_personal.trim()=="" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe ingresar una contraseña valida',                
+                })            
+            return;
+
+        }
+
+        let formulario = new FormData(document.getElementById("registro_personal"))
+        fetch('index.php?view=registro-personal', {
+            method: "post",
+            body: formulario
+        }).then((response) => {
+            
+            Swal.fire({
+                title: 'Personal registrado exitosamente',
+                showDenyButton: false,
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+                }).then((result) => {
+                    location.reload();
+                })
+            /*acciones a realizar*/     
+        }).then((data) => {
+            /*mas acciones a realizar*/
+        })
+        
+    }
+
+</script>
 
 

@@ -66,9 +66,14 @@ session_start();
                     $ctrl = new UsuarioActivosController();
                     break;
                 
-                case 'usuario-inactivos':
+                case 'usuario-inactivo':
                     require_once "controllers/UsuarioInactivosController.php";
                     $ctrl = new UsuarioInactivosController();
+                    break;
+                
+                case 'personal-activos':
+                    require_once "controllers/PersonalActivosController.php";
+                    $ctrl = new PersonalActivosController();
                     break;
                 
                 case 'logout':
@@ -78,7 +83,7 @@ session_start();
 
                 default :
                     require_once "controllers/HomeController.php";
-                    $ctrl = new HomeController();
+                    $ctrl = new HomeController(); 
                     break;
                     
             }

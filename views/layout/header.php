@@ -23,6 +23,7 @@
                         <li><a class="dropdown-item" href="index.php?view=registro-cliente">Registro de Cliente</a></li>
                         <li><a class="dropdown-item" href="index.php?view=usuario-activos">Usuarios Activos</a></li>
                         <li><a class="dropdown-item" href="index.php?view=usuarios-inactivos">Usuarios Inactivos</a>
+                        <li><a class="dropdown-item" href="index.php?view=personal-activos">Personal Activos</a>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
