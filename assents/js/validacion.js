@@ -28,7 +28,8 @@ var validacion = {
 
     validarNumero: function(valor) {
         return !isNaN(valor) && valor.length>=9
-    } 
+    }, 
+
 }
 
 
