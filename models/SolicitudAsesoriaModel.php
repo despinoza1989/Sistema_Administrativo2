@@ -13,7 +13,7 @@ class SolicitudAsesoriaModel {
         ta.tipo_asesoria
         FROM solicitud_asesoria AS sa
         LEFT JOIN cliente AS c ON c.id_cliente = sa.id_cliente_sa
-        LEFT JOIN tipo_asesoria AS ta ON ta.id_tipo_asesoria = sa.id_tipo_asesoria_sa WHERE sa.id_tipo_asesoria  = '". $id_solicitud_asesoria ."'";
+        LEFT JOIN tipo_asesoria AS ta ON ta.id_tipo_asesoria = sa.id_tipo_asesoria_sa WHERE id_tipo_asesoria  = '". $id_solicitud_asesoria ."'";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }

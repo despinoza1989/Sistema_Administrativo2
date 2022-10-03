@@ -55,11 +55,28 @@ class MejoraModel {
         return $response;
     }
 
+    function getByListado() {
+
+        $conexion= Database::connect();
+        $query = "SELECT m.id_mejoras, m.obs_check_general, m.doc_check_general, m.img_check_general, m.obs_check_proteccion, m.doc_check_proteccion,
+        m.img_check_proteccion, m.obs_check_herramientas, m.doc_check_herramientas, m.img_check_herramientas, m.obs_check_maquinaria,
+        m.doc_check_maquinaria, m.img_check_maquinaria
+        FROM mejoras AS m";
+        $result = $conexion->query($query);
+        $response = array();
+        while($row = mysqli_fetch_assoc($result)) {
+
+           $response[] = $row; 
+        }
+        $result->close();
+        $conexion->close();
+        return $response;
+    }
+
     function create($data) {
 
         $conexion= Database::connect();
-        $queryInsert = "INSERT INTO mejoras (obs_check_general, doc_check_general, img_check_general, obs_check_proteccion, doc_check_proteccion,img_check_proteccion, obs_check_herramientas, doc_check_herramientas, img_check_herramientas, obs_check_maquinaria, doc_check_maquinaria, img_check_maquinaria) 
-        VALUES ('". $data['obs_check_general']."','". $data['doc_check_general']."','". $data['img_check_general']."','". $data['obs_check_proteccion']."','". $data['doc_check_proteccion']."','". $data['img_check_proteccion']."','". $data['obs_check_herramientas']."','". $data['doc_check_herramientas']."','". $data['img_check_herramientas']."','". $data['obs_check_maquinaria']."','". $data['doc_check_maquinaria']."','". $data['img_check_maquinaria']."')";
+        $queryInsert = "INSERT INTO mejoras (obs_check_general, doc_check_general, img_check_general, obs_check_proteccion, doc_check_proteccion, img_check_proteccion, obs_check_herramientas, doc_check_herramientas, img_check_herramientas, obs_check_maquinaria, doc_check_maquinaria, img_check_maquinaria, id_check_list_m, id_cliente_m) VALUES ('". $data['obs_check_general']."', '". $data['doc_check_general']."', '". $data['img_check_general']."', '". $data['obs_check_proteccion']."', '". $data['doc_check_proteccion']."', '". $data['img_check_proteccion']."', '". $data['obs_check_herramientas']."', '". $data['doc_check_herramientas']."', '". $data['img_check_herramientas']."', '". $data['obs_check_maquinaria']."', '". $data['doc_check_maquinaria']."', '". $data['img_check_maquinaria']."', '". $data['id_check_list_m']."', '". $data['id_cliente_m']."')";
         $result = $conexion->query($queryInsert);
         $conexion->close();
         return $result;
@@ -74,10 +91,10 @@ class MejoraModel {
         return $result;
     }
 
-    function delete($id_genero) {
+    function delete($id_mejoras) {
 
         $conexion= Database::connect();
-        $queryDelete = "DELETE FROM mejora WHERE id_mejoras ='".$id_mejoras."'";
+        $queryDelete = "DELETE FROM mejoras WHERE id_mejoras ='".$id_mejoras."'";
         $result = $conexion->query($queryDelete);
         $conexion->close();
         return $result;

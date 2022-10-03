@@ -8,13 +8,14 @@ class PagoServicioModel {
         
         $conexion= Database::connect();
         $query = "SELECT ps.id_pago_servicio, ps.estado_pago, ps.fecha_pago, ps.monto_pago, ps.id_cliente_ps, ps.id_plan_servicio_ps, ps.id_tipo_documento_ps, ps.id_tipo_pago_ps,
-        tp.tipo_pago, td.tipo_documento, pss.visita_mensual, pss.asesorias, pss.capacitaciones, c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.estado_usuario_cliente,
+        tp.tipo_pago, td.tipo_documento, pss.valor_visita_mensual, pss.valor_asesorias, pss.valor_capacitaciones, pss.valor_mejoras, pss.valor_check_list, 
+        c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.estado_usuario_cliente,
         c.usuario_cliente, c.tipo_usuario_c, c.id_rubro
         FROM pago_servicio AS ps
         LEFT JOIN tipo_pago AS tp ON tp.id_tipo_pago = ps.id_tipo_pago_ps
         LEFT JOIN tipo_documento AS td ON td.id_tipo_documento = ps.id_tipo_documento_ps
         LEFT JOIN plan_servicio AS pss ON pss.id_plan_servicio = ps.id_plan_servicio_ps
-        LEFT JOIN cliente AS c ON c.id_cliente = ps.id_cliente_ps WHERE ps.id_pago_servicio  = '". $id_pago_servicio ."'"; 
+        LEFT JOIN cliente AS c ON c.id_cliente = ps.id_cliente_ps WHERE id_pago_servicio = '". $id_pago_servicio ."'"; 
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }
@@ -27,7 +28,8 @@ class PagoServicioModel {
 
         $conexion= Database::connect();
         $query = "SELECT ps.id_pago_servicio, ps.estado_pago, ps.fecha_pago, ps.monto_pago, ps.id_cliente_ps, ps.id_plan_servicio_ps, ps.id_tipo_documento_ps, ps.id_tipo_pago_ps,
-        tp.tipo_pago, td.tipo_documento, pss.visita_mensual, pss.asesorias, pss.capacitaciones, c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.estado_usuario_cliente,
+        tp.tipo_pago, td.tipo_documento, pss.valor_visita_mensual, pss.valor_asesorias, pss.valor_capacitaciones, pss.valor_mejoras, pss.valor_check_list, 
+        c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.estado_usuario_cliente,
         c.usuario_cliente, c.tipo_usuario_c, c.id_rubro
         FROM pago_servicio AS ps
         LEFT JOIN tipo_pago AS tp ON tp.id_tipo_pago = ps.id_tipo_pago_ps

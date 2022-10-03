@@ -28,7 +28,7 @@ session_start();
 
             $request= "";
 
-            if(is_null($_GET['view'])){
+            if(!isset($_GET['view']) || is_null($_GET['view'])){
                 $request= "/";
             }else{
                 $request = $_GET['view'];

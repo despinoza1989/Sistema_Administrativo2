@@ -36,11 +36,11 @@ class ChecklistModel {
         $conexion= Database::connect();
         $query = "SELECT ck.fecha_check_list, ck.senaleticas, ck.estado_contratos, ck.estado_extintores, 
         ck.instalaciones_electricas, ck.instalaciones_sanitarias, ck.libro_asistencia, ck.alarma_incendios, ck.alumbrado_emergencia,
-        ck.salida_emergencia, ck.documentacion_trabajador, ck.agua_potable, ck.centro_mutual, ck.obs_check_general, ck.protectores_auditivos,
-        ck.casco_seguridad, ck.zapatos_seguridad, ck.guantes_protectores, ck.gafas_seguridad, ck.mascarilla_respiratoria, ck.obs_check_proteccion,
+        ck.salidas_emergencia, ck.documentacion_trabajador, ck.agua_potable, ck.centro_mutual, ck.obs_check_general, ck.protectores_auditivos,
+        ck.casco_seguridad, ck.zapato_seguridad, ck.guantes_protectores, ck.gafas_seguridad, ck.mascarilla_respiratoria, ck.obs_check_proteccion,
         ck.herramientas_adecuadas, ck.inspeccion_materiales, ck.cableado_herramientas, ck.proteccion_herramientas, ck.obs_check_herramientas,
         ck.luces_maquinarias, ck.estanque_combustible, ck.motor_maquinaria, ck.frenos_maquinaria, ck.boton_emergencia_maq, 
-        ck.esp_tecnicas_maq, ck.inspeccion_maquinaria, ck.obs_check_maquinaria,
+        ck.esp_tecnicas_maq, ck.insepeccion_maquinaria, ck.obs_check_maquinaria,
         p.rut_personal, p.telefono_personal, p.nombre_personal, 
         p.apellidos_personal, p.email_personal, p.direccion_personal, p.fecha_nacimiento_p, p.usuario_personal, p.estado_usuario_personal,
         p.estado_usuario_personal, p.id_tipo_usuario_p, p.id_estado_civil, p.id_genero,
@@ -66,20 +66,20 @@ class ChecklistModel {
         $conexion= Database::connect();
         $queryInsert = "INSERT INTO check_list (fecha_check_list, senaleticas, estado_contratos, estado_extintores, 
         instalaciones_electricas, instalaciones_sanitarias, libro_asistencia, alarma_incendios, alumbrado_emergencia,
-        salida_emergencia, documentacion_trabajador, agua_potable, centro_mutual, obs_check_general, protectores_auditivos,
-        casco_seguridad, zapatos_seguridad, guantes_protectores, gafas_seguridad, mascarilla_respiratoria, obs_check_proteccion,
+        salidas_emergencia, documentacion_trabajador, agua_potable, centro_mutual, obs_check_general, protectores_auditivos,
+        casco_seguridad, zapato_seguridad, guantes_protectores, gafas_seguridad, mascarilla_respiratoria, obs_check_proteccion,
         herramientas_adecuadas, inspeccion_materiales, cableado_herramientas, proteccion_herramientas, obs_check_herramientas,
         luces_maquinarias, estanque_combustible, motor_maquinaria, frenos_maquinaria, boton_emergencia_maq, 
-        esp_tecnicas_maq, inspeccion_maquinaria, obs_check_maquinaria )
+        esp_tecnicas_maq, insepeccion_maquinaria, obs_check_maquinaria, id_personal_ckl, id_cliente_ckl, id_rubro_ckl )
         VALUES ('". $data['fecha_check_list']."', '". $data['senaleticas']."', '". $data['estado_contratos']."', '". $data['estado_extintores']."',
         '". $data['instalaciones_electricas']."', '". $data['instalaciones_sanitarias']."', '". $data['libro_asistencia']."', '". $data['alarma_incendios']."',
-        '". $data['alumbrado_emergencia ']."', '". $data['salida_emergencia']."', '". $data['documentacion_trabajador ']."', '". $data['agua_potable']."',
+        '". $data['alumbrado_emergencia ']."', '". $data['salidas_emergencia']."', '". $data['documentacion_trabajador ']."', '". $data['agua_potable']."',
         '". $data['centro_mutual']."', '". $data['obs_check_general']."', '". $data['protectores_auditivos']."', '". $data['casco_seguridad']."',
-        '". $data['zapatos_seguridad']."', '". $data['guantes_protectores']."', '". $data['gafas_seguridad']."', '". $data['mascarilla_respiratoria']."',
+        '". $data['zapato_seguridad']."', '". $data['guantes_protectores']."', '". $data['gafas_seguridad']."', '". $data['mascarilla_respiratoria']."',
         '". $data['obs_check_proteccion']."', '". $data['herramientas_adecuadas']."', '". $data['inspeccion_materiales ']."', '". $data['cableado_herramientas']."',
         '". $data['proteccion_herramientas']."', '". $data['obs_check_herramientas']."', '". $data['luces_maquinarias']."', '". $data['estanque_combustible']."',
         '". $data['motor_maquinaria']."', '". $data['frenos_maquinaria']."', '". $data['boton_emergencia_maq']."', '". $data['esp_tecnicas_maq']."',
-        '". $data['inspeccion_maquinaria']."', '". $data['obs_check_maquinaria']."')";
+        '". $data['insepeccion_maquinaria']."', '". $data['obs_check_maquinaria']."', '". $data['id_personal_ckl']."', '". $data['id_cliente_ckl']."', '". $data['id_rubro_ckl']."')";
         $result = $conexion->query($queryInsert);
         $conexion->close();
         return $result;
