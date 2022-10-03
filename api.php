@@ -25,7 +25,7 @@ require "models/TipoPagoModel.php";
 require "models/TipoPersonalCapacitacionModel.php";
 require "models/TipoUsuarioModel.php";
 require "models/VisitaTerrenoModel.php";
-
+require "models/AsignacionProfesionalModel.php";
 
 
 $configuration = [
@@ -433,6 +433,25 @@ $app->get('/visita-terreno/{id_visita_terreno}', function (Request $request, Res
     $id_visita_terreno = $args['id_visita_terreno'];    
     $model = new VisitaTerrenoModel();
     $datos = $model->getById($id_visita_terreno);
+    return $response->withJson($datos);
+
+});
+
+//MODELS ASIGNACION PROFESIONAL
+
+$app->get('/asignacion-profesional', function (Request $request, Response $response, array $args) {
+     
+    $model = new AsignacionProfesionalModel();
+    $datos = $model->getAll();
+    return $response->withJson($datos);
+
+});
+
+$app->get('/asignacion-profesional/{id_asignacion_profesional}', function (Request $request, Response $response, array $args) {
+    
+    $id_asignacion_profesional = $args['id_asignacion_profesional'];    
+    $model = new AsignacionProfesionalModel();
+    $datos = $model->getById($id_asignacion_profesional);
     return $response->withJson($datos);
 
 });
