@@ -25,13 +25,4 @@ class PersonalActivosController{
         require_once "views/layout/footer.php";
 
     }
-
-    public function registropersonal(){
-
-        //Llamar models del Personal
-        
-        require_once "models/AutentificacionModel.php";
-   
-    }
-
 }

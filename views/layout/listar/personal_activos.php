@@ -30,6 +30,7 @@
                 <th>Email</th>
                 <th>Genero</th>
                 <th>Estado Civil</th>
+                <th>Tipo de Usuario</th>
                 <th>Estado</th>
                 <th>Opción</th>
             </tr>
@@ -42,6 +43,7 @@
                     <td><?php echo $row["email_personal"]?></td>
                     <td><?php echo $row["tipo_genero"]?></td>
                     <td><?php echo $row["tipo_estado_civil"]?></td>
+                    <td><?php echo $row["tipo_usuario"]?></td>
                     <td>
                         <?php 
                             if ($row["estado_usuario_personal"]==1) {

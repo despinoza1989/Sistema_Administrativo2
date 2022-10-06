@@ -46,8 +46,7 @@ class AsignacionProfesionalModel {
     function create($data) {
 
         $conexion= Database::connect();
-        $queryInsert = "INSERT INTO asignacion_profesional (id_cliente_ap, id_personal_ap) VALUES
-        ('". $data['id_cliente_ap']."', '". $data['id_personal_ap']."')";
+        $queryInsert = "INSERT INTO asignacion_profesional (id_cliente_ap, id_personal_ap) VALUES ('". $data['id_cliente_ap']."', '". $data['id_personal_ap']."')";
         $result = $conexion->query($queryInsert);
         $conexion->close();
         return $result;

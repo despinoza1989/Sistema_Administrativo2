@@ -25,12 +25,4 @@ class UsuarioActivosController{
 
     }
 
-    public function registropersonal(){
-
-        //Llamar models del Personal
-        
-        require_once "models/AutentificacionModel.php";
-   
-    }
-
 }
