@@ -1,10 +1,8 @@
-
-
 <script>
-    function desactivarUsuario(id) {
+    function activarUsuario(id) {
         Swal.fire({
-            "title":"¿Estás seguro de desactivar al usuario?",
-            "text":"Este no podra acceder al sistema",
+            "title":"¿Estás seguro de activar al usuario?",
+            "text":"Este podra acceder al sistema",
             "icon":"question",
             "showCancelButton": true,
             "cancelButtonText":"Cancelar",
@@ -13,7 +11,7 @@
         })
         .then(function(result) {
             if(result.isConfirmed) {
-                window.location.href = "index.php?view=usuario-activos&id_estado="+id
+                window.location.href = "index.php?view=clientes-inactivos&id_estado="+id
             }
         })
     }
@@ -22,19 +20,19 @@
 
 <br><br><br>
 <div class="card" style="margin: 1px 5em;">
-        <h3 align="center" >Usuarios Activos</h3>
+        <h3 align="center" >Clientes Inactivos</h3>
         <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
                 <th>Nombre de Usuario</th>
-                <th>Rut/Rol</th>
-                <th>Nombre/Razón Social</th>
+                <th>Rol</th>
+                <th>Razón Social</th>
                 <th>Email</th>
                 <th>Estado</th>
                 <th>Opción</th>
             </tr>
 
             <?php foreach ($datos as $row){ ?>
-           
+
                 <tr>
                     <td><?php echo $row["usuario_cliente"]?></td>
                     <td><?php echo $row["rol_cliente"]?></td>
@@ -49,13 +47,15 @@
                             }                        
                         ?>
                     </td>
-                    <td>
-                        <a href="{% url 'modificar_usuario' u.id %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="javascript:desactivarUsuario(<?php echo $row["id_cliente"]?>)"  class="btn btn-danger btn-sm">Desactivar</a>
+                    <td>   
+                        <a href="javascript:activarUsuario(<?php echo $row["id_cliente"]?>)" class="btn btn-danger btn-sm">Activar</a>
                     </td>         
-                </tr>
+            </tr>
 
             <?php }?>
         </table>
 </div>
-<br><br><br><br><br>
+
+
+<br><br><br><br><br><br><br><br><br><br>
+

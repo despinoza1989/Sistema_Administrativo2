@@ -61,14 +61,14 @@ session_start();
                     $ctrl = new AsignarProfesionalController();
                     break;
 
-                case 'usuario-activos':
-                    require_once "controllers/UsuarioActivosController.php";
-                    $ctrl = new UsuarioActivosController();
+                case 'clientes-activos':
+                    require_once "controllers/ClienteActivosController.php";
+                    $ctrl = new ClienteActivosController();
                     break;
                 
-                case 'usuario-inactivo':
-                    require_once "controllers/UsuarioInactivosController.php";
-                    $ctrl = new UsuarioInactivosController();
+                case 'clientes-inactivos':
+                    require_once "controllers/ClienteInactivosController.php";
+                    $ctrl = new ClienteInactivosController();
                     break;
                 
                 case 'personal-activos':
