@@ -61,6 +61,16 @@ session_start();
                     $ctrl = new AsignarProfesionalController();
                     break;
 
+                case 'listado-asignaciones':
+                    require_once "controllers/AsignacionProfesionalController.php";
+                    $ctrl = new AsignacionProfesionalController();
+                    break;
+
+                case 'modificar-asignaciones':
+                    require_once "controllers/ModificarAsignacionController.php";
+                    $ctrl = new ModificarAsignacionController();
+                    break;   
+
                 case 'clientes-activos':
                     require_once "controllers/ClienteActivosController.php";
                     $ctrl = new ClienteActivosController();

@@ -26,9 +26,9 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="index.php?view=personal-activos">Personal Activos</a>
-                                
-                                <li><a class="dropdown-item" href="index.php?view=clientes-activos">Listado Clientes Activos</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=personal-activos">Listado Personal Activos</a>
+                        <li><a class="dropdown-item" href="#">Listado Personal Inactivos</a>       
+                        <li><a class="dropdown-item" href="index.php?view=clientes-activos">Listado Clientes Activos</a></li>
                         <li><a class="dropdown-item" href="index.php?view=clientes-inactivos">Listado Clientes Inactivos</a>
                         </li>
 
@@ -50,11 +50,12 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Profesionales
+                        Asignación Profesionales
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Lista de Profesionales</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listado-asignaciones">Listado de Asignaciones</a></li>
                         <li><a class="dropdown-item" href="index.php?view=asignar-profesional">Asignación Profesional</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=modificar-asignaciones">Modificar Asignación Profesional</a></li>
                     </ul>
                 </li>
 

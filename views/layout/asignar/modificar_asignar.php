@@ -1,5 +1,5 @@
 <div class="card-body" style="margin: 2em 5em;">
-    <h1> Asignar Profesional a Cliente</h1>
+    <h1> Modificar Asignación del Profesional a Cliente</h1>
     <br>
     <form id="asignar_profesional" class="row g-3 needs-validation" novalidate>
         <h2> Profesional </h2>
@@ -14,11 +14,10 @@
         </div>
         <div class="col-md-6">
             <label for="telefono_personal" class="form-label">Telefono</label>
-            <input type="text" class="form-control" id="telefono_personal" value="" disabled required>
+            <input type="text" class="form-control" id="telefono_personal" disabled required>
         </div>
         <div class="col-md-3">
-            <label for="nombre_personal" class="form-label">Nombre
-            </label>
+            <label for="nombre_personal" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="nombre_personal" disabled required>
         </div>
         <div class="col-md-3">
@@ -29,8 +28,7 @@
             <label for="email_personal" class="form-label">E-mail</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" class="form-control" id="email_personal"
-                    aria-describedby="inputGroupPrepend" disabled required>
+                <input type="text" class="form-control" id="email_personal" aria-describedby="inputGroupPrepend" disabled required>
             </div>
         </div>
         <div class="col-md-6">
@@ -43,7 +41,7 @@
         <div class="col-md-6">
             <label for="rol_cliente" class="form-label">Rol</label>
             <select class="form-select" id="rol_cliente" name="rol_cliente"  required>
-                <option selected disabled value="">Seleccione el Rol del cliente</option>
+                <option selected disabled >Seleccione el Rol del cliente</option>
                 <?php foreach ($datos_cliente as $row){ ?>
                     <option value="<?php echo $row["id_cliente"] ?>"><?php echo $row["rol_cliente"] ?></option>
                 <?php } ?>
@@ -52,20 +50,19 @@
 
         <div class="col-md-6">
             <label for="tipo_rubro" class="form-label">Rubro</label>
-            <input type="text" class="form-control" id="tipo_rubro" name="tipo_rubro" value="" disabled required>
+            <input type="text" class="form-control" id="tipo_rubro" name="tipo_rubro" disabled required>
         </div>
 
         <div class="col-md-6">
             <label for="razon_social_cliente" class="form-label">Razón Social</label>
-            <input type="text" class="form-control" id="razon_social_cliente" name="razon_social_cliente" disabled value="" required>
+            <input type="text" class="form-control" id="razon_social_cliente" name="razon_social_cliente" disabled  required>
         </div>
 
         <div class="col-md-6">
             <label for="email_cliente" class="form-label">E-mail</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" class="form-control" id="email_cliente" name="email_cliente"
-                    aria-describedby="inputGroupPrepend" disabled required>
+                <input type="text" class="form-control" id="email_cliente" name="email_cliente" aria-describedby="inputGroupPrepend" disabled required>
             </div>
         </div>    
 
