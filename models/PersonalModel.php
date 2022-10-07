@@ -73,7 +73,7 @@ class PersonalModel {
         FROM personal AS p         
         LEFT JOIN tipo_usuario AS tp ON tp.id_tipo_usuario = p.id_tipo_usuario_p
         LEFT JOIN estado_civil AS ec ON ec.id_estado_civil = p.id_estado_civil
-        LEFT JOIN genero AS g ON g.id_genero = p.id_genero WHERE p.id_tipo_usuario_p  = '". $id_tipo_usuario_p ."'";
+        LEFT JOIN genero AS g ON g.id_genero = p.id_genero WHERE p.id_tipo_usuario_p= '". $id_tipo_usuario_p ."'";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) {

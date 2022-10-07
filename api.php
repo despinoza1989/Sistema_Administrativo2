@@ -95,6 +95,15 @@ $app->get('/personal/{id_personal}', function (Request $request, Response $respo
 
 });
 
+$app->get('/personal/profesional/{id_tipo_usuario_p}', function (Request $request, Response $response, array $args) {
+    
+    $id_tipo_usuario_p = $args['id_tipo_usuario_p'];    
+    $model = new PersonalModel();
+    $datos = $model->getProfesionalAll($id_tipo_usuario_p);
+    return $response->withJson($datos);
+
+});
+
 //MODELS CHECKLIST
 
 /*$app->get('/check-list', function (Request $request, Response $response, array $args) {

@@ -1,14 +1,14 @@
 <div class="card-body" style="margin: 2em 5em;">
     <h1> Asignar Profesional </h1>
     <br>
-    <form class="row g-3 needs-validation" novalidate>
+    <form id="asignar_profesional" class="row g-3 needs-validation" novalidate>
         <h2> Profesional </h2>
         <div class="col-md-6">
             <label for="rut_personal" class="form-label">Rol</label>
             <select class="form-select" id="rut_personal" name="rut_personal"  required>
                 <option selected disabled value="">Seleccione Rut del profesional</option>
-                <?php foreach ($datos_cliente as $row){ ?>
-                    <option value="<?php echo $row["id_personal"] ?>"><?php echo $row["rol_cliente"] ?></option>
+                <?php foreach ($datos_personal as $row){ ?>
+                    <option value="<?php echo $row["id_personal"] ?>"><?php echo $row["rut_personal"] ?></option>
                 <?php } ?>
             </select>
         </div>
@@ -47,7 +47,7 @@
         </div>
         <div class="col-md-6">
             <label for="direccion_personal" class="form-label">Dirección</label>
-            <input type="text" class="form-control" id="direccion_personal" required>
+            <input type="text" class="form-control" id="direccion_personal" disabled required>
             <div class="invalid-feedback">
                 Favor de introducir dirección
             </div>
@@ -94,13 +94,17 @@
             <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" disabled required>
         </div>
 
+        <input type="hidden" id="accion" name="accion" value="registrar">
+        <input type="hidden" id="id_personal_ap" name="id_personal_ap" value="2">
+        <input type="hidden" id="id_cliente_ap" name="id_cliente_ap" value="2">
+    
     </form>
     <br><br><br>
 
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary" type="submit">Asignar</button>
-        <button class="btn btn-primary" type="submit">Cancelar</button>
+        <button class="btn btn-primary col-2" onclick="asignarProfesional()">Asignar</button>
+        <button class="btn btn-warning col-2" onclick="location.reload()">Limpiar</button>
     </div>
 </div>
 
@@ -125,6 +129,7 @@ function onChangeRol(event){
 
             console.dir(datos)
 
+            document.getElementById('tipo_rubro').value=datos.tipo_rubro;
             document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
             document.getElementById('telefono_cliente').value=datos.telefono_cliente;
             document.getElementById('direccion_cliente').value=datos.direccion_cliente;
@@ -139,30 +144,77 @@ function onChangeRol(event){
 
 (function(){
 
-document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
+document.getElementById('rut_personal').addEventListener('change', onChangeRut)
 
 })()
 
-function onChangeRol(event){
+function onChangeRut(event){
 
-    var id_cliente= document.getElementById('rol_cliente').value;
+    var id_personal= document.getElementById('rut_personal').value;
 
-    if(id_cliente && id_cliente>0){
+    if(id_personal && id_personal>1){
 
-        fetch("api.php/cliente/" + id_cliente, {
+        fetch("api.php/personal/" + id_personal, {
             method: "get"            
         }).then(response=>response.json())
         .then((datos)=>{
 
             console.dir(datos)
 
-            document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
-            document.getElementById('telefono_cliente').value=datos.telefono_cliente;
-            document.getElementById('direccion_cliente').value=datos.direccion_cliente;
-            document.getElementById('email_cliente').value=datos.email_cliente;
+            document.getElementById('telefono_personal').value=datos.telefono_personal;
+            document.getElementById('nombre_personal').value=datos.nombre_personal;
+            document.getElementById('apellidos_personal').value=datos.apellidos_personal;
+            document.getElementById('email_personal').value=datos.email_personal;
+            document.getElementById('direccion_personal').value=datos.direccion_personal;
 
         })
     }
+}
+
+function asignarProfesional(){
+    var rol_cliente=document.getElementById("rol_cliente").value;
+    var rut_personal=document.getElementById("rut_personal").value;
+
+
+    if(rol_cliente==undefined || rol_cliente==null || rol_cliente.trim()=="" ){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Debe seleccionar el Rol del Cliente',                
+            })            
+        return;
+
+    }
+
+    if(rut_personal==undefined || rut_personal==null || rut_personal.trim()=="" ){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Se debe seleccionar el Rut del Profesional',                
+            })            
+        return;
+
+    }
+
+    let formulario = new FormData(document.getElementById("asignar_profesional"))
+        fetch('index.php?view=asignar-profesional', {
+            method: "post",
+            body: formulario
+        }).then((response) => {
+            
+            Swal.fire({
+                title: 'Asignación realizada exitosamente',
+                showDenyButton: false,
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+                }).then((result) => {
+                    location.reload();
+                })
+            /*acciones a realizar*/     
+        }).then((data) => {
+            /*mas acciones a realizar*/
+        })
+
 }
 
 </script>
