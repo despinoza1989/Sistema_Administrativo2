@@ -95,8 +95,8 @@
         </div>
 
         <input type="hidden" id="accion" name="accion" value="registrar">
-        <input type="hidden" id="id_personal_ap" name="id_personal_ap" value="2">
-        <input type="hidden" id="id_cliente_ap" name="id_cliente_ap" value="2">
+        <input type="hidden" id="id_personal_ap" name="id_personal_ap" >
+        <input type="hidden" id="id_cliente_ap" name="id_cliente_ap" >
     
     </form>
     <br><br><br>
@@ -129,6 +129,7 @@ function onChangeRol(event){
 
             console.dir(datos)
 
+            document.getElementById('id_cliente_ap').value=datos.id_cliente;
             document.getElementById('tipo_rubro').value=datos.tipo_rubro;
             document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
             document.getElementById('telefono_cliente').value=datos.telefono_cliente;
@@ -161,6 +162,7 @@ function onChangeRut(event){
 
             console.dir(datos)
 
+            document.getElementById('id_personal_ap').value=datos.id_personal;
             document.getElementById('telefono_personal').value=datos.telefono_personal;
             document.getElementById('nombre_personal').value=datos.nombre_personal;
             document.getElementById('apellidos_personal').value=datos.apellidos_personal;
