@@ -55,7 +55,6 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="index.php?view=listado-asignaciones">Listado de Asignaciones</a></li>
                         <li><a class="dropdown-item" href="index.php?view=asignar-profesional">Asignación Profesional</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=modificar-asignaciones">Modificar Asignación Profesional</a></li>
                     </ul>
                 </li>
 

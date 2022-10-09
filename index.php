@@ -67,6 +67,7 @@ session_start();
                     break;
 
                 case 'modificar-asignaciones':
+
                     require_once "controllers/ModificarAsignacionController.php";
                     $ctrl = new ModificarAsignacionController();
                     break;   

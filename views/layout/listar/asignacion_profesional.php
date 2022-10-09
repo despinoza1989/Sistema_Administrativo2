@@ -32,7 +32,7 @@
                     <td><?php echo $row["email_cliente"]?></td>
                     <td><?php echo $row["direccion_cliente"]?></td>
                     <td>
-                        <a href="{% url 'modificar_usuario' u.id %}" class="btn btn-info btn-sm">Modificar Asignación</a>
+                        <a href="index.php?view=modificar-asignaciones&id_asignacion_profesional=<?php echo $row["id_asignacion_profesional"]?>" class="btn btn-info btn-sm">Modificar Asignación</a>                       
                     </td>         
                 </tr>
 
