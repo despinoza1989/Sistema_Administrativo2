@@ -1,9 +1,9 @@
 
 
 <script>
-    function desactivarUsuario(id) {
+    function activarUsuario(id) {
         Swal.fire({
-            "title":"¿Estás seguro de desactivar al usuario?",
+            "title":"¿Estás seguro de activar al usuario?",
             "text":"Este no podra acceder al sistema",
             "icon":"question",
             "showCancelButton": true,
@@ -13,7 +13,7 @@
         })
         .then(function(result) {
             if(result.isConfirmed) {
-                window.location.href = "index.php?view=personal-activos&id_estado="+id
+                window.location.href = "index.php?view=personal-inactivos&id_estado="+id
             }
         })
     }
@@ -22,7 +22,7 @@
 
 <br><br><br>
 <div class="card" style="margin: 1px 5em;">
-        <h3 align="center" >Personal Activos</h3>
+        <h3 align="center" >Personal Inactivos</h3>
         <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
                 <th>Nombre de Usuario</th>
@@ -54,8 +54,7 @@
                         ?>
                     </td>
                     <td>
-                        <a href="index.php?view=modificar-personal&id_personal=<?php echo $row["id_personal"]?>" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="javascript:desactivarUsuario(<?php echo $row["id_personal"]?>)"  class="btn btn-danger btn-sm">Desactivar</a>
+                        <a href="javascript:activarUsuario(<?php echo $row["id_personal"]?>)"  class="btn btn-danger btn-sm">Activar</a>
                     </td>         
                 </tr>
 

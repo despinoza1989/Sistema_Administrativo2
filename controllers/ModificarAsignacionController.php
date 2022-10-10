@@ -18,6 +18,7 @@ class ModificarAsignacionController{
         require_once "models/PersonalModel.php";
         $model_personal = new PersonalModel;
 
+
         //var_dump($_POST);
 
         if(isset($_POST["accion"])){
@@ -31,6 +32,7 @@ class ModificarAsignacionController{
 
         $datos_personal = $model_personal->getProfesionalAll(1);
         $datos = $model_asignacion->getById($id_asignacion_profesional);
+
 
 
         //Llamar a la vista 

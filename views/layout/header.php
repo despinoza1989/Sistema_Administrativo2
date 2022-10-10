@@ -27,7 +27,7 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li><a class="dropdown-item" href="index.php?view=personal-activos">Listado Personal Activos</a>
-                        <li><a class="dropdown-item" href="#">Listado Personal Inactivos</a>       
+                        <li><a class="dropdown-item" href="index.php?view=personal-inactivos">Listado Personal Inactivos</a>       
                         <li><a class="dropdown-item" href="index.php?view=clientes-activos">Listado Clientes Activos</a></li>
                         <li><a class="dropdown-item" href="index.php?view=clientes-inactivos">Listado Clientes Inactivos</a>
                         </li>

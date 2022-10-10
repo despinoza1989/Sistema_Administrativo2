@@ -75,6 +75,7 @@
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_cliente_ap" name="id_cliente_ap" value="<?php echo $datos['id_cliente_ap']?>">
         <input type="hidden" id="id_personal" name="id_personal" value="<?php echo $datos['id_personal_ap'] ?>">
+        <input type="hidden" id="id_personal_ap" name="id_personal_ap">
         <input type="hidden" id="id_asignacion_profesional" name="id_asignacion_profesional" value="<?php echo $datos['id_asignacion_profesional']?>">
     
     </form>
@@ -126,8 +127,9 @@ function onChangeRol(event){
 
 (function(){
 
-document.getElementById('id_personal_ap').addEventListener('change', onChangeRut)
-document.getElementById('id_personal_ap').value = document.getElementById('id_personal').value
+
+document.getElementById('id_personal_ap').addEventListener('change', onChangeRut);
+document.getElementById('id_personal_ap').value = document.getElementById('id_personal').value;
 
 onChangeRut({})
 
@@ -136,6 +138,7 @@ onChangeRut({})
 function onChangeRut(event){
 
     var id_personal= document.getElementById('id_personal_ap').value;
+    //var id_personal= document.getElementById('rut_personal').value;
 
     if(id_personal && id_personal>1){
 
@@ -158,11 +161,13 @@ function onChangeRut(event){
 }
 
 function modificarProfesional(){
-    var id_cliente_ap=document.getElementById("id_cliente_ap").value;
+
+    //var id_cliente_ap=document.getElementById("id_cliente_ap").value;
     var id_personal_ap=document.getElementById("id_personal_ap").value;
+    document.getElementById('id_personal_ap').value = document.getElementById('id_personal').value;
 
 
-    if(id_cliente_ap==undefined || id_cliente_ap==null || id_cliente_ap.trim()=="" ){
+   /* if(id_cliente_ap==undefined || id_cliente_ap==null || id_cliente_ap.trim()=="" ){
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -170,7 +175,7 @@ function modificarProfesional(){
             })            
         return;
 
-    }
+    }*/
 
     if(id_personal_ap==undefined || id_personal_ap==null || id_personal_ap.trim()=="" ){
         Swal.fire({
@@ -181,6 +186,8 @@ function modificarProfesional(){
         return;
 
     }
+
+
 
     let formulario = new FormData(document.getElementById("modificar_asignar"))
     console.log(formulario)

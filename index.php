@@ -86,6 +86,21 @@ session_start();
                     require_once "controllers/PersonalActivosController.php";
                     $ctrl = new PersonalActivosController();
                     break;
+
+                case 'personal-inactivos':
+                    require_once "controllers/PersonalInactivoController.php";
+                    $ctrl = new PersonalInactivoController();
+                    break;
+
+                case 'modificar-personal':
+                    require_once "controllers/ModificarPersonalController.php";
+                    $ctrl = new ModificarPersonalController();
+                    break;   
+                
+                case 'modificar-cliente':
+                    require_once "controllers/ModificarClienteController.php";
+                    $ctrl = new ModificarClienteController();
+                    break;   
                 
                 case 'logout':
                     session_unset();

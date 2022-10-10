@@ -48,7 +48,7 @@
                         ?>
                     </td>
                     <td>
-                        <a href="{% url 'modificar_usuario' u.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="index.php?view=modificar-cliente&id_cliente=<?php echo $row["id_cliente"]?>" class="btn btn-info btn-sm">Modificar</a>
                         <a href="javascript:desactivarUsuario(<?php echo $row["id_cliente"]?>)"  class="btn btn-danger btn-sm">Desactivar</a>
                     </td>         
                 </tr>
