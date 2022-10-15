@@ -145,7 +145,22 @@ session_start();
                 case 'respuesta-asesoria':
                     require_once "controllers/RespuestaAsesoriaController.php";
                     $ctrl = new RespuestaAsesoriaController();
-                    break;     
+                    break;    
+                
+                case 'crear-capacitacion':
+                    require_once "controllers/CrearCapacitacionController.php";
+                    $ctrl = new CrearCapacitacionController();
+                    break; 
+                
+                case 'listar-solicitud-capacitacion':
+                    require_once "controllers/ListarSolicitudesCapacitacionesController.php";
+                    $ctrl = new ListarSolicitudesCapacitacionesController();
+                    break;
+                
+                case 'listar-capacitaciones':
+                    require_once "controllers/ListarCapacitacionesController.php";
+                    $ctrl = new ListarCapacitacionesController();
+                    break;
                 
                 case 'logout':
                     session_unset();
