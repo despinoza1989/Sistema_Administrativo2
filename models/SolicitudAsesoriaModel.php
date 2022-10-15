@@ -8,12 +8,12 @@ class SolicitudAsesoriaModel {
         
         $conexion= Database::connect();
         $query = "SELECT 
-        sa.id_solicitud_asesoria, sa.detalle_asesoria, sa.id_solicitud_asesoria, sa.id_cliente_sa,
+        sa.id_solicitud_asesoria, sa.detalle_asesoria, sa.id_tipo_asesoria_sa, sa.id_cliente_sa,
         c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.usuario_cliente, c.tipo_usuario_c, c.id_rubro,
         ta.tipo_asesoria
         FROM solicitud_asesoria AS sa
         LEFT JOIN cliente AS c ON c.id_cliente = sa.id_cliente_sa
-        LEFT JOIN tipo_asesoria AS ta ON ta.id_tipo_asesoria = sa.id_tipo_asesoria_sa WHERE id_tipo_asesoria  = '". $id_solicitud_asesoria ."'";
+        LEFT JOIN tipo_asesoria AS ta ON ta.id_tipo_asesoria = sa.id_tipo_asesoria_sa WHERE sa.id_solicitud_asesoria  = '". $id_solicitud_asesoria ."'";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }
@@ -26,7 +26,7 @@ class SolicitudAsesoriaModel {
 
         $conexion= Database::connect();
         $query = "SELECT 
-        sa.id_solicitud_asesoria, sa.detalle_asesoria, sa.id_solicitud_asesoria, sa.id_cliente_sa,
+        sa.id_solicitud_asesoria, sa.detalle_asesoria, sa.id_tipo_asesoria_sa, sa.id_cliente_sa,
         c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.usuario_cliente, c.tipo_usuario_c, c.id_rubro,
         ta.tipo_asesoria
         FROM solicitud_asesoria AS sa

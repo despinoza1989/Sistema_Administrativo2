@@ -136,6 +136,16 @@ session_start();
                     require_once "controllers/ListadoCheckListController.php";
                     $ctrl = new ListadoCheckListController();
                     break;
+
+                case 'listar-asesoria':
+                    require_once "controllers/ListarAsesoriaController.php";
+                    $ctrl = new ListarAsesoriaController();
+                    break;  
+        
+                case 'respuesta-asesoria':
+                    require_once "controllers/RespuestaAsesoriaController.php";
+                    $ctrl = new RespuestaAsesoriaController();
+                    break;     
                 
                 case 'logout':
                     session_unset();

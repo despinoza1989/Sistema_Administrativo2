@@ -118,6 +118,16 @@
                     </ul>
                 </li>
 
+                 <!-- PESTAÑA ASESORIAS CON SUB MENUS -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Asesorías
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="index.php?view=listar-asesoria">Lista de Asesorías</a></li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php?view=logout">Salir</a>
                 </li>
