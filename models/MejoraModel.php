@@ -58,10 +58,10 @@ class MejoraModel {
     function getByListado() {
 
         $conexion= Database::connect();
-        $query = "SELECT m.id_mejoras, m.obs_check_general, m.doc_check_general, m.img_check_general, m.obs_check_proteccion, m.doc_check_proteccion,
-        m.img_check_proteccion, m.obs_check_herramientas, m.doc_check_herramientas, m.img_check_herramientas, m.obs_check_maquinaria,
-        m.doc_check_maquinaria, m.img_check_maquinaria
-        FROM mejoras AS m";
+        $query = "SELECT 	m.id_mejoras, m.obs_check_general, ck.fecha_check_list, c.rol_cliente, c.razon_social_cliente
+        FROM mejoras AS m
+        LEFT JOIN check_list AS ck ON m.id_check_list_m = ck.id_check_list
+        LEFT JOIN cliente AS c ON m.id_cliente_m = c.id_cliente";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) {

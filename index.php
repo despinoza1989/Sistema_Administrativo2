@@ -100,7 +100,42 @@ session_start();
                 case 'modificar-cliente':
                     require_once "controllers/ModificarClienteController.php";
                     $ctrl = new ModificarClienteController();
-                    break;   
+                    break;
+                    
+                case 'crear-visita':
+                    require_once "controllers/VisitaController.php";
+                    $ctrl = new VisitaController();
+                    break;
+    
+                case 'listado-visita-profesional':
+                    require_once "controllers/ListadoVisitaProfesionalController.php";
+                    $ctrl = new ListadoVisitaProfesionalController();
+                    break;
+    
+                case 'listado-visita-cliente':
+                    require_once "controllers/ListadoVisitaClienteController.php";
+                    $ctrl = new ListadoVisitaClienteController();
+                    break;
+
+                case 'crear-mejora':
+                    require_once "controllers/CrearMejoraController.php";
+                    $ctrl = new CrearMejoraController();
+                    break;
+    
+                case 'listado-mejora':
+                    require_once "controllers/ListadoMejoraController.php";
+                    $ctrl = new ListadoMejoraController();
+                    break;
+
+                case 'check-list':
+                    require_once "controllers/CheckListController.php";
+                    $ctrl = new CheckListController();
+                    break;
+    
+                case 'listado-check-list':
+                    require_once "controllers/ListadoCheckListController.php";
+                    $ctrl = new ListadoCheckListController();
+                    break;
                 
                 case 'logout':
                     session_unset();
