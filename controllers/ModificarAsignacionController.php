@@ -19,12 +19,10 @@ class ModificarAsignacionController{
         $model_personal = new PersonalModel;
 
 
-        //var_dump($_POST);
-
-        if(isset($_POST["accion"])){
+        if(!empty($_POST)){
 
             $model_asignacion->update($_POST);
-                        
+           
             return;
         }
 

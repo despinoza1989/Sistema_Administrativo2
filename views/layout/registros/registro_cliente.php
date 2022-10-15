@@ -192,6 +192,7 @@
         }
 
         let formulario = new FormData(document.getElementById("registro_cliente"))
+       
         fetch('index.php?view=registro-cliente', {
             method: "post",
             body: formulario
@@ -208,6 +209,7 @@
             /*acciones a realizar*/     
         }).then((data) => {
             /*mas acciones a realizar*/
+
         })
         
     }

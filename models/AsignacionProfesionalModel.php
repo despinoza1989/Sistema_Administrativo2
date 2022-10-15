@@ -57,11 +57,10 @@ class AsignacionProfesionalModel {
     function update($data) {
 
         $conexion= Database::connect();
-        $queryUpdate = "UPDATE asignacion_profesional SET id_personal_ap = '".$data['id_personal_ap']."' WHERE id_asignacion_profesional = '".$data['id_asignacion_profesional']."'";
+        $queryUpdate = "UPDATE asignacion_profesional SET id_personal_ap = '". $data['id_personal_ap'] ."' WHERE id_asignacion_profesional = '". $data['id_asignacion_profesional'] ."'";
+        //$queryUpdate = "UPDATE asignacion_profesional SET id_personal_ap = 5 WHERE id_asignacion_profesional = 2";
         $result = $conexion->query($queryUpdate);
         $conexion->close();
-        echo $queryUpdate;
-
         return $result;
         
     }

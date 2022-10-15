@@ -12,7 +12,7 @@ class AutentificacionModel{
 
         //return array('isvalid'=>'0');
         
-        $consulta="SELECT usuario_personal, id_personal FROM personal WHERE usuario_personal='$usuario' AND password_personal='$password'";
+        $consulta="SELECT usuario_personal, id_personal FROM personal WHERE usuario_personal='$usuario' AND password_personal='$password' AND estado_usuario_personal = 1";
         $conexion= Database::connect();
         $resultado=$conexion->query($consulta);
         $loginvalido='0';

@@ -465,4 +465,13 @@ $app->get('/asignacion-profesional/{id_asignacion_profesional}', function (Reque
 
 });
 
+$app->post('/asignacion-profesional', function (Request $request, Response $response, array $args) {
+    
+    $model = new AsignacionProfesionalModel();
+    $datos = $model->update($request->getParsedBody());
+    return $response->withJson($datos);
+
+});
+
+
 $app->run();

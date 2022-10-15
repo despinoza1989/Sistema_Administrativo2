@@ -67,11 +67,11 @@ session_start();
                     break;
 
                 case 'modificar-asignaciones':
-
+                    echo 'modificar-asignaciones';
                     require_once "controllers/ModificarAsignacionController.php";
                     $ctrl = new ModificarAsignacionController();
                     break;   
-
+                    
                 case 'clientes-activos':
                     require_once "controllers/ClienteActivosController.php";
                     $ctrl = new ClienteActivosController();

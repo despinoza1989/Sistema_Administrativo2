@@ -142,7 +142,7 @@
 
         var id_personal= document.getElementById('id_personal').value;
         
-        console.dir(id_personal)
+        console.log(id_personal)
 
         if(id_personal && id_personal>1){
 
@@ -168,7 +168,7 @@
                 document.getElementById("password_personal").value=datos.password_personal;
 
             })
-            console.dir(datos)
+
         }
     }
     

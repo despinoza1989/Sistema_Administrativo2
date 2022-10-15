@@ -30,7 +30,7 @@ class LoginController{
             $_SESSION['usuario']=$datosusuario;
             $_SESSION["activa"]=true;
             header("refresh: 1; url=index.php?view=home");
-            
+
         }else{
 
             echo '<script>

@@ -13,10 +13,11 @@
                 </li>
 
                 <!-- PESTAÑA DE USUARIOS CON SUB MENUS -->
+                <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Usuarios
+                        Usuarios 
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="index.php?view=registro-personal">Registro de Personal</a></li>
@@ -34,7 +35,7 @@
 
                     </ul>
                 </li>
-
+                <?php } ?>
                 <!-- PESTAÑA CLIENTES CON SUB MENUS -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

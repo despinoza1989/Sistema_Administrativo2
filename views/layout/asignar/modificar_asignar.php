@@ -75,7 +75,6 @@
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_cliente_ap" name="id_cliente_ap" value="<?php echo $datos['id_cliente_ap']?>">
         <input type="hidden" id="id_personal" name="id_personal" value="<?php echo $datos['id_personal_ap'] ?>">
-        <input type="hidden" id="id_personal_ap" name="id_personal_ap">
         <input type="hidden" id="id_asignacion_profesional" name="id_asignacion_profesional" value="<?php echo $datos['id_asignacion_profesional']?>">
     
     </form>
@@ -147,7 +146,7 @@ function onChangeRut(event){
         }).then(response=>response.json())
         .then((datos)=>{
 
-            console.dir(datos)
+            console.log(datos, "Datos Que trae")
 
             document.getElementById('id_personal_ap').value=datos.id_personal;
             document.getElementById('telefono_personal').value=datos.telefono_personal;
@@ -164,7 +163,7 @@ function modificarProfesional(){
 
     //var id_cliente_ap=document.getElementById("id_cliente_ap").value;
     var id_personal_ap=document.getElementById("id_personal_ap").value;
-    document.getElementById('id_personal_ap').value = document.getElementById('id_personal').value;
+
 
 
    /* if(id_cliente_ap==undefined || id_cliente_ap==null || id_cliente_ap.trim()=="" ){
@@ -188,12 +187,25 @@ function modificarProfesional(){
     }
 
 
+    var datos_formulario = {
+
+        id_personal_ap:document.getElementById('id_personal_ap').value,
+        id_asignacion_profesional:document.getElementById('id_asignacion_profesional').value
+
+    }
+
+    console.log(datos_formulario, "datos formulario")
+    //return
 
     let formulario = new FormData(document.getElementById("modificar_asignar"))
-    console.log(formulario)
-        fetch('index.php?view=index.php?view=modificar-asignaciones', {
-            method: "post",
-            body: formulario
+        console.dir(formulario.values(), "Formulario")
+        console.log(id_personal_ap, "ID PERSONAL")
+        fetch('api.php/asignacion-profesional', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datos_formulario)
         }).then((response) => {
             
             Swal.fire({
