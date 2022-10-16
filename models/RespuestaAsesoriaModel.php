@@ -46,7 +46,7 @@ class RespuestaAsesoriaModel {
     function create($data) {
 
         $conexion= Database::connect();
-        $queryInsert = "INSERT INTO respuesta_asesoria (respuesta_asesoria, id_solicitud_asesoria_ra, id_personal_sa, ) VALUES ('". $data['respuesta_asesoria']."', '". $data['id_solicitud_asesoria_ra']."', '". $data['id_personal_sa']."')";
+        $queryInsert = "INSERT INTO respuesta_asesoria (respuesta_asesoria, id_solicitud_asesoria_ra, id_personal_sa) VALUES ('". $data['respuesta_asesoria']."', '". $data['id_solicitud_asesoria_ra']."', '". $data['id_personal_sa']."')";
         $result = $conexion->query($queryInsert);
         $conexion->close();
         return $result;
@@ -55,7 +55,7 @@ class RespuestaAsesoriaModel {
     function update($data) {
 
         $conexion= Database::connect();
-        $queryUpdate = "UPDATE respuesta_asesoria SET respuesta_asesoria = '". $data['respuesta_asesoria']."', id_solicitud_asesoria_ra = '". $data['id_solicitud_asesoria_ra']."', id_personal_sa = '". $data['id_personal_sa']."', WHERE id_respuesta_asesoria = '".$data['id_respuesta_asesoria']."'";
+        $queryUpdate = "UPDATE respuesta_asesoria SET respuesta_asesoria = '". $data['respuesta_asesoria']."', id_solicitud_asesoria_ra = '". $data['id_solicitud_asesoria_ra']."', id_personal_sa = '". $data['id_personal_sa']."' WHERE id_respuesta_asesoria = '".$data['id_respuesta_asesoria']."'";
         $result = $conexion->query($queryUpdate);
         $conexion->close();
         return $result;
