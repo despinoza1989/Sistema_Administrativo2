@@ -20,7 +20,7 @@ class ListadoVisitaClienteController{
 
         $datos_visita = $model_visita_terreno->getAll();
         $datosusuario = $_SESSION['usuario'];
-        $dato_asignacion = $model_asignacion->getAllByVisita($datosusuario['id_personal']);
+        $dato_asignacion = $model_visita_terreno->getAllByVisita($datosusuario['id_personal']);
 
         
 
