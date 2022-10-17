@@ -107,14 +107,14 @@ session_start();
                     $ctrl = new VisitaController();
                     break;
     
-                case 'listado-visita-profesional':
-                    require_once "controllers/ListadoVisitaProfesionalController.php";
-                    $ctrl = new ListadoVisitaProfesionalController();
-                    break;
-    
                 case 'listado-visita-cliente':
                     require_once "controllers/ListadoVisitaClienteController.php";
                     $ctrl = new ListadoVisitaClienteController();
+                    break;
+
+                case 'detalle-visita-profesional':
+                    require_once "controllers/DetalleVisitaProfesionalController.php";
+                    $ctrl = new DetalleVisitaProfesionalController();
                     break;
 
                 case 'crear-mejora':

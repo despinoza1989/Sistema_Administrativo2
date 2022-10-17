@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="index.php?view=home">Inicio</a>
                 </li>
 
                 <!-- PESTAÑA DE USUARIOS CON SUB MENUS -->
@@ -90,9 +90,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="index.php?view=crear-visita">Crear Visita</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=listado-visita-profesional">Lista de Visita Profesional</a></li>
                         <li><a class="dropdown-item" href="index.php?view=listado-visita-cliente">Lista de Visita Cliente</a></li>
-
                     </ul>
                 </li>
 
@@ -102,7 +100,6 @@
                         Mejoras
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=crear-mejora">Crear Mejoras</a></li>
                         <li><a class="dropdown-item" href="index.php?view=listado-mejora">Lista de Mejoras</a></li>
                     </ul>
                 </li>

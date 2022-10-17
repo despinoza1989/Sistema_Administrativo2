@@ -20,6 +20,7 @@
                <td><?php echo $row["razon_social_cliente"]?></td>
                <td>
                    <a href="#" class="btn btn-info btn-sm">Ver Detalle</a>
+                   <a href="index.php?view=crear-mejora" class="btn btn-success btn-sm">Crear Mejora</a>
                </td>         
            </tr>
 

@@ -34,8 +34,8 @@ class VisitaTerrenoModel {
         c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, 
         c.direccion_cliente, c.estado_usuario_cliente, c.usuario_cliente, c.password_cliente, c.tipo_usuario_c
         FROM visita_terreno AS v 
-        LEFT JOIN personal AS p ON v.id_visita_terreno = p.id_personal
-        LEFT JOIN cliente AS c ON c.id_cliente = v.id_visita_terreno";
+        LEFT JOIN personal AS p ON p.id_personal = v.id_personal_vt
+        LEFT JOIN cliente AS c ON c.id_cliente = v.id_cliente_vt";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) {

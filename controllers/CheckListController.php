@@ -24,7 +24,7 @@ class CheckListController{
 
         $datosusuario = $_SESSION['usuario'];
         //$datos_cliente = $model_cliente->getAll();
-        $dato_asignacion = $model_asignacion->getAll();
+        $dato_asignacion = $model_asignacion->getAllByPersonal($datosusuario['id_personal']);
 
 
         //Llamar a la vista 
