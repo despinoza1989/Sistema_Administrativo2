@@ -2,8 +2,7 @@
 <div class="card-body" style="margin: 2em 5em;">
     <h2> Datos de la Empresa </h2>
     <br>
-    <form id="registro_cliente" class="row g-3 needs-validation">
-        <input type="hidden" id="id_cliente" name="id_cliente" value="<?php echo $datos_cliente['id_cliente'] ?>">
+    <form id="modificar_cliente" class="row g-3 needs-validation">
 
         <div class="col-md-6">
             <label for="rol_cliente" class="form-label">Rol</label>
@@ -52,7 +51,7 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label for="usuario_cliente" class="form-label">Nombre de Usuario</label>
-            <input type="text" class="form-control" id="usuario_cliente" name="usuario_cliente" value="" required>
+            <input type="text" class="form-control" id="usuario_cliente" name="usuario_cliente" required>
             <div class="invalid-feedback">
 
             </div>
@@ -60,7 +59,7 @@
 
         <div class="mb-3">
             <label for="password_cliente" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password_cliente" name="password_cliente">
+            <input type="password" class="form-control" id="password_cliente" name="password_cliente" required>
         </div>
     </div>
 
@@ -70,11 +69,12 @@
     <input type="hidden" id="accion" name="accion" value="registrar">
     <input type="hidden" id="tipo_usuario_c" name="tipo_usuario_c" value="3">
     <input type="hidden" id="estado_usuario_cliente" name="estado_usuario_cliente" value="1">
+    <input type="hidden" id="id_cliente" name="id_cliente" value="<?php echo $datos_cliente['id_cliente'] ?>">
 
     </form>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary col-2" onclick="registrarCliente()">Registrar</button>
+        <button class="btn btn-primary col-2" onclick="modificarCliente()">Registrar</button>
         <button class="btn btn-warning col-2" onclick="location.reload()">Limpiar</button>
     </div>
     <br><br><br><br><br>
@@ -87,9 +87,7 @@
 
     (function(){
 
-
     document.getElementById('id_cliente').addEventListener('change', onChangeRut);
-    document.getElementById('id_cliente').value = document.getElementById('id_cliente').value;
 
     onChangeRut({})
 
@@ -108,8 +106,6 @@
             }).then(response=>response.json())
             .then((datos)=>{
 
-                console.dir(datos)
-
                 document.getElementById('id_cliente').value=datos.id_cliente;
                 document.getElementById("rol_cliente").value=datos.rol_cliente;
                 document.getElementById('id_rubro').value=datos.id_rubro;
@@ -121,12 +117,13 @@
                 document.getElementById("password_cliente").value=datos.password_cliente;
 
             })
-            console.dir(datos)
+
         }
     }
 
 
-    function registrarCliente(){
+    function modificarCliente(){
+
         var rol=document.getElementById("rol_cliente").value;
         var rubro=document.getElementById("id_rubro").value;
         var razon_social=document.getElementById("razon_social_cliente").value;
@@ -135,6 +132,7 @@
         var email=document.getElementById("email_cliente").value;
         var usuario=document.getElementById("usuario_cliente").value;
         var password=document.getElementById("password_cliente").value;
+
         console.log(rol, rubro, razon_social, telefono, direccion, email, usuario, password)
 
         if(rol==undefined || rol==null || rol.trim()=="" || rol.lengh<3 || !validacion.validaRut(rol)){
@@ -217,24 +215,45 @@
 
         }
 
-        let formulario = new FormData(document.getElementById("registro_cliente"))
-        fetch('index.php?view=registro-cliente', {
-            method: "post",
-            body: formulario
-        }).then((response) => {
-            
-            Swal.fire({
-                title: 'Cliente registrado exitosamente',
-                showDenyButton: false,
-                showCancelButton: false,
-                confirmButtonText: 'Ok',
-                }).then((result) => {
-                    location.reload();
-                })
-            /*acciones a realizar*/     
-        }).then((data) => {
-            /*mas acciones a realizar*/
-        })
+
+        var datos_formulario = {
+
+            rol_cliente:document.getElementById('rol_cliente').value,
+            id_rubro:document.getElementById('id_rubro').value,
+            razon_social_cliente:document.getElementById('razon_social_cliente').value,
+            telefono_cliente:document.getElementById('telefono_cliente').value,
+            direccion_cliente:document.getElementById('direccion_cliente').value,
+            email_cliente:document.getElementById('email_cliente').value,
+            usuario_cliente:document.getElementById('usuario_cliente').value,
+            password_cliente:document.getElementById('password_cliente').value,
+            id_cliente:document.getElementById('id_cliente').value,
+            tipo_usuario_c:document.getElementById('tipo_usuario_c').value,
+            estado_usuario_cliente:document.getElementById('estado_usuario_cliente').value,
+        }
+
+        console.log(datos_formulario, "datos formulario")
+
+        let formulario = new FormData(document.getElementById("modificar_cliente"))
+            fetch('api.php/cliente', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datos_formulario)
+            }).then((response) => {
+                
+                Swal.fire({
+                    title: 'Cliente modificado exitosamente',
+                    showDenyButton: false,
+                    showCancelButton: false,
+                    confirmButtonText: 'Ok',
+                    }).then((result) => {
+                        location.reload();
+                    })
+                /*acciones a realizar*/     
+            }).then((data) => {
+                /*mas acciones a realizar*/
+            })
         
     }
 

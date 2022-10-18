@@ -48,6 +48,7 @@
                 </li>
 
                 <!-- PESTAÑA PROFESIONAL CON SUB MENUS -->
+                <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -58,18 +59,103 @@
                         <li><a class="dropdown-item" href="index.php?view=asignar-profesional">Asignación Profesional</a></li>
                     </ul>
                 </li>
+                <?php } ?>
+
+                <!-- PESTAÑA DE VISITA EN TERRENO CON SUB MENUS -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Visita en Terreno
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
+                        <li><a class="dropdown-item" href="index.php?view=crear-visita">Crear Visita</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listado-visita-cliente">Lista de Visita Cliente</a></li>
+                        <?php } ?>
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
+                        <li><a class="dropdown-item" href="index.php?view=listado-visita-cliente">Lista de Visita a Clientes</a></li>
+                        <?php } ?>
+
+                    </ul>
+                </li>
+
+                <!-- PESTAÑA MEJORAS CON SUB MENUS -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mejoras</a>
+                    <ul class="dropdown-menu">
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
+                        <li><a class="dropdown-item" href="index.php?view=listado-mejora">Lista de Mejoras</a></li>
+                        <?php } ?>
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
+                        <li><a class="dropdown-item" href="index.php?view=listado-mejora">Mejoras Generadas por Profesionales</a></li>
+                        <?php } ?>
+
+                    </ul>
+                </li>
+
+                <!-- PESTAÑA CHECKLIST CON SUB MENUS -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Check-List</a>
+                    <ul class="dropdown-menu">
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
+                        <li><a class="dropdown-item" href="index.php?view=check-list">Generar Check-List</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listado-check-list">Listado Check-List</a></li>
+                        <?php } ?>
+                        
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
+                        <li><a class="dropdown-item" href="index.php?view=listado-check-list">Check-List Generados por Profesionales</a></li>
+                        <?php } ?>
+                    </ul>
+                </li>
+
+                 <!-- PESTAÑA ASESORIAS CON SUB MENUS -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Asesorías</a>
+                    <ul class="dropdown-menu">
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
+                        <li><a class="dropdown-item" href="index.php?view=listar-asesoria">Lista de Asesorías</a></li>
+                        <?php } ?>
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
+                        <li><a class="dropdown-item" href="index.php?view=listar-asesoria">Asesorías Generadas por Profesionales</a></li>
+                        <?php } ?>
+
+                    </ul>
+                </li>
+            
+                <!-- PESTAÑA CAPACITACIONES CON SUB MENUS -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Capacitación</a>
+                    <ul class="dropdown-menu">
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
+                        <li><a class="dropdown-item" href="index.php?view=crear-capacitacion">Crear Capacitación</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listar-capacitaciones">Lista de Capacitaciones</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listar-solicitud-capacitacion">Lista de Solicitudes de Capacitaciones</a></li>
+                        <?php } ?>
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
+                        <li><a class="dropdown-item" href="index.php?view=listar-capacitaciones">Capacitaciones Generadas por Profesionales</a></li>
+                        <?php } ?>
+
+                    </ul>
+                </li>
 
                 <!-- PESTAÑA REPORTES CON SUB MENUS -->
+                <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Reportes
-                    </a>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Reportes</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Reportes Globales</a></li>
                         <li><a class="dropdown-item" href="#">Reportes Clientes</a></li>
                     </ul>
-                </li>
+                </li>    
+                <?php } ?>            
 
                 <!-- PESTAÑA MANUALES CON SUB MENUS -->
                 <li class="nav-item dropdown">
@@ -80,60 +166,6 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Manual de Usuarios</a></li>
                         <li><a class="dropdown-item" href="#">Manual de Requerimientos</a></li>
-                    </ul>
-                </li>
-
-                <!-- PESTAÑA DE VISITA EN TERRENO CON SUB MENUS -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Visita en Terreno
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=crear-visita">Crear Visita</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=listado-visita-cliente">Lista de Visita Cliente</a></li>
-                    </ul>
-                </li>
-
-                <!-- PESTAÑA MEJORAS CON SUB MENUS -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Mejoras
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=listado-mejora">Lista de Mejoras</a></li>
-                    </ul>
-                </li>
-
-                <!-- PESTAÑA CHECKLIST CON SUB MENUS -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Check-List
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=check-list">Generar Check-List</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=listado-check-list">Listado Check-List</a></li>
-                    </ul>
-                </li>
-
-                 <!-- PESTAÑA ASESORIAS CON SUB MENUS -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Asesorías
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=listar-asesoria">Lista de Asesorías</a></li>
-                    </ul>
-                </li>
-            
-                <!-- PESTAÑA CAPACITACIONES CON SUB MENUS -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Capacitación
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=crear-capacitacion">Crear Capacitación</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=listar-capacitaciones">Lista de Capacitaciones</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=listar-solicitud-capacitacion">Lista de Solicitudes de Capacitaciones</a></li>
                     </ul>
                 </li>
 

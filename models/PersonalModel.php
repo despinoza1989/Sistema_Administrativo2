@@ -98,7 +98,12 @@ class PersonalModel {
     function update($data) {
 
         $conexion= Database::connect();
-        $queryUpdate = "UPDATE personal SET rut_personal = '".$data['rut_personal']."', telefono_personal = '".$data['telefono_personal']."',nombre_personal = '".$data['nombre_personal']."',apellidos_personal = '".$data['apellidos_personal']."',email_personal = '".$data['email_personal']."',direccion_personal = '".$data['direccion_personal']."',fecha_nacimiento_p = '".$data['fecha_nacimiento_p']."',usuario_personal = '".$data['usuario_personal']."',password_personal = '".$data['password_personal']."',estado_usuario_personal = '".$data['estado_usuario_personal']."',id_tipo_usuario_p = '".$data['id_tipo_usuario_p']."',id_estado_civil = '".$data['id_estado_civil']."',id_genero = '".$data['id_genero']."', WHERE id_personal = '".$data['id_personal']."'";
+        $queryUpdate = "UPDATE personal SET rut_personal = '".$data['rut_personal']."', telefono_personal = '".$data['telefono_personal']."',
+        nombre_personal = '".$data['nombre_personal']."',apellidos_personal = '".$data['apellidos_personal']."',email_personal = '".$data['email_personal']."',
+        direccion_personal = '".$data['direccion_personal']."',fecha_nacimiento_p = '".$data['fecha_nacimiento_p']."',usuario_personal = '".$data['usuario_personal']."',
+        password_personal = '".$data['password_personal']."',estado_usuario_personal = '".$data['estado_usuario_personal']."',
+        id_tipo_usuario_p = '".$data['id_tipo_usuario_p']."',id_estado_civil = '".$data['id_estado_civil']."',id_genero = '".$data['id_genero']."' 
+        WHERE id_personal = '".$data['id_personal']."'";
         $result = $conexion->query($queryUpdate);
         $conexion->close();
         return $result;
