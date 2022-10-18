@@ -19,6 +19,8 @@ class ListarCapacitacionesController{
 
         $datos_capacitaciones = $model_capacitacion->getAll();
         $datos_cliente = $model_cliente->getAll();
+        $datosusuario = $_SESSION['usuario'];
+        $datos_asignacion = $model_capacitacion->getAllByCapacitacion($datosusuario['id_personal']);
 
         //$datos = $model->getAllBy();
         

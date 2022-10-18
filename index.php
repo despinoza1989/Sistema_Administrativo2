@@ -151,6 +151,11 @@ session_start();
                     require_once "controllers/CrearCapacitacionController.php";
                     $ctrl = new CrearCapacitacionController();
                     break; 
+
+                case 'crear-capacitacioncs':
+                    require_once "controllers/CrearCapacitacionCSController.php";
+                    $ctrl = new CrearCapacitacionCSController();
+                    break; 
                 
                 case 'listar-solicitud-capacitacion':
                     require_once "controllers/ListarSolicitudesCapacitacionesController.php";

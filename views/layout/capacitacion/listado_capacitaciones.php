@@ -10,7 +10,7 @@
                 <th>Tipo Personal a Capacitar</th>
             </tr>
 
-            <?php foreach ($datos_capacitaciones as $row){ ?> 
+            <?php foreach ($datos_asignacion as $row){ ?> 
            
                 <tr>
                     <td><?php echo $row["nombre_capacitacion"]?></td>

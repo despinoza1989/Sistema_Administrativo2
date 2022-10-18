@@ -10,6 +10,7 @@
                 <th>telefono Cliente</th>
                 <th>Direccion Cliente</th>
                 <th>Tipo Personal a Capacitar</th>
+                <th>Opción</th>
             </tr>
 
             <?php foreach ($datos_solicitudes as $row){ ?> 
@@ -24,12 +25,7 @@
                     <td><?php echo $row["tipo_personal_capacitacion"]?></td>
                    
                     <td>
-                     
-                         
-
-                    </td>
-                    <td>
-                    <a href="index.php?view=crear-capacitacion" class="btn btn-info btn-sm">Ver Solicitud</a>
+                    <a href="index.php?view=crear-capacitacioncs&id_solicitud_capacitacion-<?php echo $row["id_solicitud_capacitacion"] ?>" class="btn btn-info btn-sm">Ver Solicitud</a>
                     </td>
                              
                 </tr>
