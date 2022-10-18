@@ -169,64 +169,6 @@
                     </ul>
                 </li>
 
-<<<<<<< HEAD
-                <!-- PESTAÑA DE VISITA EN TERRENO CON SUB MENUS -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Visita en Terreno
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=crear-visita">Crear Visita</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=listado-visita-cliente">Lista de Visita Cliente</a></li>
-                    </ul>
-                </li>
-
-                <!-- PESTAÑA MEJORAS CON SUB MENUS -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Mejoras
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=listado-mejora">Lista de Mejoras</a></li>
-                    </ul>
-                </li>
-
-                <!-- PESTAÑA CHECKLIST CON SUB MENUS -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Check-List
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=check-list">Generar Check-List</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=listado-check-list">Listado Check-List</a></li>
-                    </ul>
-                </li>
-
-                 <!-- PESTAÑA ASESORIAS CON SUB MENUS -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Asesorías
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=listar-asesoria">Lista de Asesorías</a></li>
-                    </ul>
-                </li>
-            
-                <!-- PESTAÑA CAPACITACIONES CON SUB MENUS -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Capacitación
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="index.php?view=crear-capacitacion">Crear Capacitación</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=listar-capacitaciones">Lista de Capacitaciones</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=listar-solicitud-capacitacion">Lista de Solicitudes de Capacitaciones</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=crear-capacitacioncs"></a></li>
-                    </ul>
-                </li>
-
-=======
->>>>>>> 4341a011c1959890741bb76ff0583fedf441af19
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php?view=logout">Salir</a>
                 </li>
