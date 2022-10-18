@@ -76,6 +76,14 @@ $app->get('/cliente/{id_cliente}', function (Request $request, Response $respons
 
 });
 
+$app->post('/cliente', function (Request $request, Response $response, array $args) {
+    
+    $model = new ClienteModel();
+    $datos = $model->update($request->getParsedBody());
+    return $response->withJson($datos);
+
+});
+
 //MODELS PERSONAL
 
 $app->get('/personal', function (Request $request, Response $response, array $args) {
@@ -100,6 +108,14 @@ $app->get('/personal/profesional/{id_tipo_usuario_p}', function (Request $reques
     $id_tipo_usuario_p = $args['id_tipo_usuario_p'];    
     $model = new PersonalModel();
     $datos = $model->getProfesionalAll($id_tipo_usuario_p);
+    return $response->withJson($datos);
+
+});
+
+$app->post('/personal', function (Request $request, Response $response, array $args) {
+    
+    $model = new PersonalModel();
+    $datos = $model->update($request->getParsedBody());
     return $response->withJson($datos);
 
 });

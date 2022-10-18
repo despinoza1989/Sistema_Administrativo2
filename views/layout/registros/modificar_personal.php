@@ -3,8 +3,6 @@
     <br>
     <form id="modificar_personal" class="row g-3 needs-validation">
 
-        <input type="hidden" id="id_personal" name="id_personal" value="<?php echo $datos_personal['id_personal'] ?>">
-
         <div class="col-md-6">
             <label for="rut_personal" class="form-label">Rut</label>
             <input type="text" class="form-control" placeholder="Ingrese Rut, Ejemplo: (11111111-3)" id="rut_personal" name="rut_personal" value=""  maxlength="10"  required>
@@ -116,7 +114,7 @@
 
         <input type="hidden" id="accion" name="accion" value="registrar">        
         <input type="hidden" id="estado_usuario_personal" name="estado_usuario_personal" value="1">
-        
+        <input type="hidden" id="id_personal" name="id_personal" value="<?php echo $datos_personal['id_personal'] ?>">
 
     </form>
     <br>
@@ -132,7 +130,6 @@
 
 
     document.getElementById('id_personal').addEventListener('change', onChangeRut);
-    document.getElementById('id_personal').value = document.getElementById('id_personal').value;
 
     onChangeRut({})
 
@@ -308,14 +305,36 @@
 
         }
 
+        var datos_formulario = {
+
+            id_personal:document.getElementById('id_personal').value,
+            rut_personal:document.getElementById('rut_personal').value,
+            telefono_personal:document.getElementById('telefono_personal').value,
+            nombre_personal:document.getElementById('nombre_personal').value,
+            apellidos_personal:document.getElementById('apellidos_personal').value,
+            email_personal:document.getElementById('email_personal').value,
+            direccion_personal:document.getElementById('direccion_personal').value,
+            fecha_nacimiento_p:document.getElementById('fecha_nacimiento_p').value,
+            id_estado_civil:document.getElementById('id_estado_civil').value,
+            id_genero:document.getElementById('id_genero').value,
+            id_tipo_usuario_p:document.getElementById('id_tipo_usuario_p').value,
+            usuario_personal:document.getElementById('usuario_personal').value,
+            password_personal:document.getElementById('password_personal').value,
+            estado_usuario_personal:document.getElementById('estado_usuario_personal').value,
+    
+        }
+
         let formulario = new FormData(document.getElementById("modificar_personal"))
-        fetch('index.php?view=modificar-personal', {
-            method: "post",
-            body: formulario
+        fetch('api.php/personal', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datos_formulario)
         }).then((response) => {
             
             Swal.fire({
-                title: 'Personal registrado exitosamente',
+                title: 'Personal Modificado  exitosamente',
                 showDenyButton: false,
                 showCancelButton: false,
                 confirmButtonText: 'Ok',

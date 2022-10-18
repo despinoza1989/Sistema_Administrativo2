@@ -24,8 +24,10 @@ class ModificarPersonalController{
 
         //Llamar datos del modelo
 
-        if(isset($_POST["accion"])){
-            $model_personal->update($_POST);            
+        if(!empty($_POST)){
+
+            $model_personal->update($_POST); 
+                       
             return;
         }
 

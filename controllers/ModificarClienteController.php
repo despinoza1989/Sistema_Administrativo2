@@ -20,8 +20,10 @@ class ModificarClienteController{
 
         //Llamar datos del modelo
 
-        if(isset($_POST["accion"])){
-            $model_cliente->update($_POST);            
+        if(!empty($_POST)){
+
+            $model_cliente->update($_POST); 
+                       
             return;
         }
 
