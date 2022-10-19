@@ -67,7 +67,6 @@ session_start();
                     break;
 
                 case 'modificar-asignaciones':
-                    echo 'modificar-asignaciones';
                     require_once "controllers/ModificarAsignacionController.php";
                     $ctrl = new ModificarAsignacionController();
                     break;   
@@ -166,6 +165,27 @@ session_start();
                     require_once "controllers/ListarCapacitacionesController.php";
                     $ctrl = new ListarCapacitacionesController();
                     break;
+
+                case 'listar-accidentes':
+                    require_once "controllers/ListadoAccidenteController.php";
+                    $ctrl = new ListadoAccidenteController();
+                    break;
+                
+                case 'listar-accidentes-detalle':
+                    require_once "controllers/ListadoAccidenteDetalleController.php";
+                    $ctrl = new ListadoAccidenteDetalleController();
+                    break;
+
+                case 'detalle-accidentes':
+                    require_once "controllers/DetalleAccidenteController.php";
+                    $ctrl = new DetalleAccidenteController();
+                    break;
+                        
+                case 'listar-pagos':
+                    require_once "controllers/ListarCapacitacionesController.php";
+                    $ctrl = new ListarCapacitacionesController();
+                    break;
+                            
                 
                 case 'logout':
                     session_unset();

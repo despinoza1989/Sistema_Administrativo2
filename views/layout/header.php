@@ -40,10 +40,18 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        Clientes
+                        Seguimiento Clientes
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Seguimiento Clientes</a></li>
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
+                        <li><a class="dropdown-item" href="#">Esado de Pago</a></li>
+                        
+                        <li><a class="dropdown-item" href="index.php?view=listar-accidentes">Accidentabilidad de Cliente</a></li>
+                        <?php } ?>
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
+                        <li><a class="dropdown-item" href="index.php?view=listar-accidentes">Accidentabilidad de Cliente</a></li>
+                        <?php } ?>
                     </ul>
                 </li>
 
