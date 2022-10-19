@@ -50,7 +50,7 @@
                         <?php } ?>
 
                         <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
-                        <li><a class="dropdown-item" href="index.php?view=listar-accidentes">Accidentabilidad de Cliente</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listar-accidentes-detalle">Accidentabilidad de Cliente</a></li>
                         <?php } ?>
                     </ul>
                 </li>
