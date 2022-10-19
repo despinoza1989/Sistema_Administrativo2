@@ -4,7 +4,12 @@ class DetalleMejorasController{
     function __construct(){
         //echo "esto funciona";
         $id_mejoras = "";
+    
+        if(isset($_GET['id_mejoras']) || !is_null($_GET['id_mejoras'])){
 
+            $id_mejoras = $_GET['id_mejoras'];
+
+        }
         //Lo primero es llamar el modelo
 
         require_once "models/MejoraModel.php";
@@ -20,8 +25,8 @@ class DetalleMejorasController{
 
         //Llamar datos del modelo
         //$datosusuariocliente = $model_cliente->getAll();
-        $datosusuario = $_SESSION['usuario'];
-        $datos_mejora = $model_mejora->getAll();
+        //$datosusuario = $_SESSION['usuario'];
+        $datos_mejora = $model_mejora->getById($id_mejoras);
         
         
 

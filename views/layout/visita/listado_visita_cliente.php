@@ -25,7 +25,7 @@
                <td><?php echo $row["email_cliente"]?></td>
                <td><?php echo $row["direccion_cliente"]?></td>
                <td>
-               <a href="index.php?view=detalle-visita-profesional&id_visita_terreno=<?php echo $row["id_visita_terreno"]?>" class="btn btn-info btn-sm">Ver Detalle</a>
+                <a href="index.php?view=detalle-visita-profesional&id_visita_terreno=<?php echo $row["id_visita_terreno"]?>" class="btn btn-info btn-sm">Ver Detalle</a>
                </td>         
            </tr>
 

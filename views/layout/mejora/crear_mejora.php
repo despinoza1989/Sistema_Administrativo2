@@ -63,8 +63,8 @@
         <h3> General </h3>
         <br>
         <div class="col-md-4">
-            <label for="obs_check_general" class="form-label">Observaciones General</label>
-            <input type="text" class="form-control" id="obs_check_general" name="obs_check_general"
+            <label for="ob_check_general" class="form-label">Observaciones General</label>
+            <input type="text" class="form-control" id="ob_check_general" name="ob_check_general"
                 placeholder="Ingrese detalle de la observación" required>
         </div>
         <div class="col-md-4">
@@ -87,8 +87,8 @@
         <h2> Proteccion </h2>
         <br>
         <div class="col-md-4">
-            <label for="obs_check_proteccion" class="form-label">Observaciones Protección</label>
-            <input type="text" class="form-control" id="obs_check_proteccion" name="obs_check_proteccion"
+            <label for="ob_check_proteccion" class="form-label">Observaciones Protección</label>
+            <input type="text" class="form-control" id="ob_check_proteccion" name="ob_check_proteccion"
                 placeholder="Ingrese detalle de la observación" required>
         </div>
         <div class="col-md-4">
@@ -110,8 +110,8 @@
         <h2> Herramientas </h2>
         <br>
         <div class="col-md-4">
-            <label for="obs_check_herramientas" class="form-label">Observaciones Herramientas</label>
-            <input type="text" class="form-control" id="obs_check_herramientas" name="obs_check_herramientas"
+            <label for="ob_check_herramientas" class="form-label">Observaciones Herramientas</label>
+            <input type="text" class="form-control" id="ob_check_herramientas" name="ob_check_herramientas"
                 placeholder="Ingrese detalle de la observación" required>
         </div>
         <div class="col-md-4">
@@ -133,8 +133,8 @@
         <h2> Maquinaria </h2>
         <br>
         <div class="col-md-4">
-            <label for="obs_check_maquinaria" class="form-label">Observaciones Maquinaria</label>
-            <input type="text" class="form-control" id="obs_check_maquinaria" name="obs_check_maquinaria"
+            <label for="ob_check_maquinaria" class="form-label">Observaciones Maquinaria</label>
+            <input type="text" class="form-control" id="ob_check_maquinaria" name="ob_check_maquinaria"
                 placeholder="Ingrese detalle de la observación" required>
         </div>
         <div class="col-md-4">
@@ -200,21 +200,21 @@ function onChangeRol(event) {
 }
 
 function registrarMejora() {
-    var obs_check_general = document.getElementById("obs_check_general").value;
+    var ob_check_general = document.getElementById("ob_check_general").value;
     var doc_check_general = document.getElementById("doc_check_general").value;
     var img_check_general = document.getElementById("img_check_general").value;
-    var obs_check_proteccion = document.getElementById("obs_check_proteccion").value;
+    var ob_check_proteccion = document.getElementById("ob_check_proteccion").value;
     var doc_check_proteccion = document.getElementById("doc_check_proteccion").value;
     var img_check_proteccion = document.getElementById("img_check_proteccion").value;
-    var obs_check_herramientas = document.getElementById("obs_check_herramientas").value;
+    var ob_check_herramientas = document.getElementById("ob_check_herramientas").value;
     var doc_check_herramientas = document.getElementById("doc_check_herramientas").value;
     var img_check_herramientas = document.getElementById("img_check_herramientas").value;
-    var obs_check_maquinaria = document.getElementById("obs_check_maquinaria").value;
+    var ob_check_maquinaria = document.getElementById("ob_check_maquinaria").value;
     var doc_check_maquinaria = document.getElementById("doc_check_maquinaria").value;
     var img_check_maquinaria = document.getElementById("img_check_maquinaria").value;
 
 
-    if (obs_check_general == undefined || obs_check_general == null || obs_check_general.trim() == "") {
+    if (ob_check_general == undefined || ob_check_general == null || ob_check_general.trim() == "") {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
