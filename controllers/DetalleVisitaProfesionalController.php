@@ -3,7 +3,7 @@
 class DetalleVisitaProfesionalController{
     function __construct(){
         //echo "esto funciona";
-        $id_asignacion_profesional = "";
+        $id_visita_terreno = "";
 
         //Lo primero es llamar el modelo
 
@@ -21,9 +21,8 @@ class DetalleVisitaProfesionalController{
 
         //Llamar datos del modelo
         $datosusuariocliente = $model_cliente->getAll();
-        $datos_visita = $model_visita_terreno->getAll();
         $datosusuario = $_SESSION['usuario'];
-        $dato_asignacion = $model_asignacion->getAllByVisita($datosusuario['id_personal']);
+        $datos_visita = $model_visita_terreno->getAllByVisita($datosusuario['id_personal']);
         
         
 

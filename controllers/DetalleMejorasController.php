@@ -1,31 +1,33 @@
 <?php
 
-class CrearMejoraController{
+class DetalleMejorasController{
     function __construct(){
         //echo "esto funciona";
+        $id_mejoras = "";
 
         //Lo primero es llamar el modelo
 
         require_once "models/MejoraModel.php";
-        $model_mejoras = new MejoraModel();
+        $model_mejora = new MejoraModel();
         require_once "models/AsignacionProfesionalModel.php";
         $model_asignacion = new AsignacionProfesionalModel();
+        require_once "models/PersonalModel.php";
+        $model_personal = new PersonalModel();
         require_once "models/ClienteModel.php";
-        $model_cliente = new ClienteModel();
+        $model_cliente = new ClienteModel(); 
+
+
 
         //Llamar datos del modelo
-        $datos_cliente = $model_cliente->getAll();
+        //$datosusuariocliente = $model_cliente->getAll();
         $datosusuario = $_SESSION['usuario'];
-        $dato_asignacion = $model_asignacion->getAllByPersonal($datosusuario['id_personal']);
-
-        if(isset($_POST["accion"])){
-            $model_mejoras->create($_POST);            
-            return;
-        }
+        $datos_mejora = $model_mejora->getAll();
+        
+        
 
         //Llamar a la vista 
         require_once "views/layout/header.php";
-        require_once "views/layout/mejora/crear_mejora.php";
+        require_once "views/layout/mejora/detalle_mejoras.php";
         require_once "views/layout/footer.php";
 
     }

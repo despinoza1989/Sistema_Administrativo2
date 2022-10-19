@@ -2,7 +2,7 @@
 <br><br><br>
 <div class="card" style="margin: 1px 5em;">
         <h3 align="center" >Listado de Visitas Cliente</h3>
-        <table class="">
+        <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
                 <th>Fecha/Hora Visita</th>
                 <th>Motivo</th>

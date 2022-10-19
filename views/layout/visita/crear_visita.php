@@ -1,4 +1,3 @@
-  <!-- BARRA DE MENUS LATERAL-->
 <div class="card-body" style="margin: 2em 5em;">
     <h1> Agendar Visita en Terreno</h1>
     <br>

@@ -2,7 +2,7 @@
 <br><br><br>
 <div class="card" style="margin: 1px 5em;">
         <h3 align="center" >Listado de Mejoras</h3>
-        <table class="">
+        <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
                 <th>Observación General</th>
                 <th>Fecha/Hora Check-List</th>
@@ -19,7 +19,7 @@
                <td><?php echo $row["rol_cliente"]?></td>
                <td><?php echo $row["razon_social_cliente"]?></td>
                <td>
-                   <a href="#" class="btn btn-info btn-sm">Ver Detalle</a>
+                   <a href="index.php?view=detalle-mejora" class="btn btn-info btn-sm">Ver Detalle</a>
                    <a href="index.php?view=crear-mejora" class="btn btn-success btn-sm">Crear Mejora</a>
                </td>         
            </tr>

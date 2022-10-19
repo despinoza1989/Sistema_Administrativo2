@@ -1,5 +1,5 @@
  <!-- BARRA DE MENUS LATERAL-->
-<div class="card-body" style="margin: 2em 5em;">
+ <div class="card-body" style="margin: 2em 5em;">
     <h1> Detalle Visita en Terreno</h1>
     <br>
     <br>
@@ -7,7 +7,7 @@
     <br>
     <form class="row g-3 needs-validation">
 
-    <input type="hidden" id="id_asignacion_profesional" name="id_asignacion_profesional" value="<?php echo $dato_asignacion['id_asignacion_profesional'] ?>">
+    <input type="hidden" id="id_visita_terreno" name="id_visita_terreno" value="<?php echo $datos_visita['id_visita_terreno'] ?>">
           
     <div class="col-md-6">
               <label for="rut_personal" class="form-label">Rut</label>
@@ -110,7 +110,7 @@
       <br>
       <br>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <a class="btn btn-warning col-2" href="index.php?view=listado-visita-profesional">Volver Atrás</a>
+          <a class="btn btn-warning col-2" href="index.php?view=listado-visita-cliente">Volver Atrás</a>
       </div>
 </div>
 
@@ -118,8 +118,8 @@
 
     (function() {
 
-    document.getElementById('id_asignacion_profesional').addEventListener('change', onChangeDetalleVisitaTerrenoProfesional)
-    document.getElementById('id_asignacion_profesional').value = document.getElementById('id_asignacion_profesional').value;
+    document.getElementById('id_visita_terreno').addEventListener('change', onChangeDetalleVisitaTerrenoProfesional)
+    document.getElementById('id_visita_terreno').value = document.getElementById('id_visita_terreno').value;
 
     onChangeDetalleVisitaTerrenoProfesional({})
 
@@ -127,19 +127,19 @@
 
     function onChangeDetalleVisitaTerrenoProfesional(event) {
 
-        var id_asignacion_profesional=document.getElementById('id_asignacion_profesional').value;
-        console.log(id_asignacion_profesional)
+        var id_visita_terreno=document.getElementById('id_visita_terreno').value;
+        console.log(id_visita_terreno)
 
-        if (id_asignacion_profesional && id_asignacion_profesional > 1) {
+        if (id_visita_terreno && id_visita_terreno > 1) {
 
-            fetch("api.php/asignacion-profesional/" + id_asignacion_profesional, {
+            fetch("api.php/visita-terreno/" + id_visita_terreno, {
                     method: "get"
             }).then(response => response.json())
             .then((datos) => {
 
                 console.dir(datos)
 
-                document.getElementById('id_asignacion_profesional').value = datos.id_asignacion_profesional;
+                document.getElementById('id_visita_terreno').value = datos.id_visita_terreno;
                 document.getElementById('rut_personal').value = datos.rut_personal;
                 document.getElementById('nombre_personal').value = datos.nombre_personal;
                 document.getElementById('apellidos_personal').value = datos.apellidos_personal;

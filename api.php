@@ -197,7 +197,7 @@ $app->get('/genero/{id_genero}', function (Request $request, Response $response,
 });
 
 //MODELS MEJORAS
-/*
+
 $app->get('/mejoras', function (Request $request, Response $response, array $args) {
      
     $model = new MejoraModel();
@@ -213,7 +213,7 @@ $app->get('/mejoras/{id_mejoras}', function (Request $request, Response $respons
     $datos = $model->getById($id_mejoras);
     return $response->withJson($datos);
 
-});*/
+});
 
 //MODELS PAGO SERVICIOS
 

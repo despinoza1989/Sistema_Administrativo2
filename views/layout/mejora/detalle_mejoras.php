@@ -7,13 +7,7 @@
     <form id="registro_mejora" class="row g-3 needs-validation">
         <div class="col-md-4">
             <label for="rol_cliente" class="form-label">Rol</label>
-            <select class="form-select" id="rol_cliente" name="rol_cliente" required>
-                <option selected disabled value="">Seleccione Rol</option>
-                <?php foreach ($dato_asignacion as $row){ ?>
-                <option value="<?php echo $row["id_asignacion_profesional"] ?>"><?php echo $row["rol_cliente"] ?>
-                </option>
-                <?php } ?>
-            </select>
+            <input class="form-control" id="rol_cliente" name="rol_cliente" disabled required>
             <div class="invalid-feedback">
             </div>
         </div>
@@ -65,14 +59,14 @@
         <div class="col-md-4">
             <label for="obs_check_general" class="form-label">Observaciones General</label>
             <input type="text" class="form-control" id="obs_check_general" name="obs_check_general"
-                placeholder="Ingrese detalle de la observación" required>
+                 disabled required>
         </div>
         <div class="col-md-4">
             <label for="doc_check_general" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="doc_check_general">https://drive.google.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_general" name="doc_check_general"
-                    aria-describedby="doc_check_general">
+                    aria-describedby="doc_check_general" disabled required>
             </div>
         </div>
         <div class="col-md-4">
@@ -80,7 +74,7 @@
             <div class="input-group has-validation">
                 <span class="input-group-text" id="img_check_general">https://drive.google.com/drive</span>
                 <input class="form-control" type="text" id="img_check_general" name="img_check_general"
-                    aria-describedby="img_check_general">
+                    aria-describedby="img_check_general" disabled required>
             </div>
         </div>
         <br>
@@ -89,14 +83,14 @@
         <div class="col-md-4">
             <label for="obs_check_proteccion" class="form-label">Observaciones Protección</label>
             <input type="text" class="form-control" id="obs_check_proteccion" name="obs_check_proteccion"
-                placeholder="Ingrese detalle de la observación" required>
+                 disabled required>
         </div>
         <div class="col-md-4">
             <label for="doc_check_proteccion" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="doc_check_proteccion">https://drive.google.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_proteccion" name="doc_check_proteccion"
-                    aria-describedby="doc_check_proteccion">
+                    aria-describedby="doc_check_proteccion" disabled required>
             </div>
         </div>
         <div class="col-md-4">
@@ -104,7 +98,7 @@
             <div class="input-group has-validation">
                 <span class="input-group-text" id="img_check_proteccion">https://drive.google.com/drive</span>
                 <input class="form-control" type="text" id="img_check_proteccion" name="img_check_proteccion"
-                    aria-describedby="img_check_proteccion">
+                    aria-describedby="img_check_proteccion" disabled required>
             </div>
         </div>
         <h2> Herramientas </h2>
@@ -112,14 +106,14 @@
         <div class="col-md-4">
             <label for="obs_check_herramientas" class="form-label">Observaciones Herramientas</label>
             <input type="text" class="form-control" id="obs_check_herramientas" name="obs_check_herramientas"
-                placeholder="Ingrese detalle de la observación" required>
+                 disabled required>
         </div>
         <div class="col-md-4">
             <label for="doc_check_herramientas" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="doc_check_herramientas">https://drive.google.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_herramientas" name="doc_check_herramientas"
-                    aria-describedby="doc_check_herramientas">
+                    aria-describedby="doc_check_herramientas" disabled required>
             </div>
         </div>
         <div class="col-md-4">
@@ -127,7 +121,7 @@
             <div class="input-group has-validation">
                 <span class="input-group-text" id="img_check_herramientas">https://drive.google.com/drive</span>
                 <input class="form-control" type="text" id="img_check_herramientas" name="img_check_herramientas"
-                    aria-describedby="img_check_herramientas">
+                    aria-describedby="img_check_herramientas" disabled required>
             </div>
         </div>
         <h2> Maquinaria </h2>
@@ -135,14 +129,14 @@
         <div class="col-md-4">
             <label for="obs_check_maquinaria" class="form-label">Observaciones Maquinaria</label>
             <input type="text" class="form-control" id="obs_check_maquinaria" name="obs_check_maquinaria"
-                placeholder="Ingrese detalle de la observación" required>
+                 disabled required>
         </div>
         <div class="col-md-4">
             <label for="doc_check_maquinaria" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="doc_check_maquinaria">https://drive.google.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_maquinaria" name="doc_check_maquinaria"
-                    aria-describedby="doc_check_maquinaria">
+                    aria-describedby="doc_check_maquinaria" disabled required>
             </div>
         </div>
         <div class="col-md-4">
@@ -150,7 +144,7 @@
             <div class="input-group has-validation">
                 <span class="input-group-text" id="img_check_maquinaria">https://drive.google.com/drive</span>
                 <input class="form-control" type="text" id="img_check_maquinaria" name="img_check_maquinaria"
-                    aria-describedby="img_check_maquinaria">
+                    aria-describedby="img_check_maquinaria" disabled required>
             </div>
         </div>
 
@@ -163,25 +157,24 @@
     <br>
     <br>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary col-2" onclick="registrarMejora()">Generar Mejora</button>
-        <button class="btn btn-warning col-2" onclick="location.reload()">Limpiar</button>
+        <a class="btn btn-warning col-2" href="index.php?view=listado-mejora">Volver Atrás</a>
     </div>
 </div>
 
 <script>
 (function() {
 
-    document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
+    document.getElementById('id_mejoras').addEventListener('change', onChangeRol)
 
 })()
 
 function onChangeRol(event) {
 
-    var id_cliente = document.getElementById('rol_cliente').value;
+    var id_mejoras = document.getElementById('id_mejoras').value;
 
-    if (id_cliente && id_cliente > 0) {
+    if (id_mejoras && id_mejoras > 0) {
 
-        fetch("api.php/asignacion-profesional/" + id_cliente, {
+        fetch("api.php/mejoras/" + id_cliente, {
                 method: "get"
             }).then(response => response.json())
             .then((datos) => {
@@ -199,49 +192,4 @@ function onChangeRol(event) {
 
 }
 
-function registrarMejora() {
-    var obs_check_general = document.getElementById("obs_check_general").value;
-    var doc_check_general = document.getElementById("doc_check_general").value;
-    var img_check_general = document.getElementById("img_check_general").value;
-    var obs_check_proteccion = document.getElementById("obs_check_proteccion").value;
-    var doc_check_proteccion = document.getElementById("doc_check_proteccion").value;
-    var img_check_proteccion = document.getElementById("img_check_proteccion").value;
-    var obs_check_herramientas = document.getElementById("obs_check_herramientas").value;
-    var doc_check_herramientas = document.getElementById("doc_check_herramientas").value;
-    var img_check_herramientas = document.getElementById("img_check_herramientas").value;
-    var obs_check_maquinaria = document.getElementById("obs_check_maquinaria").value;
-    var doc_check_maquinaria = document.getElementById("doc_check_maquinaria").value;
-    var img_check_maquinaria = document.getElementById("img_check_maquinaria").value;
-
-
-    if (obs_check_general == undefined || obs_check_general == null || obs_check_general.trim() == "") {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Se debe completar el campo de Observacion General',
-        })
-        return;
-
-    }
-
-    let formulario = new FormData(document.getElementById("registro_mejora"))
-    fetch('index.php?view=crear-mejora', {
-        method: "post",
-        body: formulario
-    }).then((response) => {
-
-        Swal.fire({
-            title: 'Mejora Registrada Exitosamente',
-            showDenyButton: false,
-            showCancelButton: false,
-            confirmButtonText: 'Ok',
-        }).then((result) => {
-            location.reload();
-        })
-        /*acciones a realizar*/
-    }).then((data) => {
-        /*mas acciones a realizar*/
-    })
-
-}
 </script>
