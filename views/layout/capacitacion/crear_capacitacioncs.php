@@ -4,7 +4,7 @@
     <br>
     <form id="crear_capacitacioncs" class="row g-3 needs-validation">
 
-    <input type="hidden" id="id_solicitud_capacitacion" name="id_solicitud_capacitacion" value="<?php echo $datos_solicitud_capacitacion['id_solicitud_capacitacion'] ?>">
+        <input type="hidden" id="id_solicitud_capacitacion" name="id_solicitud_capacitacion" value="<?php echo $datos_solicitud_capacitacion['id_solicitud_capacitacion'] ?>">
         
         <h2>Cliente a Capacitar</h2>
         <div class="col-md-6">
@@ -48,15 +48,15 @@
             </div>
         </div>
         <div class="col-md-6">
-            <label for="fecha_capacitacion" class="form-label">Fecha Capacitacion</label>
-            <input type="date" class="form-control" id="fecha_capacitacion" name="fecha_capacitacion" required>
+            <label for="fecha_solicitud_capacitacion" class="form-label">Fecha Capacitacion</label>
+            <input type="date" class="form-control" id="fecha_solicitud_capacitacion" name="fecha_solicitud_capacitacion" required>
             <div class="invalid-feedback">
                 Favor de introducir una fecha valida
             </div>
         </div>
         <div class="col-md-6">
-            <label for="id_tipo_personal_capacitacion_cc" class="form-label">Tipo Personal a Capacitar</label>
-            <input type="text" class="form-control" id="id_tipo_personal_capacitacion_cc" name="id_tipo_personal_capacitacion_cc" disabled
+            <label for="tipo_personal_capacitacion" class="form-label">Tipo Personal a Capacitar</label>
+            <input type="text" class="form-control" id="tipo_personal_capacitacion" name="tipo_personal_capacitacion" disabled
                 required>
             <div class="invalid-feedback">
                 Favor de escoger una opcion valida
@@ -73,8 +73,7 @@
 
 
         <input type="hidden" id="accion" name="accion" value="registrar">
-        <input type="hidden" id="id_personal_cc" name="id_personal_cc"
-            value="<?php echo $datosusuario['id_personal'] ?>">
+        <input type="hidden" id="id_personal_cc" name="id_personal_cc" value="<?php echo $datosusuario['id_personal'] ?>">
     </form>
     <br>
     <br>
@@ -99,7 +98,7 @@
     function onChangeCapacitacion(event){
 
         var id_solicitud_capacitacion= document.getElementById('id_solicitud_capacitacion').value;
-        console.log(id_solicitud_capacitacion)
+        //console.log(id_solicitud_capacitacion)
 
         if(id_solicitud_capacitacion && id_solicitud_capacitacion>1){
 
@@ -108,11 +107,11 @@
             }).then(response=>response.json())
             .then((datos)=>{
 
-                console.dir(datos)
+                console.log(datos)
 
                 document.getElementById('id_solicitud_capacitacion').value=datos.id_solicitud_capacitacion;
                 document.getElementById('nombre_solicitud_capacitacion').value=datos.nombre_solicitud_capacitacion;
-                document.getElementById('fecha_capacitacion').value=datos.fecha_capacitacion;
+                document.getElementById('fecha_solicitud_capacitacion').value=datos.fecha_solicitud_capacitacion;
                 document.getElementById('tipo_personal_capacitacion').value=datos.tipo_personal_capacitacion;
                 document.getElementById('rol_cliente').value=datos.rol_cliente;
                 document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
@@ -129,92 +128,52 @@
 
 
 
+    function crearCapacitacioncs() {
+        var link_capacitacion = document.getElementById("link_capacitacion").value;
+        console.log(link_capacitacion)
 
 
-
-
-
-
-
-
-function crearCapacitacioncs() {
-    var link_capacitacion = document.getElementById("link_capacitacion").value;
-    console.log(link_capacitacion)
-
-
-    if (nombre_capacitacion == undefined || nombre_capacitacion == null || nombre_capacitacion.trim() == "") {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Se debe ingresar el nombre',
-        })
-        return;
-
-    }
-
-    if (fecha_capacitacion == undefined || fecha_capacitacion == null ||
-        fecha_capacitacion.trim() == "") {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Se debe ingresar una fecha valida',
-        })
-        return;
-
-    }
-
-
-
-    let formulario = new FormData(document.getElementById("crear_capacitacioncs"))
-    fetch('index.php?view=crear-capacitacioncs', {
-        method: "post",
-        body: formulario
-    }).then((response) => {
-
-        Swal.fire({
-            title: 'Capacitacion creada exitosamente',
-            showDenyButton: false,
-            showCancelButton: false,
-            confirmButtonText: 'Ok',
-        }).then((result) => {
-            location.reload();
-        })
-        /*acciones a realizar*/
-    }).then((data) => {
-        /*mas acciones a realizar*/
-    })
-}
-</script>
-
-
-<script>
-(function() {
-
-    document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
-
-})()
-
-function onChangeRol(event) {
-
-    var id_cliente = document.getElementById('rol_cliente').value;
-
-    if (id_cliente && id_cliente > 0) {
-
-        fetch("api.php/cliente/" + id_cliente, {
-                method: "get"
-            }).then(response => response.json())
-            .then((datos) => {
-
-                console.dir(datos)
-
-                document.getElementById('razon_social_cliente').value = datos.razon_social_cliente;
-                document.getElementById('telefono_cliente').value = datos.telefono_cliente;
-                document.getElementById('direccion_cliente').value = datos.direccion_cliente;
-                document.getElementById('email_cliente').value = datos.email_cliente;
-
+        if (nombre_capacitacion == undefined || nombre_capacitacion == null || nombre_capacitacion.trim() == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe ingresar el nombre',
             })
+            return;
 
+        }
+
+        if (fecha_capacitacion == undefined || fecha_capacitacion == null ||
+            fecha_capacitacion.trim() == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe ingresar una fecha valida',
+            })
+            return;
+
+        }
+
+
+
+        let formulario = new FormData(document.getElementById("crear_capacitacioncs"))
+        fetch('index.php?view=crear-capacitacioncs', {
+            method: "post",
+            body: formulario
+        }).then((response) => {
+
+            Swal.fire({
+                title: 'Capacitacion creada exitosamente',
+                showDenyButton: false,
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+            }).then((result) => {
+                location.reload();
+            })
+            /*acciones a realizar*/
+        }).then((data) => {
+            /*mas acciones a realizar*/
+        })
     }
-
-}
 </script>
+

@@ -9,19 +9,12 @@ class ListarSolicitudesCapacitacionesController{
 
         require_once "models/SolicitudCapacitacionModel.php";
         $model_solicitudes = new SolicitudCapacitacionModel();
-        require_once "models/ClienteModel.php";
-        $model_cliente = new ClienteModel();
 
-
-        //$model = new ClienteModel();
 
         //Llamar datos del modelo
 
         $datos_solicitudes = $model_solicitudes->getAll();
-        $datos_cliente = $model_cliente->getAll();
 
-        //$datos = $model->getAllBy();
-        
 
         //Llamar a la vista 
         require_once "views/layout/header.php";

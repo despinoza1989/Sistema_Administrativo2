@@ -47,7 +47,7 @@ class CrearCapacitacionModel {
     function getAllByCapacitacion($id_personal) {
 
         $conexion= Database::connect();
-        $query = "SELECT cc.id_crear_capacitacion, cc.nombre_capacitacion, cc.fecha_capacitacion, cc.id_personal_cc, 
+        $query = "SELECT cc.id_crear_capacitacion, cc.nombre_capacitacion, cc.fecha_capacitacion, cc.link_capacitacion, cc.id_personal_cc, 
         cc.id_tipo_personal_capacitacion_cc, p.rut_personal, p.telefono_personal, p.nombre_personal, p.apellidos_personal, p.email_personal,
         p.direccion_personal, p.fecha_nacimiento_p, p.usuario_personal, p.estado_usuario_personal, p.id_tipo_usuario_p,
         p.id_estado_civil, p.id_genero, tpc.tipo_personal_capacitacion

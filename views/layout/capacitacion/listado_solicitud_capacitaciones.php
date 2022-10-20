@@ -25,7 +25,7 @@
                     <td><?php echo $row["tipo_personal_capacitacion"]?></td>
                    
                     <td>
-                    <a href="index.php?view=crear-capacitacioncs&id_solicitud_capacitacion-<?php echo $row["id_solicitud_capacitacion"] ?>" class="btn btn-info btn-sm">Ver Solicitud</a>
+                    <a href="index.php?view=crear-capacitacioncs&id_solicitud_capacitacion=<?php echo $row["id_solicitud_capacitacion"] ?>" class="btn btn-info btn-sm">Ver Solicitud</a>
                     </td>
                              
                 </tr>
