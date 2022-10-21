@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <label for="fecha_capacitacion" class="form-label">Fecha Capacitacion</label>
+            <label for="fecha_capacitacion" class="form-label">Fecha a Realizar Capacitación</label>
             <input type="date" class="form-control" id="fecha_capacitacion" name="fecha_capacitacion" required>
             <div class="invalid-feedback">
                 Favor de introducir una fecha valida

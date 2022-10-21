@@ -4,7 +4,7 @@
         <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
                 <th>Nombre Capacitacion</th>
-                <th>Fecha Capacitacion</th>
+                <th>Fecha de Realización de Capacitacion</th>
                 <th>Nombre Personal</th>
                 <th>Email Personal</th>
                 <th>Tipo Personal a Capacitar</th>
@@ -23,10 +23,7 @@
                      
                          
 
-                    </td>
-                    <td>
-                    <a href="index.php?view=crear-capacitacion" class="btn btn-info btn-sm">Ver Solicitud</a>
-                    </td>         
+                    </td>  
                 </tr>
 
             <?php }?>

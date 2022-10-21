@@ -43,13 +43,13 @@
 
         <div class="col-md-6">
             <label for="nombre_solicitud_capacitacion" class="form-label">Nombre Capacitación</label>
-            <input type="text" class="form-control" id="nombre_solicitud_capacitacion" name="nombre_solicitud_capacitacion" required>
+            <input type="text" class="form-control" id="nombre_solicitud_capacitacion" name="nombre_solicitud_capacitacion" disabled required>
             <div class="invalid-feedback">
             </div>
         </div>
         <div class="col-md-6">
-            <label for="fecha_solicitud_capacitacion" class="form-label">Fecha Capacitacion</label>
-            <input type="date" class="form-control" id="fecha_solicitud_capacitacion" name="fecha_solicitud_capacitacion" required>
+            <label for="fecha_solicitud_capacitacion" class="form-label">Fecha a Realizar Capacitación</label>
+            <input type="date" class="form-control" id="fecha_solicitud_capacitacion" name="fecha_solicitud_capacitacion" disabled required>
             <div class="invalid-feedback">
                 Favor de introducir una fecha valida
             </div>
@@ -63,17 +63,19 @@
             </div>
         </div>
         <div class="col-md-6">
-            <label for="link_capacitacion" class="form-label">URL de Directorio de Archivos</label>
+            <label for="link_capacitacioncs" class="form-label">URL de Directorio de Archivos</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="link_capacitacion">https://drive.google.com/drive</span>
-                <input type="text" class="form-control" id="link_capacitacion" name="link_capacitacion"
-                    aria-describedby="link_capacitacion">
+                <span class="input-group-text" id="link_capacitacioncs">https://drive.google.com/drive</span>
+                <input type="text" class="form-control" id="link_capacitacioncs" name="link_capacitacioncs"
+                    aria-describedby="link_capacitacioncs">
             </div>
         </div>
 
 
         <input type="hidden" id="accion" name="accion" value="registrar">
-        <input type="hidden" id="id_personal_cc" name="id_personal_cc" value="<?php echo $datosusuario['id_personal'] ?>">
+        <input type="hidden" id="id_solicitudcs" name="id_solicitudcs" value="1">
+        <input type="hidden" id="id_clientecs" name="id_clientecs" value="1">
+
     </form>
     <br>
     <br>
@@ -129,30 +131,11 @@
 
 
     function crearCapacitacioncs() {
-        var link_capacitacion = document.getElementById("link_capacitacion").value;
-        console.log(link_capacitacion)
+        var link_capacitacioncs = document.getElementById("link_capacitacioncs").value;
+        console.log(link_capacitacioncs)
 
 
-        if (nombre_capacitacion == undefined || nombre_capacitacion == null || nombre_capacitacion.trim() == "") {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Se debe ingresar el nombre',
-            })
-            return;
-
-        }
-
-        if (fecha_capacitacion == undefined || fecha_capacitacion == null ||
-            fecha_capacitacion.trim() == "") {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Se debe ingresar una fecha valida',
-            })
-            return;
-
-        }
+        
 
 
 
