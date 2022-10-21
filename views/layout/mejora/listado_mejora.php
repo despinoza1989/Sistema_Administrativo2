@@ -19,7 +19,7 @@
                <td><?php echo $row["rol_cliente"]?></td>
                <td><?php echo $row["razon_social_cliente"]?></td>
                <td>
-                <a href="index.php?view=detalle-mejora&id_mejoras=<?php echo $row["id_mejoras"]?>" class="btn btn-info btn-sm">Ver Detalle</a>
+                <a href="#" class="btn btn-info btn-sm">Ver Detalle Check-List</a>
                 <a href="index.php?view=crear-mejora" class="btn btn-success btn-sm">Crear Mejora</a>
                </td>         
            </tr>
