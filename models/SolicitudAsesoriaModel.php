@@ -43,6 +43,30 @@ class SolicitudAsesoriaModel {
         return $response;
     }
 
+
+    function getByIdCliente($id_personal_ap) {
+        $conexion= Database::connect();
+        $query = "SELECT 
+        sa.id_solicitud_asesoria, sa.detalle_asesoria, sa.id_tipo_asesoria_sa, sa.id_cliente_sa,
+        c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.usuario_cliente, c.tipo_usuario_c, c.id_rubro,
+        ta.tipo_asesoria
+        FROM solicitud_asesoria AS sa
+        LEFT JOIN cliente AS c ON c.id_cliente = sa.id_cliente_sa
+        LEFT JOIN tipo_asesoria AS ta ON ta.id_tipo_asesoria = sa.id_tipo_asesoria_sa
+        LEFT JOIN asignacion_profesional AS ap ON ap.id_cliente_ap = sa.id_cliente_sa
+        WHERE ap.id_personal_ap  = '". $id_personal_ap ."'"; 
+        $result = $conexion->query($query);
+        $response = array();
+        while($row = mysqli_fetch_assoc($result)) { 
+            
+            $response[] = $row; 
+        }
+        $result->close();
+        $conexion->close();
+        return $response;
+    }
+
+
     function create($data) {
 
         $conexion= Database::connect();

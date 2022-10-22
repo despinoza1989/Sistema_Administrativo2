@@ -15,8 +15,8 @@ class ListarAsesoriaController{
 
         //Llamar datos del modelo
 
-        $datos_asesoria = $model_asesoria->getAll();
-
+        $datosusuario = $_SESSION['usuario'];
+        $datos_asesoria = $model_asesoria->getByIdCliente($datosusuario['id_personal']);
         //$datos = $model->getAllBy();
         
 
