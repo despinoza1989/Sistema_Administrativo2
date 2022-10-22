@@ -13,7 +13,8 @@ class ListarSolicitudesCapacitacionesController{
 
         //Llamar datos del modelo
 
-        $datos_solicitudes = $model_solicitudes->getAll();
+        $datosusuario = $_SESSION['usuario'];
+        $datos_solicitudes = $model_solicitudes->getByIdCliente($datosusuario['id_personal']);
 
 
         //Llamar a la vista 

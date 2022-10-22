@@ -46,6 +46,32 @@ class SolicitudCapacitacionModel {
         return $response;
     }
 
+
+    function getByIdCliente($id_personal_ap) {
+        
+        $conexion= Database::connect();
+        $query = "SELECT
+        s.id_solicitud_capacitacion, s.nombre_solicitud_capacitacion, s.fecha_solicitud_capacitacion, s.id_tipo_personal_s,
+        s.id_cliente_s, c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, 
+        c.direccion_cliente, c.estado_usuario_cliente, c.usuario_cliente, c.password_cliente, c.tipo_usuario_c,
+        c.id_rubro, t.tipo_personal_capacitacion
+        FROM solicitud_capacitacion AS s
+        LEFT JOIN cliente AS c ON s.id_cliente_s = c.id_cliente
+        LEFT JOIN tipo_personal_capacitacion AS t ON t.id_tipo_personal_capacitacion = s.id_tipo_personal_s
+        LEFT JOIN asignacion_profesional AS ap ON ap.id_cliente_ap = s.id_cliente_s
+        WHERE ap.id_personal_ap  = '". $id_personal_ap ."'"; 
+        $result = $conexion->query($query);
+        $response = array();
+        while($row = mysqli_fetch_assoc($result)) { 
+            
+            $response[] = $row; 
+        }
+        $result->close();
+        $conexion->close();
+        return $response;
+    }
+
+
     function create($data) {
 
         $conexion= Database::connect();
