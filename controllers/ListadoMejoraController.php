@@ -12,7 +12,7 @@ class ListadoMejoraController{
 
         //Llamar datos del modelo
 
-        $datos_mejora = $model_mejoras->getByListado();
+        $datos_mejora = $model_mejoras->getAll();
 
         //Llamar a la vista 
         require_once "views/layout/header.php";

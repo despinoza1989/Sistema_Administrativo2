@@ -111,9 +111,19 @@ session_start();
                     $ctrl = new ListadoVisitaClienteController();
                     break;
 
+                case 'listado-visita-admin':
+                    require_once "controllers/ListadoVisitaAdminController.php";
+                    $ctrl = new ListadoVisitaAdminController();
+                    break;
+
                 case 'detalle-visita-profesional':
                     require_once "controllers/DetalleVisitaProfesionalController.php";
                     $ctrl = new DetalleVisitaProfesionalController();
+                    break;
+
+                case 'detalle-visita-admin':
+                    require_once "controllers/DetalleVisitaAdminController.php";
+                    $ctrl = new DetalleVisitaAdminController();
                     break;
 
                 case 'crear-mejora':

@@ -82,7 +82,7 @@
                         <?php } ?>
 
                         <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
-                        <li><a class="dropdown-item" href="index.php?view=listado-visita-cliente">Lista de Visita a Clientes</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listado-visita-admin">Lista de Visita a Clientes</a></li>
                         <?php } ?>
 
                     </ul>

@@ -1,30 +1,33 @@
 
 <br><br><br>
 <div class="card" style="margin: 1px 5em;">
-        <h3 align="center" >Listado de Mejoras</h3>
+        <h3 align="center" >Listado de Visitas Profesional - Cliente</h3>
         <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
-                <th>Observación General</th>
-                <th>Fecha/Hora Check-List</th>
+                <th>Fecha/Hora Visita</th>
+                <th>Motivo</th>
+                <th>Profesional Asignado</th>
                 <th>Rol Cliente</th>
                 <th>Razón Social Cliente</th>
                 <th>Teléfono Cliente</th>
                 <th>Email Cliente</th>
-                <th>Opciones</th>
+                <th>Dirección Cliente</th>
+                <th>Opción</th>
             </tr>
             
-            <?php foreach ($datos_mejora as $row){ ?>
+            <?php foreach ($dato_asignacion as $row){ ?>
            
            <tr>
-               <td><?php echo $row["ob_check_general"]?></td>
-               <td><?php echo $row["fecha_check_list"]?></td>
+               <td><?php echo $row["fecha_visita"]?></td>
+               <td><?php echo $row["motivo_visita"]?></td>
+               <td><?php echo $row["nombre_personal"]?> <?php echo $row["apellidos_personal"]?></td>
                <td><?php echo $row["rol_cliente"]?></td>
                <td><?php echo $row["razon_social_cliente"]?></td>
                <td><?php echo $row["telefono_cliente"]?></td>
                <td><?php echo $row["email_cliente"]?></td>
+               <td><?php echo $row["direccion_cliente"]?></td>
                <td>
-                <a href="#" class="btn btn-info btn-sm">Ver Detalle Check-List</a>
-                <a href="index.php?view=crear-mejora" class="btn btn-success btn-sm">Crear Mejora</a>
+                <a href="index.php?view=detalle-visita-admin&id_visita_terreno=<?php echo $row["id_visita_terreno"]?>" class="btn btn-info btn-sm">Ver Detalle</a>
                </td>         
            </tr>
 
