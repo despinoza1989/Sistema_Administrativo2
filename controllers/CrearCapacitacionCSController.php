@@ -15,15 +15,15 @@ class CrearCapacitacionCSController{
         //Lo primero es llamar el modelo
         require_once "models/SolicitudCapacitacionModel.php";
         $model_solicitud_capacitacion = new SolicitudCapacitacionModel();
-        require_once "models/CrearCapacitacionCSModel.php";
-        $model_crear_capacitacioncs = new CrearCapacitacionCSModel();
+        require_once "models/CrearCapacitacionModel.php";
+        $model_crear_capacitacion = new CrearCapacitacionModel();
         require_once "models/TipoPersonalCapacitacionModel.php";
         $model_tipo_personal_capacitacion = new TipoPersonalCapacitacionModel();
 
 
         //Llamar datos del modelo
         if(isset($_POST["accion"])){
-            $model_crear_capacitacioncs->create($_POST);            
+            $model_crear_capacitacion->create($_POST);            
             return;
         }
 

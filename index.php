@@ -171,6 +171,11 @@ session_start();
                     $ctrl = new ListarCapacitacionesController();
                     break;
 
+                case 'listar-capacitaciones-total':
+                    require_once "controllers/ListarCapacitacionesTotalController.php";
+                    $ctrl = new ListarCapacitacionesTotalController();
+                    break;
+
                 case 'listar-accidentes':
                     require_once "controllers/ListadoAccidenteController.php";
                     $ctrl = new ListadoAccidenteController();
