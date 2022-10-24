@@ -145,11 +145,10 @@
                         <li><a class="dropdown-item" href="index.php?view=crear-capacitacion">Crear Capacitación</a></li>
                         <li><a class="dropdown-item" href="index.php?view=listar-capacitaciones">Lista de Capacitaciones</a></li>
                         <li><a class="dropdown-item" href="index.php?view=listar-solicitud-capacitacion">Lista de Solicitudes de Capacitaciones</a></li>
-                        <li><a class="dropdown-item" href="index.php?view=listar-capacitaciones-total">Lista de Capacitaciones Totales</a></li>
                         <?php } ?>
 
                         <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
-                        <li><a class="dropdown-item" href="index.php?view=listar-capacitaciones">Capacitaciones Generadas por Profesionales</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listar-capacitaciones-total">Capacitaciones Generadas por Profesionales</a></li>
                         <?php } ?>
 
                     </ul>
