@@ -13,7 +13,7 @@ class ClienteActivosController{
         
         if(isset($_GET["id_estado"])){
             $model->updateEstado($_GET["id_estado"], 0);            
-            header("refresh: 1; url=index.php?view=usuario-activos");
+            header("refresh: 1; url=index.php?view=clientes-activos");
         }
 
         $datos = $model->getAllByEstado(1); 

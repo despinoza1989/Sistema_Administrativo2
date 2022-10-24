@@ -11,7 +11,7 @@
         })
         .then(function(result) {
             if(result.isConfirmed) {
-                window.location.href = "index.php?view=usuario-activos&id_estado="+id
+                window.location.href = "index.php?view=clientes-activos&id_estado="+id
             }
         })
     }
