@@ -99,7 +99,8 @@
 
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_personal_vt" name="id_personal_vt" value="<?php echo $datosusuario['id_personal']?>">
-        <input type="hidden" id="id_cliente_vt" name="id_cliente_vt" value="1">
+        <input type="hidden" id="id_cliente_vt" name="id_cliente_vt" value="1">      
+ 
 
     </form>
     <br>
@@ -116,6 +117,10 @@
 
 document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
 
+/*document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
+document.getElementById('rol_cliente').value = document.getElementById('rol_cliente').value;*/
+    
+//onChangeRol({})
 })()
 
 function onChangeRol(event){
@@ -131,6 +136,7 @@ if(id_cliente && id_cliente>0){
 
         console.dir(datos)
 
+        document.getElementById('id_cliente_vt').value=datos.id_cliente_ap;
         document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
         document.getElementById('telefono_cliente').value=datos.telefono_cliente;
         document.getElementById('direccion_cliente').value=datos.direccion_cliente;
