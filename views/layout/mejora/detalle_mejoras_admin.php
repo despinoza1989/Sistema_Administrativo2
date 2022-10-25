@@ -155,7 +155,7 @@
     <br>
     <br>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a class="btn btn-warning col-2" href="index.php?view=listado-mejora">Volver Atrás</a>
+        <a class="btn btn-warning col-2" href="index.php?view=listado-mejora-admin">Volver Atrás</a>
     </div>
 </div>
 

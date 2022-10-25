@@ -98,7 +98,7 @@
                         <?php } ?>
 
                         <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
-                        <li><a class="dropdown-item" href="index.php?view=listado-mejora">Mejoras Generadas por Profesionales</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listado-mejora-admin">Mejoras Generadas por Profesionales</a></li>
                         <?php } ?>
 
                     </ul>

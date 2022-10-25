@@ -141,6 +141,16 @@ session_start();
                     $ctrl = new DetalleMejorasController();
                     break;
 
+                case 'listado-mejora-admin':
+                    require_once "controllers/ListadoMejoraAdminController.php";
+                    $ctrl = new ListadoMejoraAdminController();
+                    break;
+
+                case 'detalle-mejoras-admin':
+                    require_once "controllers/DetalleMejorasAdminController.php";
+                    $ctrl = new DetalleMejorasAdminController();
+                    break;
+
                 case 'check-list':
                     require_once "controllers/CheckListController.php";
                     $ctrl = new CheckListController();
