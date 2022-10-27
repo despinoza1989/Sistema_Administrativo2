@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-6">
             <label for="telefono_personal" class="form-label">Telefono</label>
-            <input type="text" class="form-control" id="telefono_personal" name="telefono_personal" value="" required>
+            <input type="text" class="form-control" id="telefono_personal" name="telefono_personal" value="" placeholder="Ingrese un Teléfono Ejemplo: (985060623)" required>
             <div class="invalid-feedback">
                 Favor de introducir un Telefono Valido
             </div>
@@ -19,14 +19,14 @@
         <div class="col-md-3">
             <label for="nombre_personal" class="form-label">Nombre
             </label>
-            <input type="text" class="form-control" id="nombre_personal" name="nombre_personal" required>
+            <input type="text" class="form-control" id="nombre_personal" name="nombre_personal" placeholder="Ingrese un Nombre" required>
             <div class="invalid-feedback">
                 
             </div>
         </div>
         <div class="col-md-3">
             <label for="apellidos_personal" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" id="apellidos_personal" name="apellidos_personal" required>
+            <input type="text" class="form-control" id="apellidos_personal" name="apellidos_personal"placeholder="Ingrese Apellidos" required>
             <div class="invalid-feedback">
                 
             </div>
@@ -36,7 +36,7 @@
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                 <input type="text" class="form-control" id="email_personal" name="email_personal"
-                    aria-describedby="inputGroupPrepend" required>
+                    aria-describedby="inputGroupPrepend" placeholder="Ingrese un Correo Personal" required>
                 <div class="invalid-feedback">
 
                 </div>
@@ -46,7 +46,7 @@
             <label for="direccion_personal" class="form-label">Dirección</label>
             <div class="input-group has-validation">
                 <input type="text" class="form-control" id="direccion_personal" name="direccion_personal"
-                    aria-describedby="inputGroupPrepend" required>
+                    aria-describedby="inputGroupPrepend" placeholder="Ingrese una Dirección particular" required>
                 <div class="invalid-feedback">
 
                 </div>
@@ -99,7 +99,7 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label for="usuario_personal" class="form-label">Nombre de Usuario</label>
-             <input type="text" class="form-control" id="usuario_personal" name="usuario_personal" value="" required>
+             <input type="text" class="form-control" id="usuario_personal" name="usuario_personal" value="" placeholder="Ingrese un nombre de usuario (acceso al sistema)" required>
             <div class="invalid-feedback">
 
             </div>
@@ -107,7 +107,7 @@
 
         <div class="mb-3">
             <label for="password_personal" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password_personal" name="password_personal">
+            <input type="password" class="form-control" id="password_personal" name="password_personal" placeholder="Ingrese una contraseña">
         </div>
     </div>
 
@@ -152,7 +152,7 @@
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Se debe ingresar un número telefonico valido',                
+                text: 'Se debe ingresar un número telefonico valido, debe contener 9 digitos',                
                 })            
             return;
 

@@ -8,11 +8,14 @@ class ListadoMejoraController{
 
         require_once "models/MejoraModel.php";
         $model_mejoras = new MejoraModel();
+        require_once "models/AsignacionProfesionalModel.php";
+        $model_asignacion = new AsignacionProfesionalModel();
+
     
 
         //Llamar datos del modelo
-
-        $datos_mejora = $model_mejoras->getAll();
+        $datosusuario = $_SESSION['usuario'];
+        $datos_mejora = $model_mejoras->getByListado($datosusuario['id_personal']);
 
         //Llamar a la vista 
         require_once "views/layout/header.php";

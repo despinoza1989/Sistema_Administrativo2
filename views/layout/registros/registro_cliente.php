@@ -26,7 +26,7 @@
 
         <div class="col-md-6">
             <label for="razon_social_cliente" class="form-label">Razón Social</label>
-            <input type="text" class="form-control" id="razon_social_cliente" name="razon_social_cliente" value="" required>
+            <input type="text" class="form-control" id="razon_social_cliente" name="razon_social_cliente" value="" placeholder="Ingrese una Razón Social" required>
             <div class="invalid-feedback">
 
             </div>
@@ -34,7 +34,7 @@
 
         <div class="col-md-3">
             <label for="telefono_cliente" class="form-label">Telefono</label>
-            <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" required>
+            <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" placeholder="Ingrese un Teléfono Ejemplo: (985060623)" required>
             <div class="invalid-feedback">
                 Please provide a valid zip.
             </div>
@@ -42,7 +42,7 @@
 
         <div class="col-md-6">
             <label for="direccion_cliente" class="form-label">Dirección</label>
-            <input type="text" class="form-control" id="direccion_cliente" name="direccion_cliente" required>
+            <input type="text" class="form-control" id="direccion_cliente" name="direccion_cliente" placeholder="Ingrese una Dirección particular" required>
             <div class="invalid-feedback">
                 Please provide a valid city.
             </div>
@@ -53,7 +53,7 @@
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                 <input type="text" class="form-control" id="email_cliente" name="email_cliente"
-                    aria-describedby="inputGroupPrepend" required>
+                    aria-describedby="inputGroupPrepend" placeholder="Ingrese un Correo Personal" required>
                 <div class="invalid-feedback">
 
                 </div>
@@ -68,7 +68,7 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label for="usuario_cliente" class="form-label">Nombre de Usuario</label>
-            <input type="text" class="form-control" id="usuario_cliente" name="usuario_cliente" value="" required>
+            <input type="text" class="form-control" id="usuario_cliente" name="usuario_cliente" value="" placeholder="Ingrese un nombre de usuario (acceso al sistema)" required>
             <div class="invalid-feedback">
 
             </div>
@@ -76,7 +76,7 @@
 
         <div class="mb-3">
             <label for="password_cliente" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password_cliente" name="password_cliente">
+            <input type="password" class="form-control" id="password_cliente" name="password_cliente" placeholder="Ingrese una contraseña">
         </div>
     </div>
 

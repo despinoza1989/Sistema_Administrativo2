@@ -7,7 +7,7 @@
     <form id="crear_capacitacion" class="row g-3 needs-validation">
         <div class="col-md-6">
             <label for="nombre_capacitacion" class="form-label">Nombre Capacitación</label>
-            <input type="text" class="form-control" id="nombre_capacitacion" name="nombre_capacitacion" required>
+            <input type="text" class="form-control" id="nombre_capacitacion" name="nombre_capacitacion" placeholder="Escriba un nombre para la capacitación" required>
             <div class="invalid-feedback">
             </div>
         </div>
@@ -107,7 +107,7 @@
             <div class="input-group has-validation">
                 <span class="input-group-text" id="link_capacitacion">https://drive.google.com/drive</span>
                 <input type="text" class="form-control" id="link_capacitacion" name="link_capacitacion"
-                    aria-describedby="link_capacitacion">
+                    aria-describedby="link_capacitacion" placeholder="Escriba un titulo para el archivo adjunto">
             </div>
         </div>
         <input type="hidden" id="accion" name="accion" value="registrar">
