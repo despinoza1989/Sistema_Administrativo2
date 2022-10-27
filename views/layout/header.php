@@ -130,7 +130,7 @@
                         <?php } ?>
 
                         <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
-                        <li><a class="dropdown-item" href="index.php?view=listar-asesoria">Asesorías Generadas por Profesionales</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listar-asesoria-admin">Asesorías Generadas por Profesionales</a></li>
                         <?php } ?>
 
                     </ul>

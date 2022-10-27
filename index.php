@@ -164,7 +164,12 @@ session_start();
                 case 'listar-asesoria':
                     require_once "controllers/ListarAsesoriaController.php";
                     $ctrl = new ListarAsesoriaController();
-                    break;  
+                    break;
+                    
+                case 'listar-asesoria-admin':
+                    require_once "controllers/ListadoAsesoriaAdminController.php";
+                    $ctrl = new ListarAsesoriaAdminController();
+                    break; 
         
                 case 'respuesta-asesoria':
                     require_once "controllers/RespuestaAsesoriaController.php";
