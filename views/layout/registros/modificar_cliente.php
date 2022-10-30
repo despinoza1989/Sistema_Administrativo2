@@ -6,7 +6,7 @@
 
         <div class="col-md-6">
             <label for="rol_cliente" class="form-label">Rol</label>
-            <input type="text" class="form-control" placeholder="Ingrese Rol, Ejemplo: (11111111-3) " id="rol_cliente" name="rol_cliente" value="" maxlength="10" required>
+            <input type="text" class="form-control" placeholder="Ingrese Rol de la empresa, Ejemplo: (11111111-3) " id="rol_cliente" name="rol_cliente" value="" maxlength="10" required>
         </div>
 
         <div class="col-md-6">
@@ -21,17 +21,17 @@
 
         <div class="col-md-6">
             <label for="razon_social_cliente" class="form-label">Razón Social</label>
-            <input type="text" class="form-control" id="razon_social_cliente" name="razon_social_cliente" value="" required>
+            <input type="text" class="form-control" id="razon_social_cliente" name="razon_social_cliente" placeholder="Ingrese la Razón Social de la empresa" value="" required>
         </div>
 
         <div class="col-md-3">
-            <label for="telefono_cliente" class="form-label">Telefono</label>
-            <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" required>
+            <label for="telefono_cliente" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" placeholder="Ingrese un Teléfono de Contacto, Ejemplo: (985060623)" required>
         </div>
 
         <div class="col-md-6">
             <label for="direccion_cliente" class="form-label">Dirección</label>
-            <input type="text" class="form-control" id="direccion_cliente" name="direccion_cliente" required>
+            <input type="text" class="form-control" id="direccion_cliente" name="direccion_cliente" placeholder="Ingrese la Dirección de la empresa" required>
         </div>
 
         <div class="col-md-6">
@@ -39,19 +39,19 @@
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                 <input type="text" class="form-control" id="email_cliente" name="email_cliente"
-                    aria-describedby="inputGroupPrepend" required>
+                    aria-describedby="inputGroupPrepend" placeholder="Ingrese un Correo de Contacto" required>
             </div>
         </div>       
 
     <br>
     <br>
-    <h2> Registrar Contraseña </h2>
+    <h2> Datos de Cuenta     </h2>
     <br>
 
     <div class="col-md-6">
         <div class="mb-3">
             <label for="usuario_cliente" class="form-label">Nombre de Usuario</label>
-            <input type="text" class="form-control" id="usuario_cliente" name="usuario_cliente" required>
+            <input type="text" class="form-control" id="usuario_cliente" name="usuario_cliente" placeholder="Ingrese un nombre de usuario (acceso al sistema)" disabled required>
             <div class="invalid-feedback">
 
             </div>
@@ -59,12 +59,24 @@
 
         <div class="mb-3">
             <label for="password_cliente" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password_cliente" name="password_cliente" required>
+            <input type="password" class="form-control" id="password_cliente" name="password_cliente" placeholder="Ingrese una contraseña" required>
         </div>
     </div>
 
+    <div class="col-md-6">
+        <div class="card text-center">
+            <div class="card-header">
+            Importante
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Usuario y Contraseña</h5>
+                <p class="card-text">Usuario: el nombre de usuario debe ser solo una palabra.</p>
+                <p class="card-text">Contraseña: la contraseña debe tener al menos un largo de 8 caracteres</p>
+            </div>
+        </div>
+    </div>
     
-    <br>
+   
 
     <input type="hidden" id="accion" name="accion" value="registrar">
     <input type="hidden" id="tipo_usuario_c" name="tipo_usuario_c" value="3">
@@ -72,10 +84,9 @@
     <input type="hidden" id="id_cliente" name="id_cliente" value="<?php echo $datos_cliente['id_cliente'] ?>">
 
     </form>
-
+    <br><br>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary col-2" onclick="modificarCliente()">Registrar</button>
-        <button class="btn btn-warning col-2" onclick="location.reload()">Limpiar</button>
+        <button class="btn btn-primary col-2" onclick="modificarCliente()">Modificar</button>
     </div>
     <br><br><br><br><br>
 
@@ -155,31 +166,31 @@
 
         }
 
-        if(razon_social==undefined || razon_social==null || razon_social.trim()=="" ){
+        if(razon_social==undefined || razon_social==null || razon_social.trim()=="" || !validacion.validarRazonSocial(razon_social)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Se debe seleccionar un rubro',                
+                text: 'Se debe ingresar una razón social valida',                
                 })            
             return;
 
         }
 
-        if(telefono==undefined || telefono==null || telefono.trim()=="" || !validacion.validarNumero(telefono)){
+        if(telefono==undefined || telefono==null || telefono.trim()=="" || !validacion.validarTelefono(telefono)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Se debe ingresar un número telefonico valido',                
+                text: 'Se debe ingresar un número telefónico valido, debe contener 9 dígitos',                
                 })            
             return;
 
         }
-
-        if(direccion==undefined || direccion==null || direccion.trim()=="" ){
+        
+        if(direccion==undefined || direccion==null || direccion.trim()=="" || !validacion.validarDireccion(direccion)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Se debe seleccionar un rubro',                
+                text: 'Se debe ingresar una dirección valida',                
                 })            
             return;
 
@@ -194,8 +205,8 @@
             return;
 
         }
-
-        if(usuario==undefined || usuario==null || usuario.trim()=="" ){
+        
+        if(usuario==undefined || usuario==null || usuario.trim()=="" || !validacion.validarUsuario(usuario)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -204,8 +215,8 @@
             return;
 
         }
-
-        if(password==undefined || password==null || password.trim()=="" ){
+        
+        if(password==undefined || password==null || password.trim()=="" || !validacion.validarPassword(password) || password.lengh<8 ){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

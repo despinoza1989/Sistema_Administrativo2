@@ -26,9 +26,68 @@ var validacion = {
         }
     },
 
+    validarTelefono: function(valor) {
+        if (!/^([0-9])*$/.test(valor) && valor.length==9){
+            return false;
+        } else {
+            return true;
+        }
+    },
+
     validarNumero: function(valor) {
-        return !isNaN(valor) && valor.length>=9
+        return !isNaN(valor) && valor.length==9
     }, 
+
+	validarNombre: function(valor) {
+		var texto = /^[a-zA-ZáéíóúÁÉÍÓÚñÑäÄëËïÏöÖüÜ ]*$/;
+		if(valor.search(texto)){
+			return false;
+		} else {
+			return true;
+		}
+
+	},
+
+	validarRazonSocial: function(valor) {
+		var texto = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ.' ]*$/;
+		if(valor.search(texto)){
+			return false;
+		} else {
+			return true;
+		}
+
+	},
+	
+	validarDireccion: function(valor) {
+		var texto = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ.'#,0-9 ]*$/;
+		if(valor.search(texto)){
+			return false;
+		} else {
+			return true;
+		}
+
+	},
+
+	validarUsuario: function(valor) {
+		var texto = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ]*$/;
+		if(valor.search(texto)){
+			return false;
+		} else {
+			return true;
+		}
+
+	},
+
+	validarPassword: function(valor) {
+		var texto = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ.'#,0-9@ ]*$/;
+		if(valor.search(texto)){
+			return false;
+		} else {
+			return true;
+		}
+
+	},
+
 
 }
 
