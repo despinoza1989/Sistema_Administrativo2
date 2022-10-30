@@ -201,6 +201,11 @@ session_start();
                     $ctrl = new ListarCapacitacionesTotalController();
                     break;
 
+                case 'detalle-capacitaciones':
+                    require_once "controllers/DetalleCapacitacionController.php";
+                    $ctrl = new DetalleCapacitacionController();
+                    break;
+                    
                 case 'listar-accidentes':
                     require_once "controllers/ListadoAccidenteController.php";
                     $ctrl = new ListadoAccidenteController();
