@@ -100,7 +100,7 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label for="usuario_personal" class="form-label">Nombre de Usuario</label>
-             <input type="text" class="form-control" id="usuario_personal" name="usuario_personal" placeholder="Ingrese un nombre de usuario (acceso al sistema)" value="" required>
+             <input type="text" class="form-control" id="usuario_personal" name="usuario_personal" placeholder="Ingrese un nombre de usuario (acceso al sistema)" value="" disabled required>
             <div class="invalid-feedback">
 
             </div>
