@@ -113,40 +113,40 @@
 
 <script>
 
-(function(){
+    (function(){
 
-document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
+    document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
 
-/*document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
-document.getElementById('rol_cliente').value = document.getElementById('rol_cliente').value;*/
-    
-//onChangeRol({})
-})()
+    /*document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
+    document.getElementById('rol_cliente').value = document.getElementById('rol_cliente').value;*/
+        
+    //onChangeRol({})
+    })()
 
-function onChangeRol(event){
+    function onChangeRol(event){
 
-var id_cliente= document.getElementById('rol_cliente').value;
+    var id_cliente= document.getElementById('rol_cliente').value;
 
-if(id_cliente && id_cliente>0){
+        if(id_cliente && id_cliente>0){
 
-    fetch("api.php/asignacion-profesional/" + id_cliente, {
-        method: "get"            
-    }).then(response=>response.json())
-    .then((datos)=>{
+            fetch("api.php/asignacion-profesional/" + id_cliente, {
+                method: "get"            
+            }).then(response=>response.json())
+            .then((datos)=>{
 
-        console.dir(datos)
+                console.dir(datos)
 
-        document.getElementById('id_cliente_vt').value=datos.id_cliente_ap;
-        document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
-        document.getElementById('telefono_cliente').value=datos.telefono_cliente;
-        document.getElementById('direccion_cliente').value=datos.direccion_cliente;
-        document.getElementById('email_cliente').value=datos.email_cliente;
+                document.getElementById('id_cliente_vt').value=datos.id_cliente_ap;
+                document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
+                document.getElementById('telefono_cliente').value=datos.telefono_cliente;
+                document.getElementById('direccion_cliente').value=datos.direccion_cliente;
+                document.getElementById('email_cliente').value=datos.email_cliente;
 
-    })
+            })
 
-}
+        }
 
-}
+    }
 
     function crearVisita(){
         var fecha_visita=document.getElementById("fecha_visita").value;

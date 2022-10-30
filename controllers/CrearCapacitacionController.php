@@ -13,6 +13,8 @@ class CrearCapacitacionController{
         $model_crear_capacitacion = new CrearCapacitacionModel();
         require_once "models/TipoPersonalCapacitacionModel.php";
         $model_tipo_personal_capacitacion = new TipoPersonalCapacitacionModel();
+        require_once "models/AsignacionProfesionalModel.php";
+        $model_asignacion = new AsignacionProfesionalModel();
 
 
         //Llamar datos del modelo
@@ -21,9 +23,11 @@ class CrearCapacitacionController{
             return;
         }
 
+        
         $datos_tipo_personal_capacitacion = $model_tipo_personal_capacitacion->getAll();
-        $datos_cliente = $model_cliente->getAll();
+        //$datos_cliente = $model_cliente->getAll();
         $datosusuario = $_SESSION['usuario'];
+        $dato_asignacion = $model_asignacion->getAllByPersonal($datosusuario['id_personal']);
 
 
         //Llamar a la vista 
