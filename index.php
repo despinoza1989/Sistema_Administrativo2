@@ -206,6 +206,11 @@ session_start();
                     $ctrl = new DetalleCapacitacionController();
                     break;
                     
+                case 'modificar-capacitaciones':
+                    require_once "controllers/ModificarCapactiacionController.php";
+                    $ctrl = new ModificarCapactiacionController();
+                    break;
+                    
                 case 'listar-accidentes':
                     require_once "controllers/ListadoAccidenteController.php";
                     $ctrl = new ListadoAccidenteController();
