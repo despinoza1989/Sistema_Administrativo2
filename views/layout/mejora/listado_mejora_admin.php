@@ -5,18 +5,22 @@
         <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
                 <th>Observación General</th>
+                <th>URL de Directorio de Documentos</th>
+                <th>URL de Directorio de Imagénes</th>
                 <th>Fecha/Hora Check-List</th>
                 <th>Rol Cliente</th>
                 <th>Razón Social Cliente</th>
                 <th>Teléfono Cliente</th>
                 <th>Email Cliente</th>
-                <th>Opciones</th>
+                <th>Opción</th>
             </tr>
             
             <?php foreach ($datos_mejora as $row){ ?>
            
            <tr>
                <td><?php echo $row["ob_check_general"]?></td>
+               <td><?php echo $row["doc_check_general"]?></td>
+               <td><?php echo $row["img_check_general"]?></td>
                <td><?php echo $row["fecha_check_list"]?></td>
                <td><?php echo $row["rol_cliente"]?></td>
                <td><?php echo $row["razon_social_cliente"]?></td>
