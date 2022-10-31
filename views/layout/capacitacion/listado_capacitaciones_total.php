@@ -8,6 +8,7 @@
                 <th>Nombre Personal</th>
                 <th>Email Personal</th>
                 <th>Tipo Personal a Capacitar</th>
+                <th>Opción</th>
             </tr>
 
             <?php foreach ($datos_capacitaciones as $row){ ?> 
@@ -19,10 +20,8 @@
                     <td><?php echo $row["email_personal"]?></td>
                     <td><?php echo $row["tipo_personal_capacitacion"]?></td>
                    
-                    <td>
-                     
-                         
-
+                    <td>                     
+                    <a href="index.php?view=detalle-capacitaciones&id_crear_capacitacion=<?php echo $row["id_crear_capacitacion"]?>" class="btn btn-success btn-sm">Ver Detalle</a>
                     </td>  
                 </tr>
 

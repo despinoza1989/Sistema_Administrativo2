@@ -24,12 +24,4 @@ class ListarSolicitudesCapacitacionesController{
 
     }
 
-    public function registropersonal(){
-
-        //Llamar models del Personal
-        
-        require_once "models/AutentificacionModel.php";
-   
-    }
-
 }

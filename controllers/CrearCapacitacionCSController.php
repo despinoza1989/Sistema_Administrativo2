@@ -27,7 +27,7 @@ class CrearCapacitacionCSController{
             return;
         }
 
-        $datos_tipo_personal_capacitacion = $model_tipo_personal_capacitacion->getAll();
+        //$datos_tipo_personal_capacitacion = $model_tipo_personal_capacitacion->getAll();
         $datosusuario = $_SESSION['usuario'];
         $datos_solicitud_capacitacion = $model_solicitud_capacitacion->getById($id_solicitud_capacitacion);
 

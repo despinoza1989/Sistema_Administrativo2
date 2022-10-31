@@ -17,10 +17,10 @@ class ListarCapacitacionesController{
 
         //Llamar datos del modelo
 
-        $datos_capacitaciones = $model_capacitacion->getAll();
+        //$datos_capacitaciones = $model_capacitacion->getAllByCapacitacion();
         $datos_cliente = $model_cliente->getAll();
         $datosusuario = $_SESSION['usuario'];
-        $datos_asignacion = $model_capacitacion->getAllByCapacitacion($datosusuario['id_personal']);
+        $datos_capacitaciones = $model_capacitacion->getAllByCapacitacion($datosusuario['id_personal']);
 
         //$datos = $model->getAllBy();
         
@@ -30,14 +30,6 @@ class ListarCapacitacionesController{
         require_once "views/layout/capacitacion/listado_capacitaciones.php";
         require_once "views/layout/footer.php";
 
-    }
-
-    public function registropersonal(){
-
-        //Llamar models del Personal
-        
-        require_once "models/AutentificacionModel.php";
-   
     }
 
 }

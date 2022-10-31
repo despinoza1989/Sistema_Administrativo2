@@ -5,9 +5,8 @@
             <tr class="table table-striped table-hover table-responsive-sm">
                 <th>Nombre Solicitud Capacitacion</th>
                 <th>Fecha Solicitud Capacitacion</th>
-                <th>Rol Cliente</th>
                 <th>Razon Social</th>
-                <th>telefono Cliente</th>
+                <th>Teléfono Cliente</th>
                 <th>Direccion Cliente</th>
                 <th>Tipo Personal a Capacitar</th>
                 <th>Opción</th>
@@ -18,7 +17,6 @@
                 <tr>
                     <td><?php echo $row["nombre_solicitud_capacitacion"]?></td>
                     <td><?php echo $row["fecha_solicitud_capacitacion"]?></td>
-                    <td><?php echo $row["rol_cliente"]?></td>
                     <td><?php echo $row["razon_social_cliente"]?></td>
                     <td><?php echo $row["telefono_cliente"]?></td>
                     <td><?php echo $row["direccion_cliente"]?></td>

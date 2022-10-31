@@ -158,6 +158,22 @@ $app->get('/crear-capacitacion/{id_crear_capacitacion}', function (Request $requ
 
 });
 
+$app->get('/detalle-capacitacion/{id_crear_capacitacion}', function (Request $request, Response $response, array $args) {
+    
+    $id_crear_capacitacion = $args['id_crear_capacitacion'];    
+    $model = new CrearCapacitacionModel();
+    $datos = $model->getByDetalleCapacitacion($id_crear_capacitacion);
+    return $response->withJson($datos);
+
+});
+
+$app->post('/modificar-capacitacion', function (Request $request, Response $response, array $args) {
+    
+    $model = new CrearCapacitacionModel();
+    $datos = $model->update($request->getParsedBody());
+    return $response->withJson($datos);
+
+});
 //MODELS ESTADO CIVIL
 
 $app->get('/estado-civil', function (Request $request, Response $response, array $args) {
