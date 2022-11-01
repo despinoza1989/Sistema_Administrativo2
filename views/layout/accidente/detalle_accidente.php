@@ -18,7 +18,7 @@
         </div>
 
         <div class="col-md-3">
-            <label for="telefono_cliente" class="form-label">Telefono</label>
+            <label for="telefono_cliente" class="form-label">Teléfono</label>
             <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" disabled required>
         </div>
 

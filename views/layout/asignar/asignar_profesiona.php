@@ -162,6 +162,15 @@ function asignarProfesional(){
     var rol_cliente=document.getElementById("rol_cliente").value;
     var rut_personal=document.getElementById("rut_personal").value;
 
+    if(rut_personal==undefined || rut_personal==null || rut_personal.trim()=="" ){
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Se debe seleccionar el Rut del Profesional',                
+            })            
+        return;
+
+    }
 
     if(rol_cliente==undefined || rol_cliente==null || rol_cliente.trim()=="" ){
         Swal.fire({
@@ -173,15 +182,7 @@ function asignarProfesional(){
 
     }
 
-    if(rut_personal==undefined || rut_personal==null || rut_personal.trim()=="" ){
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Se debe seleccionar el Rut del Profesional',                
-            })            
-        return;
 
-    }
 
     let formulario = new FormData(document.getElementById("asignar_profesional"))
         fetch('index.php?view=asignar-profesional', {
