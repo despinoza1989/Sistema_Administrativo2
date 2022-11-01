@@ -75,7 +75,7 @@
         <h2>Datos de Capacitación</h2>
         <div class="col-md-6">
             <label for="nombre_capacitacion" class="form-label">Nombre Capacitación</label>
-            <input type="text" class="form-control" id="nombre_capacitacion" name="nombre_capacitacion" placeholder="Escriba un nombre para la capacitación" required>
+            <input type="text" class="form-control" id="nombre_capacitacion" name="nombre_capacitacion" placeholder="Ingrese un Nombre de Capacitación, Ejemplo: Uso Correcto de EPP " required>
             <div class="invalid-feedback">
             </div>
         </div>

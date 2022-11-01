@@ -1,4 +1,4 @@
-
+<br><br><br>
 <div class="card" style="margin: 1px 5em;">
         <h3 align="center" >Listado de Capacitaciones</h3>
         <table class="table table-sm">

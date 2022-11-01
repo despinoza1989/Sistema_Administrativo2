@@ -167,6 +167,7 @@ $app->get('/detalle-capacitacion/{id_crear_capacitacion}', function (Request $re
 
 });
 
+
 $app->post('/modificar-capacitacion', function (Request $request, Response $response, array $args) {
     
     $model = new CrearCapacitacionModel();
