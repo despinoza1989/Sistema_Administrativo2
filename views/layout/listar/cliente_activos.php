@@ -24,8 +24,8 @@
         <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
                 <th>Nombre de Usuario</th>
-                <th>Rut/Rol</th>
-                <th>Nombre/Razón Social</th>
+                <th>Rol</th>
+                <th>Razón Social</th>
                 <th>Email</th>
                 <th>Estado</th>
                 <th>Opción</th>
