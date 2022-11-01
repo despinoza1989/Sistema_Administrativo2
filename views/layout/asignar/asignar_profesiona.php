@@ -4,7 +4,7 @@
     <form id="asignar_profesional" class="row g-3 needs-validation" novalidate>
         <h2> Profesional </h2>
         <div class="col-md-6">
-            <label for="rut_personal" class="form-label">Rol</label>
+            <label for="rut_personal" class="form-label">Rut</label>
             <select class="form-select" id="rut_personal" name="rut_personal"  required>
                 <option selected disabled value="">Seleccione Rut del profesional</option>
                 <?php foreach ($datos_personal as $row){ ?>
@@ -13,7 +13,7 @@
             </select>
         </div>
         <div class="col-md-6">
-            <label for="telefono_personal" class="form-label">Telefono</label>
+            <label for="telefono_personal" class="form-label">Teléfono</label>
             <input type="text" class="form-control" id="telefono_personal" value="" disabled required>
         </div>
         <div class="col-md-3">
@@ -75,7 +75,7 @@
         </div>
 
         <div class="col-md-3">
-            <label for="telefono_cliente" class="form-label">Telefono</label>
+            <label for="telefono_cliente" class="form-label">Teléfono</label>
             <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" disabled required>
         </div>
 

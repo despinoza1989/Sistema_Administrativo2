@@ -14,7 +14,7 @@
             </select>
         </div>
         <div class="col-md-6">
-            <label for="telefono_personal" class="form-label">Telefono</label>
+            <label for="telefono_personal" class="form-label">Teléfono</label>
             <input type="text" class="form-control" id="telefono_personal" disabled required>
         </div>
         <div class="col-md-3">
@@ -68,7 +68,7 @@
         </div>
 
         <div class="col-md-3">
-            <label for="telefono_cliente" class="form-label">Telefono</label>
+            <label for="telefono_cliente" class="form-label">Teléfono</label>
             <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente"  value="<?php echo $datos['telefono_cliente']?>"  disabled required>
         </div>
 
@@ -82,8 +82,7 @@
 
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary col-2" onclick="modificarProfesional()">Asignar</button>
-        <button class="btn btn-warning col-2" onclick="location.reload()">Limpiar</button>
+        <button class="btn btn-primary col-2" onclick="modificarProfesional()">Reasignar</button>
     </div>
 </div>
 
