@@ -10,7 +10,7 @@
 
 
         <div class="col-md-6">
-            <label for="tipo_asesoria" class="form-label">Tipo de Asesoria</label>
+            <label for="tipo_asesoria" class="form-label">Tipo de Asesoría</label>
             <input type="text" class="form-control" placeholder="" id="tipo_asesoria" name="tipo_asesoria" disabled required>
         </div>
 

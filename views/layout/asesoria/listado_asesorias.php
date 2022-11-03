@@ -1,16 +1,16 @@
 
 <br><br><br>
 <div class="card" style="margin: 1px 5em;">
-        <h3 align="center" >Listado de Asesorias Solicitadas por Cliente</h3>
+        <h3 align="center" >Listado de Asesorías Solicitadas por Cliente</h3>
         <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
-                <th>Razon Social</th>
+                <th>Razón Social</th>
                 <th>Rol</th>
                 <th>Dirección</th>
                 <th>Correo</th>
                 <th>Teléfono</th>
                 <th>Detalle Asesoría</th>
-                <th>Opciones</th>
+                <th>Opción</th>
             </tr>
 
             <?php foreach ($datos_asesoria as $row){ ?> 

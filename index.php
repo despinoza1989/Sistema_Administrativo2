@@ -174,7 +174,12 @@ session_start();
                 case 'respuesta-asesoria':
                     require_once "controllers/RespuestaAsesoriaController.php";
                     $ctrl = new RespuestaAsesoriaController();
-                    break;    
+                    break;  
+                    
+                case 'respuesta-asesoria-admin':
+                    require_once "controllers/RespuestaAsesoriaAdminController.php";
+                    $ctrl = new RespuestaAsesoriaAdminController();
+                    break; 
                 
                 case 'crear-capacitacion':
                     require_once "controllers/CrearCapacitacionController.php";
