@@ -4,13 +4,15 @@
         <h3 align="center" >Listado de Asesorías Generadas por Profesionales</h3>
         <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
-                <th>Razon Social</th>
+                <th>Razón Social</th>
                 <th>Rol</th>
                 <th>Dirección</th>
                 <th>Correo</th>
                 <th>Teléfono</th>
                 <th>Detalle Asesoría</th>
-                <th>Opciones</th>
+                <th>Nombre Profesional Que Entrega Respuesta</th>
+                <th>Respuesta De Solicitud Asesoría</th>
+                <th>Opción</th>
             </tr>
 
             <?php foreach ($datos_asesoria as $row){ ?> 
@@ -22,10 +24,11 @@
                     <td><?php echo $row["email_cliente"]?></td>
                     <td><?php echo $row["telefono_cliente"]?></td>
                     <td><?php echo $row["detalle_asesoria"]?></td>
-                   
+                    <td><?php echo $row["nombre_personal"]?> <?php echo $row["apellidos_personal"]?></td>
+                    <td><?php echo $row["respuesta_asesoria"]?></td>
  
                     <td>
-                    <a href="index.php?view=respuesta-asesoria&id_solicitud_asesoria=<?php echo $row["id_solicitud_asesoria"]?>" class="btn btn-info btn-sm">Ver Solicitud</a>
+                    <a href="index.php?view=respuesta-asesoria-admin&id_solicitud_asesoria=<?php echo $row["id_solicitud_asesoria"]?>" class="btn btn-info btn-sm">Ver Solicitud</a>
                     </td>         
                 </tr>
 

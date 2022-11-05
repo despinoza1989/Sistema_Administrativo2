@@ -16,7 +16,7 @@ class ListarAsesoriaAdminController{
         //Llamar datos del modelo
 
         $datosusuario = $_SESSION['usuario'];
-        $datos_asesoria = $model_asesoria->getAll();
+        $datos_asesoria = $model_asesoria->getByListadoAdmin();
         //$datos = $model->getAllBy();
         
 

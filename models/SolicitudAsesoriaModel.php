@@ -66,6 +66,30 @@ class SolicitudAsesoriaModel {
         return $response;
     }
 
+    function getByListadoAdmin() {
+        $conexion= Database::connect();
+        $query = "SELECT 
+        sa.id_solicitud_asesoria, c.razon_social_cliente, C.rol_cliente, c.direccion_cliente, c.email_cliente, c.telefono_cliente, 
+        sa.detalle_asesoria,
+        p.nombre_personal, p.apellidos_personal,
+        ra.respuesta_asesoria
+        FROM solicitud_asesoria AS sa
+        LEFT JOIN cliente AS c ON c.id_cliente = sa.id_cliente_sa
+        LEFT JOIN asignacion_profesional AS ap ON c.id_cliente = ap.id_cliente_ap
+        LEFT JOIN personal AS p ON p.id_personal = ap.id_personal_ap
+        LEFT JOIN tipo_asesoria AS ta ON ta.id_tipo_asesoria = sa.id_tipo_asesoria_sa
+        LEFT JOIN respuesta_asesoria AS ra ON id_personal_sa = p.id_personal";
+        $result = $conexion->query($query);
+        $response = array();
+        while($row = mysqli_fetch_assoc($result)) { 
+            
+            $response[] = $row; 
+        }
+        $result->close();
+        $conexion->close();
+        return $response;
+    }
+
 
     function create($data) {
 
