@@ -67,7 +67,7 @@
         </div>
     <br>
     <br>
-    <h2> Registrar Contraseña </h2>
+    <h2> Datos de Cuenta </h2>
     <br>
     <div class="col-md-6">
         <div class="mb-3">
