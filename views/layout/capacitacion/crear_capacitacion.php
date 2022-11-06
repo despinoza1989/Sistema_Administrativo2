@@ -101,7 +101,7 @@
         <div class="col-md-6">
             <label for="link_capacitacion" class="form-label">URL de Directorio de Archivos</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="link_capacitacion">https://nma.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input type="text" class="form-control" id="link_capacitacion" name="link_capacitacion"
                     aria-describedby="link_capacitacion" placeholder="Escriba un titulo para el archivo adjunto">
             </div>
