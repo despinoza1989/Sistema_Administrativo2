@@ -26,6 +26,7 @@ require "models/TipoPersonalCapacitacionModel.php";
 require "models/TipoUsuarioModel.php";
 require "models/VisitaTerrenoModel.php";
 require "models/AsignacionProfesionalModel.php";
+require "models/DetalleChecklistModel.php";
 
 
 $configuration = [
@@ -112,6 +113,15 @@ $app->get('/personal/profesional/{id_tipo_usuario_p}', function (Request $reques
 
 });
 
+$app->get('/personal/existente/{rut_personal}', function (Request $request, Response $response, array $args) {
+    
+    $rut_personal = $args["rut_personal"];    
+    $model = new PersonalModel();
+    $datos = $model->getAllByRut($rut_personal);
+    return $response->withJson($datos);
+
+});
+
 $app->post('/personal', function (Request $request, Response $response, array $args) {
     
     $model = new PersonalModel();
@@ -122,7 +132,7 @@ $app->post('/personal', function (Request $request, Response $response, array $a
 
 //MODELS CHECKLIST
 
-/*$app->get('/check-list', function (Request $request, Response $response, array $args) {
+$app->get('/check-list', function (Request $request, Response $response, array $args) {
      
     $model = new ChecklistModel();
     $datos = $model->getAll();
@@ -137,7 +147,24 @@ $app->get('/check-list/{id_check_list}', function (Request $request, Response $r
     $datos = $model->getById($id_check_list);
     return $response->withJson($datos);
 
-});*/
+});
+
+$app->post('/check-list', function (Request $request, Response $response, array $args) {
+        
+    $model = new ChecklistModel();
+    $model2 = new DetalleChecklistModel();
+    $data_post = $request->getParsedBody();
+    $datos = $model->create($data_post['check_list']);
+
+    $detalles_checklist = $data_post['detalle_check_list'];
+    foreach($detalles_checklist as $detalle){
+        $detalle['id_check_list_dcl']=$datos['id'];
+        $model2->create($detalle);
+    }
+    return $response->withJson($datos);
+
+});
+
 
 //MODELS CREAR CAPACITACIÓN
 

@@ -52,8 +52,15 @@ class ChecklistModel {
         VALUES ('". $data['fecha_check_list']."', '". $data['obs_check_general']."', '". $data['obs_check_proteccion']."', '". $data['obs_check_herramientas']."',
         '". $data['obs_check_maquinaria']."', '". $data['id_personal_ckl']."', '". $data['id_cliente_ckl']."', '". $data['id_rubro_ckl']."')";
         $result = $conexion->query($queryInsert);
+
+        $query2 = "SELECT LAST_INSERT_ID() as id";
+        $result2 = $conexion->query($query2);
+        $response=array();
+        while ($row = mysqli_fetch_assoc($result2)) { $response = $row; }
+        $result2->close();
+
         $conexion->close();
-        return $result;
+        return array('resultado insert'=>$result,'id'=>$response['id']);
     }
 
     function update($data) {

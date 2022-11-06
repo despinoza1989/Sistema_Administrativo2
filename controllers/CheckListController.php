@@ -18,7 +18,7 @@ class CheckListController{
         //Llamar datos del modelo
 
         if(isset($_POST["accion"])){
-            $model_check_list->create($_POST);            
+            $model_check_list->create($_POST['check_list']);            
             return;
         }
 

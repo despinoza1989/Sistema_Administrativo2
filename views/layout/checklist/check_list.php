@@ -380,8 +380,6 @@
 
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_personal_ckl" name="id_personal_ckl" value="<?php echo $datosusuario['id_personal']?>">
-        <input type="hidden" id="id_cliente_ckl" name="id_cliente_ckl" value="<?php echo $datos_cliente["id_cliente"]?>">
-        <input type="hidden" id="id_rubro_ckl" name="id_rubro_ckl" value="<?php echo $datos_cliente["id_rubro"]?>">
 
 
     </form>
@@ -397,6 +395,8 @@
 
 
 <script>
+
+var cliente_seleccionado={};
 
 (function(){
 
@@ -416,7 +416,8 @@ if(id_cliente && id_cliente>0){
     .then((datos)=>{
 
         console.dir(datos)
-
+        
+        cliente_seleccionado=datos;
         document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
         document.getElementById('telefono_cliente').value=datos.telefono_cliente;
         document.getElementById('direccion_cliente').value=datos.direccion_cliente;
@@ -428,12 +429,15 @@ if(id_cliente && id_cliente>0){
 
 }
 
-</script>
 
-<script>
 function registrarCheck() {
 
     var fecha_check_list = document.getElementById("fecha_check_list").value;
+    var id_personal_ckl = document.getElementById("id_personal_ckl").value;
+    var id_cliente_ckl = cliente_seleccionado.id_cliente_ap;
+    var id_rubro_ckl = cliente_seleccionado.id_rubro;
+
+    console.log(id_personal_ckl, id_cliente_ckl, id_rubro_ckl);
 
     /*var check_list={
       fecha_check_list
@@ -650,6 +654,8 @@ function registrarCheck() {
 
     let request = {
 
+        accion: 'crear',
+
         check_list: {
             fecha_check_list: fecha_check_list,
             obs_check_general: obs_check_general,
@@ -666,13 +672,16 @@ function registrarCheck() {
 
     }
 
-    console.log(request)
+    console.log(request, "request")
 
-    /*fetch('index.php?view=check-list', {
+    fetch('api.php/check-list', {
         method: "post",
-        body: formulario
+        headers: {
+                    'Content-Type': 'application/json'
+                },
+        body: JSON.stringify(request)
     }).then((response) => {
-
+        console.log(response,"respuesta")
         Swal.fire({
             title: 'Check-List Registrado Exitosamente',
             showDenyButton: false,
@@ -682,9 +691,9 @@ function registrarCheck() {
             location.reload();
         })
         /*acciones a realizar*/
-    //}).then((data) => {
+    }).then((data) => {
     /*mas acciones a realizar*/
-    //})
+    })
 
 }
 </script>
