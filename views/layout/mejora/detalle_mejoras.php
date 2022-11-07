@@ -61,12 +61,13 @@
         <br>
         <div class="col-md-4">
             <label for="ob_check_general" class="form-label">Observaciones General</label>
-            <input type="text" class="form-control" id="ob_check_general" name="ob_check_general" disabled required>
+            <input type="text" class="form-control" id="ob_check_general" name="ob_check_general"
+                placeholder="Ingrese detalle de la observación" disabled required>
         </div>
         <div class="col-md-4">
             <label for="doc_check_general" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="doc_check_general">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_general" name="doc_check_general"
                     aria-describedby="doc_check_general" disabled required>
             </div>
@@ -74,7 +75,7 @@
         <div class="col-md-4">
             <label for="img_check_general" class="form-label">URL de Directorio de Imagénes</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="img_check_general">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="img_check_general" name="img_check_general"
                     aria-describedby="img_check_general" disabled required>
             </div>
@@ -84,13 +85,13 @@
         <br>
         <div class="col-md-4">
             <label for="ob_check_proteccion" class="form-label">Observaciones Protección</label>
-            <input type="text" class="form-control" id="ob_check_proteccion" name="ob_check_proteccion" disabled
-                required>
+            <input type="text" class="form-control" id="ob_check_proteccion" name="ob_check_proteccion"
+                placeholder="Ingrese detalle de la observación" disabled required>
         </div>
         <div class="col-md-4">
             <label for="doc_check_proteccion" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="doc_check_proteccion">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_proteccion" name="doc_check_proteccion"
                     aria-describedby="doc_check_proteccion" disabled required>
             </div>
@@ -98,7 +99,7 @@
         <div class="col-md-4">
             <label for="img_check_proteccion" class="form-label">URL de Directorio de Imagénes</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="img_check_proteccion">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="img_check_proteccion" name="img_check_proteccion"
                     aria-describedby="img_check_proteccion" disabled required>
             </div>
@@ -107,13 +108,13 @@
         <br>
         <div class="col-md-4">
             <label for="ob_check_herramientas" class="form-label">Observaciones Herramientas</label>
-            <input type="text" class="form-control" id="ob_check_herramientas" name="ob_check_herramientas" disabled
-                required>
+            <input type="text" class="form-control" id="ob_check_herramientas" name="ob_check_herramientas"
+                placeholder="Ingrese detalle de la observación" disabled required>
         </div>
         <div class="col-md-4">
             <label for="doc_check_herramientas" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="doc_check_herramientas">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_herramientas" name="doc_check_herramientas"
                     aria-describedby="doc_check_herramientas" disabled required>
             </div>
@@ -121,7 +122,7 @@
         <div class="col-md-4">
             <label for="img_check_herramientas" class="form-label">URL de Directorio de Imagénes</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="img_check_herramientas">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="img_check_herramientas" name="img_check_herramientas"
                     aria-describedby="img_check_herramientas" disabled required>
             </div>
@@ -130,13 +131,13 @@
         <br>
         <div class="col-md-4">
             <label for="ob_check_maquinaria" class="form-label">Observaciones Maquinaria</label>
-            <input type="text" class="form-control" id="ob_check_maquinaria" name="ob_check_maquinaria" disabled
-                required>
+            <input type="text" class="form-control" id="ob_check_maquinaria" name="ob_check_maquinaria"
+                placeholder="Ingrese detalle de la observación" disabled required>
         </div>
         <div class="col-md-4">
             <label for="doc_check_maquinaria" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="doc_check_maquinaria">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_maquinaria" name="doc_check_maquinaria"
                     aria-describedby="doc_check_maquinaria" disabled required>
             </div>
@@ -144,7 +145,7 @@
         <div class="col-md-4">
             <label for="img_check_maquinaria" class="form-label">URL de Directorio de Imagénes</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="img_check_maquinaria">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="img_check_maquinaria" name="img_check_maquinaria"
                     aria-describedby="img_check_maquinaria" disabled required>
             </div>

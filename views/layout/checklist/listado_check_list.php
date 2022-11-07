@@ -24,7 +24,7 @@
                     <td><?php echo $row["fecha_check_list"]?></td>
                     <td><?php echo $row["obs_check_general"]?></td>
                     <td>
-                        <a href="#" class="btn btn-info btn-sm">Ver Detalle</a>
+                        <a href="index.php?view=detalle-check-list&id_check_list=<?php echo $row["id_check_list"]?>" class="btn btn-info btn-sm">Ver Detalle</a>
                         <a href="#" class="btn btn-warning">Modificar</a>
                     </td>         
                 </tr>

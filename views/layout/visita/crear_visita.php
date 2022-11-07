@@ -99,7 +99,7 @@
 
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_personal_vt" name="id_personal_vt" value="<?php echo $datosusuario['id_personal']?>">
-        <input type="hidden" id="id_cliente_vt" name="id_cliente_vt" value="1">      
+        <input type="hidden" id="id_cliente_vt" name="id_cliente_vt" value="">      
  
 
     </form>

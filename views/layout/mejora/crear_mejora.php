@@ -70,7 +70,7 @@
         <div class="col-md-4">
             <label for="doc_check_general" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="doc_check_general">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_general" name="doc_check_general"
                     aria-describedby="doc_check_general">
             </div>
@@ -78,7 +78,7 @@
         <div class="col-md-4">
             <label for="img_check_general" class="form-label">URL de Directorio de Imagénes</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="img_check_general">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="img_check_general" name="img_check_general"
                     aria-describedby="img_check_general">
             </div>
@@ -94,7 +94,7 @@
         <div class="col-md-4">
             <label for="doc_check_proteccion" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="doc_check_proteccion">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_proteccion" name="doc_check_proteccion"
                     aria-describedby="doc_check_proteccion">
             </div>
@@ -102,7 +102,7 @@
         <div class="col-md-4">
             <label for="img_check_proteccion" class="form-label">URL de Directorio de Imagénes</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="img_check_proteccion">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="img_check_proteccion" name="img_check_proteccion"
                     aria-describedby="img_check_proteccion">
             </div>
@@ -117,7 +117,7 @@
         <div class="col-md-4">
             <label for="doc_check_herramientas" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="doc_check_herramientas">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_herramientas" name="doc_check_herramientas"
                     aria-describedby="doc_check_herramientas">
             </div>
@@ -125,7 +125,7 @@
         <div class="col-md-4">
             <label for="img_check_herramientas" class="form-label">URL de Directorio de Imagénes</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="img_check_herramientas">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="img_check_herramientas" name="img_check_herramientas"
                     aria-describedby="img_check_herramientas">
             </div>
@@ -140,7 +140,7 @@
         <div class="col-md-4">
             <label for="doc_check_maquinaria" class="form-label">URL de Directorio de Documentos</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="doc_check_maquinaria">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="doc_check_maquinaria" name="doc_check_maquinaria"
                     aria-describedby="doc_check_maquinaria">
             </div>
@@ -148,15 +148,15 @@
         <div class="col-md-4">
             <label for="img_check_maquinaria" class="form-label">URL de Directorio de Imagénes</label>
             <div class="input-group has-validation">
-                <span class="input-group-text" id="img_check_maquinaria">https://drive.google.com/drive</span>
+                <span class="input-group-text">https://nma.com/drive</span>
                 <input class="form-control" type="text" id="img_check_maquinaria" name="img_check_maquinaria"
                     aria-describedby="img_check_maquinaria">
             </div>
         </div>
 
         <input type="hidden" id="accion" name="accion" value="registrar">
-        <input type="hidden" id="id_check_list_m" name="id_check_list_m" value="1">
-        <input type="hidden" id="id_cliente_m" name="id_cliente_m" value="1">
+        <input type="hidden" id="id_check_list_m" name="id_check_list_m" value="">
+        <input type="hidden" id="id_cliente_m" name="id_cliente_m" value="">
 
 
     </form>
@@ -187,7 +187,8 @@ function onChangeRol(event) {
             .then((datos) => {
 
                 console.dir(datos)
-
+                document.getElementById('id_check_list_m').value = datos.id_check_list;
+                document.getElementById('id_cliente_m').value = datos.id_cliente_ap;
                 document.getElementById('razon_social_cliente').value = datos.razon_social_cliente;
                 document.getElementById('telefono_cliente').value = datos.telefono_cliente;
                 document.getElementById('direccion_cliente').value = datos.direccion_cliente;
@@ -219,6 +220,26 @@ function registrarMejora() {
             icon: 'error',
             title: 'Oops...',
             text: 'Se debe completar el campo de Observacion General',
+        })
+        return;
+
+    }
+
+    if (doc_check_general == undefined || doc_check_general == null || doc_check_general.trim() == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Se debe completar el campo deURL de Directorio de Documentos',
+        })
+        return;
+
+    }
+
+    if (img_check_general == undefined || img_check_general == null || img_check_general.trim() == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Se debe completar el campo de URL de Directorio de Imagénes',
         })
         return;
 

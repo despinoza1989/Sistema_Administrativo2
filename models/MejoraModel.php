@@ -47,6 +47,32 @@ class MejoraModel {
         return $response;
     }
 
+    function getAll2($id_personal) {
+
+        $conexion= Database::connect();
+        $query = "SELECT 	m.id_mejoras, m.ob_check_general, m.doc_check_general, m.img_check_general, m.ob_check_proteccion, m.doc_check_proteccion,
+        m.img_check_proteccion, m.ob_check_herramientas, m.doc_check_herramientas, m.img_check_herramientas, m.ob_check_maquinaria,
+        m.doc_check_maquinaria, m.img_check_maquinaria,
+		c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.estado_usuario_cliente, c.usuario_cliente, c.password_cliente, c.tipo_usuario_c, c.id_rubro,
+		ck.id_check_list, ck.fecha_check_list, ck.obs_check_general, ck.obs_check_proteccion, ck.obs_check_herramientas, ck.obs_check_maquinaria, ck.id_personal_ckl, ck.id_cliente_ckl, ck.id_rubro_ckl,
+        a.id_asignacion_profesional
+        FROM mejoras AS m
+        LEFT JOIN check_list AS ck ON m.id_check_list_m = ck.id_check_list
+        LEFT JOIN cliente AS c ON m.id_cliente_m = c.id_cliente
+        LEFT JOIN asignacion_profesional AS a ON a.id_cliente_ap = c.id_cliente
+        LEFT JOIN personal AS p ON p.id_personal = id_personal_ap
+        WHERE p.id_personal  = '". $id_personal ."'";
+        $result = $conexion->query($query);
+        $response = array();
+        while($row = mysqli_fetch_assoc($result)) {
+
+           $response[] = $row; 
+        }
+        $result->close();
+        $conexion->close();
+        return $response;
+    }
+
     function getByListado($id_personal) {
 
         $conexion= Database::connect();
