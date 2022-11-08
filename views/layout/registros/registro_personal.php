@@ -82,17 +82,18 @@
 
     </div>
     <div class="col-md-6">
-        <div class="card text-center">
-            <div class="card-header">
-            Importante
+        <div class="card border-danger">
+            <div class="card-header text-center text-danger">
+            <strong>Importante</strong>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Usuario y Contraseña</h5>
-                <p class="card-text">Usuario: el nombre de usuario debe ser solo una palabra.</p>
-                <p class="card-text">Contraseña: la contraseña debe tener al menos un largo de 8 caracteres</p>
+                <h5 class="card-title text-center">Usuario y Contraseña</h5>
+                <p class="card-text"><strong>Usuario:</strong> el nombre de usuario debe ser solo una palabra.</p>
+                <p class="card-text"><strong>Contraseña:</strong> la contraseña debe tener al menos un largo de 8 caracteres, 1 minúscula, 1 mayúscula, 1 número, 1 carácter especial y sin espacios.</p>
             </div>
         </div>
     </div>
+
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="estado_usuario_personal" name="estado_usuario_personal" value="1">
 
@@ -105,6 +106,25 @@
 </div>
 
 <script>
+
+    var lista_personal=[];
+
+    (function(){
+
+        fetch("api.php/personal", {
+                method: "get"            
+            }).then(response=>response.json())
+            .then((datos)=>{
+
+                lista_personal = datos;
+                console.log(datos)
+
+
+            })
+    })() 
+
+
+
     function registrarPersonal(){
         var rut_personal=document.getElementById("rut_personal").value;
         var telefono_personal=document.getElementById("telefono_personal").value;
@@ -130,7 +150,20 @@
 
         }
 
-        if(telefono_personal==undefined || telefono_personal==null || telefono_personal.trim()=="" || !validacion.validarTelefono(telefono_personal)){
+        var rut_existe = lista_personal.filter(personal=>personal.rut_personal==rut_personal).length>0;
+        console.log (rut_existe, "Rut Existe")
+        console.log (lista_personal, "Lista Personal")
+        if( rut_existe == true ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'El Rut ingresado ya existe',                
+                })            
+            return;
+
+        }
+
+        if(telefono_personal==undefined || telefono_personal==null || telefono_personal.trim()=="" || validacion.validarTelefono(telefono_personal)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -170,8 +203,6 @@
 
         }
 
-        
-
         if(direccion_personal==undefined || direccion_personal==null || direccion_personal.trim()=="" || !validacion.validarDireccion(direccion_personal)){
             Swal.fire({
                 icon: 'error',
@@ -200,6 +231,7 @@
             return;
 
         }
+
         if(id_genero==undefined || id_genero==null || id_genero.trim()=="" ){
             Swal.fire({
                 icon: 'error',
@@ -209,6 +241,7 @@
             return;
 
         }
+
         if(id_tipo_usuario_p==undefined || id_tipo_usuario_p==null || id_tipo_usuario_p.trim()=="" ){
             Swal.fire({
                 icon: 'error',
@@ -219,7 +252,6 @@
 
         }
         
-
         if(usuario_personal==undefined || usuario_personal==null || usuario_personal.trim()=="" || !validacion.validarUsuario(usuario_personal)){
             Swal.fire({
                 icon: 'error',
@@ -230,7 +262,20 @@
 
         }
 
-        if(password_personal==undefined || password_personal==null || password_personal.trim()=="" || !validacion.validarPassword(password_personal) || password_personal.lengh<8){
+        var usuario_existe = lista_personal.filter(personal=>personal.usuario_personal==usuario_personal).length>0;
+
+        if( usuario_existe == true ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'El Nombre de Usuario ingresado ya existe',                
+                })            
+            return;
+
+        }
+
+
+        if(password_personal==undefined || password_personal==null || password_personal.trim()=="" || !validacion.validarPassword(password_personal)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

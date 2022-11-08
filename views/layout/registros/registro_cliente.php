@@ -75,14 +75,14 @@
     </div>
 
     <div class="col-md-6">
-        <div class="card text-center">
-            <div class="card-header">
-            Importante
+        <div class="card border-danger">
+            <div class="card-header text-center text-danger">
+            <strong>Importante</strong>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Usuario y Contraseña</h5>
-                <p class="card-text">Usuario: el nombre de usuario debe ser solo una palabra.</p>
-                <p class="card-text">Contraseña: la contraseña debe tener al menos un largo de 8 caracteres</p>
+                <h5 class="card-title text-center">Usuario y Contraseña</h5>
+                <p class="card-text"><strong>Usuario:</strong> el nombre de usuario debe ser solo una palabra.</p>
+                <p class="card-text"><strong>Contraseña:</strong> la contraseña debe tener al menos un largo de 8 caracteres, 1 minúscula, 1 mayúscula, 1 número, 1 carácter especial y sin espacios.</p>
             </div>
         </div>
     </div>
@@ -107,6 +107,21 @@
 
 <script>
 
+    var lista_cliente=[];
+
+    (function(){
+
+        fetch("api.php/cliente", {
+                method: "get"            
+            }).then(response=>response.json())
+            .then((datos)=>{
+
+                lista_cliente = datos;
+                console.log(datos)
+
+
+            })
+    })() 
    
     function registrarCliente(){
         var rol=document.getElementById("rol_cliente").value;
@@ -129,6 +144,19 @@
 
         }
 
+        var rol_existe = lista_cliente.filter(cliente=>cliente.rol_cliente==rol).length>0;
+
+        if( rol_existe == true ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'El Rol ingresado ya existe',                
+                })            
+            return;
+
+        }
+
+
         if(rubro==undefined || rubro==null || rubro.trim()=="" ){
             Swal.fire({
                 icon: 'error',
@@ -149,7 +177,7 @@
 
         }
 
-        if(telefono==undefined || telefono==null || telefono.trim()=="" || !validacion.validarTelefono(telefono)){
+        if(telefono==undefined || telefono==null || telefono.trim()=="" || validacion.validarTelefono(telefono)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -189,7 +217,19 @@
 
         }
         
-        if(password==undefined || password==null || password.trim()=="" || !validacion.validarPassword(password) || password.lengh<8 ){
+        var usuario_existe = lista_cliente.filter(cliente=>cliente.usuario_cliente==usuario).length>0;
+
+        if( usuario_existe == true ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'El Nombre de Usuario ingresado ya existe',                
+                })            
+            return;
+
+        }
+
+        if(password==undefined || password==null || password.trim()=="" || !validacion.validarPassword(password)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

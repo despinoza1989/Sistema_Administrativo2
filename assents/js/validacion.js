@@ -27,7 +27,7 @@ var validacion = {
     },
 
     validarTelefono: function(valor) {
-        if (!/^([0-9])*$/.test(valor) && valor.length==9){
+        if (/^([0-9])*$/.test(valor) && valor.length==9){
             return false;
         } else {
             return true;
@@ -78,8 +78,17 @@ var validacion = {
 
 	},
 
-	validarPassword: function(valor) {
-		var texto = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ.'#,0-9@ ]*$/;
+
+	validarEmail: function(valor) {
+        if (/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(valor)){
+            return true;
+        } else {
+            return false
+        }
+    },
+
+	validarPassword: function(valor) {	
+		var texto =	/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&.])([a-zA-Z0-9@$!%*?&.]{8,})$/;
 		if(valor.search(texto)){
 			return false;
 		} else {

@@ -3,8 +3,8 @@
         <h3 align="center" >Listado de Capacitaciones</h3>
         <table class="table table-sm">
             <tr class="table table-striped table-hover table-responsive-sm">
-                <th>Nombre Capacitacion</th>
-                <th>Fecha de Realización de Capacitacion</th>
+                <th>Nombre Capacitación</th>
+                <th>Fecha de Realización de Capacitación</th>
                 <th>Razón Social Cliente</th>
                 <th>Teléfono Cliente</th>
                 <th>Email Cliente</th>

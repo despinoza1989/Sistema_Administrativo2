@@ -5,7 +5,7 @@
 
         <div class="col-md-6">
             <label for="rut_personal" class="form-label">Rut</label>
-            <input type="text" class="form-control" placeholder="Ingrese Rut del Personal, Ejemplo: (11111111-3)" id="rut_personal" name="rut_personal" value=""  maxlength="10"  required>
+            <input type="text" class="form-control" placeholder="Ingrese Rut del Personal, Ejemplo: (11111111-3)" id="rut_personal" name="rut_personal" value=""  maxlength="10" disabled required>
             <div class="valid-feedback">
                 
             </div>
@@ -112,14 +112,14 @@
         </div>
     </div>
     <div class="col-md-6">
-        <div class="card text-center">
-            <div class="card-header">
-            Importante
+        <div class="card border-danger">
+            <div class="card-header text-center text-danger">
+            <strong>Importante</strong>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Usuario y Contraseña</h5>
-                <p class="card-text">Usuario: el nombre de usuario debe ser solo una palabra.</p>
-                <p class="card-text">Contraseña: la contraseña debe tener al menos un largo de 8 caracteres</p>
+                <h5 class="card-title text-center">Usuario y Contraseña</h5>
+                <p class="card-text"><strong>Usuario:</strong> el nombre de usuario debe ser solo una palabra.</p>
+                <p class="card-text"><strong>Contraseña:</strong> la contraseña debe tener al menos un largo de 8 caracteres, 1 minúscula, 1 mayúscula, 1 número, 1 carácter especial y sin espacios.</p>
             </div>
         </div>
     </div>
@@ -206,7 +206,7 @@
 
         }
 
-        if(telefono_personal==undefined || telefono_personal==null || telefono_personal.trim()=="" || !validacion.validarTelefono(telefono_personal)){
+        if(telefono_personal==undefined || telefono_personal==null || telefono_personal.trim()=="" || validacion.validarTelefono(telefono_personal)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -304,7 +304,7 @@
 
         }
 
-        if(password_personal==undefined || password_personal==null || password_personal.trim()=="" || !validacion.validarPassword(password_personal) || password_personal.lengh<8){
+        if(password_personal==undefined || password_personal==null || password_personal.trim()=="" || !validacion.validarPassword(password_personal)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

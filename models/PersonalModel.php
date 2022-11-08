@@ -68,7 +68,7 @@ class PersonalModel {
 
         $conexion= Database::connect();
         $query = "SELECT p.id_personal, p.rut_personal, p.telefono_personal, p.nombre_personal, p.apellidos_personal, p.email_personal, p.direccion_personal,
-        p.fecha_nacimiento_p, p.usuario_personal, p.password_personal, p.estado_usuario_personal, p.id_tipo_usuario_p, p.id_estado_civil, p.id_genero, tp.tipo_usuario, ec.tipo_estado_civil,
+        p.fecha_nacimiento_p, p.usuario_personal, p.estado_usuario_personal, p.id_tipo_usuario_p, p.id_estado_civil, p.id_genero, tp.tipo_usuario, ec.tipo_estado_civil,
         g.tipo_genero
         FROM personal AS p         
         LEFT JOIN tipo_usuario AS tp ON tp.id_tipo_usuario = p.id_tipo_usuario_p
@@ -79,6 +79,27 @@ class PersonalModel {
         while($row = mysqli_fetch_assoc($result)) {
 
            $response[] = $row; 
+        }
+        $result->close();
+        $conexion->close();
+        return $response;
+    }
+
+    function getAllByRut($rut_personal) {
+        
+        $conexion= Database::connect();
+        $query = "SELECT p.id_personal, p.rut_personal, p.telefono_personal, p.nombre_personal, p.apellidos_personal, p.email_personal, p.direccion_personal,
+        p.fecha_nacimiento_p, p.usuario_personal, p.estado_usuario_personal, p.id_tipo_usuario_p, p.id_estado_civil, p.id_genero, tp.tipo_usuario, ec.tipo_estado_civil,
+        g.tipo_genero
+        FROM personal AS p         
+        LEFT JOIN tipo_usuario AS tp ON tp.id_tipo_usuario = p.id_tipo_usuario_p
+        LEFT JOIN estado_civil AS ec ON ec.id_estado_civil = p.id_estado_civil
+        LEFT JOIN genero AS g ON g.id_genero = p.id_genero WHERE p.rut_personal  = '". $rut_personal ."'";
+        $result = $conexion->query($query);
+        $response = array();
+        while($row = mysqli_fetch_assoc($result)) { 
+            
+            $response[] = $row; 
         }
         $result->close();
         $conexion->close();

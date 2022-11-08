@@ -162,6 +162,15 @@
         var rol_cliente = document.getElementById("rol_cliente").value;
         console.log(nombre_capacitacion, fecha_capacitacion, link_capacitacion, id_tipo_personal_capacitacion_cc)
 
+        if (rol_cliente == undefined || rol_cliente == null || rol_cliente.trim() == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe seleccionar el Rol del cliente',
+            })
+            return;
+
+        }
 
         if (nombre_capacitacion == undefined || nombre_capacitacion == null || nombre_capacitacion.trim() == "") {
             Swal.fire({
@@ -183,6 +192,25 @@
 
         }
 
+        var fecha = new Date(fecha_capacitacion);
+        var ahora = new Date();
+        var dias_milisegundos = fecha.getTime() - ahora.getTime();
+        var dias_diferencia = dias_milisegundos/(1000*60*60*24)
+
+        console.log(ahora, 'Fecha Ahora')
+        console.log(fecha_capacitacion, 'check')
+        console.log(dias_milisegundos, 'diferencia milisegundos')
+        console.log(dias_diferencia, 'diferencia dias')
+
+        if(dias_diferencia<2){
+          Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'La Fecha a realizar la capacitación debe con al menos 2 días de anticipación',                
+                })            
+            return;
+        }
+
         if (id_tipo_personal_capacitacion_cc == undefined || id_tipo_personal_capacitacion_cc == null || id_tipo_personal_capacitacion_cc.trim() == "") {
             Swal.fire({
                 icon: 'error',
@@ -193,15 +221,6 @@
 
         }
 
-        if (rol_cliente == undefined || rol_cliente == null || rol_cliente.trim() == "") {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Se debe seleccionar el Rol del cliente',
-            })
-            return;
-
-        }
 
         if (link_capacitacion == undefined || link_capacitacion == null || link_capacitacion.trim() == "") {
             Swal.fire({
