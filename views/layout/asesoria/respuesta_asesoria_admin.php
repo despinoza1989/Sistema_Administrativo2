@@ -57,6 +57,49 @@
             </div>
         </div>
 
+        <br>
+        <h2> Profesional Asignado </h2>
+        <br>
+
+        <div class="col-md-6">
+            <label for="rut_personal" class="form-label">Rut</label>
+            <input type="text" class="form-control" id="rut_personal" name="rut_personal" value="<?php echo $datosusuario['rut_personal']?>" disabled required>
+        </div>
+        <div class="col-md-3">
+            <label for="nombre_personal" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre_personal" name="nombre_personal" value="<?php echo $datosusuario['nombre_personal']?>" disabled required>
+            <div class="valid-feedback">
+                Favor de introducir un nombre Valido
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="apellidos_personal" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos_personal" name="apellidos_personal" value="<?php echo $datosusuario['apellidos_personal']?>" disabled required>
+            <div class="valid-feedback">
+                Favor de introducir un apellido Valido
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="telefono_personal" class="form-label">Telefono</label>
+            <input type="text" class="form-control" id="telefono_personal" name="telefono_personal" value="<?php echo $datosusuario['apellidos_personal']?>" disabled required>
+            <div class="invalid-feedback">
+                Favor de introducir un telefono valido
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="email_personal" class="form-label">Correo</label>
+            <input type="text" class="form-control" id="email_personal" name="email_personal" change="onChangeRol" value="<?php echo $datosusuario['email_personal']?>" disabled required>
+            <div class="invalid-feedback">
+                Favor de introducir un correo Valido
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <label for="respuesta_asesoria" class="form-label">Respuesta de la Asesoría</label>
+            <textarea type="text" class="form-control" rows="10" cols="40" id="respuesta_asesoria" name="respuesta_asesoria" disabled></textarea>
+            <div class="invalid-feedback">
+            </div>
+        </div>
 
 
         <br>
@@ -107,6 +150,12 @@ function onChangeAsesoria(event) {
                 document.getElementById('direccion_cliente').value = datos.direccion_cliente;
                 document.getElementById('email_cliente').value = datos.email_cliente;
                 document.getElementById('detalle_asesoria').value = datos.detalle_asesoria;
+                document.getElementById('respuesta_asesoria').value = datos.respuesta_asesoria;
+                document.getElementById('rut_personal').value = datos.rut_personal;
+                document.getElementById('nombre_personal').value = datos.nombre_personal;
+                document.getElementById('apellidos_personal').value = datos.apellidos_personal;
+                document.getElementById('telefono_personal').value = datos.telefono_personal;
+                document.getElementById('email_personal').value = datos.email_personal;
 
             })
 

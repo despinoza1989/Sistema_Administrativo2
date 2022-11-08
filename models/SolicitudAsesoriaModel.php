@@ -10,10 +10,15 @@ class SolicitudAsesoriaModel {
         $query = "SELECT 
         sa.id_solicitud_asesoria, sa.detalle_asesoria, sa.id_tipo_asesoria_sa, sa.id_cliente_sa,
         c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.usuario_cliente, c.tipo_usuario_c, c.id_rubro,
-        ta.tipo_asesoria
+        ta.tipo_asesoria,
+        r.respuesta_asesoria,
+        p.rut_personal, p.telefono_personal, p.nombre_personal, p.apellidos_personal, p.email_personal
         FROM solicitud_asesoria AS sa
         LEFT JOIN cliente AS c ON c.id_cliente = sa.id_cliente_sa
-        LEFT JOIN tipo_asesoria AS ta ON ta.id_tipo_asesoria = sa.id_tipo_asesoria_sa WHERE sa.id_solicitud_asesoria  = '". $id_solicitud_asesoria ."'";
+        LEFT JOIN tipo_asesoria AS ta ON ta.id_tipo_asesoria = sa.id_tipo_asesoria_sa 
+        LEFT JOIN respuesta_asesoria AS r ON r.id_solicitud_asesoria_ra = sa.id_solicitud_asesoria
+        LEFT JOIN personal AS p ON p.id_personal = r.id_personal_sa
+        WHERE sa.id_solicitud_asesoria  = '". $id_solicitud_asesoria ."'";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }

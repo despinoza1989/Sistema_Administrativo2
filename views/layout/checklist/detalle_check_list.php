@@ -389,8 +389,7 @@
         </div><!-- ROW -->
 
         <input type="hidden" id="accion" name="accion" value="registrar">
-        <input type="hidden" id="id_personal_ckl" name="id_personal_ckl"
-            value="<?php echo $datosusuario['id_personal']?>">
+        <input type="hidden" id="id_personal_ckl" name="id_personal_ckl" value="<?php echo $datosusuario['id_personal']?>">
 
 
     </form>
@@ -424,7 +423,7 @@ function onChangeDetallecheckList(event) {
             .then((datos) => {
 
                 console.dir(datos)
-
+                document.getElementById('rut_personal').value = datos.rut_personal;
                 document.getElementById('rut_personal').value = datos.rut_personal;
                 document.getElementById('nombre_personal').value = datos.nombre_personal;
                 document.getElementById('apellidos_personal').value = datos.apellidos_personal;
@@ -438,6 +437,11 @@ function onChangeDetallecheckList(event) {
                 document.getElementById('email_cliente').value = datos.email_cliente;
 
                 document.getElementById('fecha_check_list').value = datos.fecha_check_list;
+                document.getElementById('senaleticas').checked = datos.valor_item;
+                document.getElementById('estado_contratos').checked = datos.valor_item;
+                document.getElementById('estado_extintores').checked = datos.valor_item;
+                document.getElementById('instalaciones_electricas').checked = datos.valor_item;
+                document.getElementById('instalaciones_sanitarias').checked = datos.valor_item;
 
                 document.getElementById('obs_check_general').value = datos.obs_check_general;
         
