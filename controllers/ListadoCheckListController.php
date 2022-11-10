@@ -11,7 +11,9 @@ class ListadoCheckListController{
 
         //Llamar datos del modelo
         
-        $datos = $model->getAll(); 
+        $datos_check = $model->getAll();
+        $datosusuario = $_SESSION['usuario'];
+        $dato_asignacion = $model->getBylistadoPersonal($datosusuario['id_personal']); 
 
         //Llamar a la vista 
         require_once "views/layout/header.php";

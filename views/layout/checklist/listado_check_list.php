@@ -13,7 +13,7 @@
                 <th>Opciones</th>
             </tr>
 
-            <?php foreach ($datos as $row){ ?>
+            <?php foreach ($dato_asignacion as $row){ ?>
            
                 <tr>
                     <td><?php echo $row["rut_personal"]?></td>

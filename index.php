@@ -161,6 +161,16 @@ session_start();
                     $ctrl = new ListadoCheckListController();
                     break;
 
+                case 'listado-check-list-admin':
+                    require_once "controllers/ListadoCheckListAdminController.php";
+                    $ctrl = new ListadoCheckListAdminController();
+                    break;
+
+                case 'detalle-check-list-admin':
+                    require_once "controllers/DetalleCheckListAdminController.php";
+                    $ctrl = new DetalleCheckListAdminController();
+                    break;
+
                 case 'detalle-check-list':
                     require_once "controllers/DetalleCheckListController.php";
                     $ctrl = new DetalleCheckListController();
@@ -239,6 +249,16 @@ session_start();
                 case 'listar-pagos':
                     require_once "controllers/ListarCapacitacionesController.php";
                     $ctrl = new ListarCapacitacionesController();
+                    break;
+
+                case 'reportes-clientes':
+                    require_once "controllers/ReportesClientesController.php";
+                    $ctrl = new ReportesClientesController();
+                    break;
+
+                case 'reportes-globales':
+                    require_once "controllers/ReportesGlobalesController.php";
+                    $ctrl = new ReportesGlobalesController();
                     break;
                             
                 

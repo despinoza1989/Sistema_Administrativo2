@@ -115,7 +115,7 @@
                         <?php } ?>
                         
                         <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
-                        <li><a class="dropdown-item" href="index.php?view=listado-check-list">Check-List Generados por Profesionales</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listado-check-list-admin">Check-List Generados por Profesionales</a></li>
                         <?php } ?>
                     </ul>
                 </li>
@@ -159,8 +159,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Reportes</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Reportes Globales</a></li>
-                        <li><a class="dropdown-item" href="#">Reportes Clientes</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=reportes-globales">Reportes Globales</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=reportes-clientes">Reportes Clientes</a></li>
                     </ul>
                 </li>    
                 <?php } ?>            
