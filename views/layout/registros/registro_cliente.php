@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-6">
             <label for="telefono_cliente" class="form-label">Teléfono</label>
             <input type="text" class="form-control" id="telefono_cliente" name="telefono_cliente" placeholder="Ingrese un Teléfono de Contacto, Ejemplo: (985060623)" required>
             <div class="invalid-feedback">
