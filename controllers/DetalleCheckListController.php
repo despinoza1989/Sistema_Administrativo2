@@ -17,7 +17,7 @@ class DetalleCheckListController{
         $model_check_list = new ChecklistModel();
 
         //Llamar datos del modelo
-
+        
         $datos_check_list = $model_check_list->getByDetalleCheckList($id_check_list);
 
 

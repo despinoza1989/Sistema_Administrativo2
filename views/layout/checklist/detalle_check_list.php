@@ -14,29 +14,28 @@
 
                 <div class="col-md-6">
                     <label for="rut_personal" class="form-label">Rut</label>
-                    <input type="text" class="form-control" id="rut_personal" name="rut_personal"
-                         disabled required>
+                    <input type="text" class="form-control" id="rut_personal" name="rut_personal" disabled required>
                 </div>
                 <div class="col-md-3">
                     <label for="nombre_personal" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre_personal" name="nombre_personal"
-                         disabled required>
+                    <input type="text" class="form-control" id="nombre_personal" name="nombre_personal" disabled
+                        required>
                     <div class="valid-feedback">
                         Favor de introducir un nombre Valido
                     </div>
                 </div>
                 <div class="col-md-3">
                     <label for="apellidos_personal" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="apellidos_personal" name="apellidos_personal"
-                         disabled required>
+                    <input type="text" class="form-control" id="apellidos_personal" name="apellidos_personal" disabled
+                        required>
                     <div class="valid-feedback">
                         Favor de introducir un apellido Valido
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label for="telefono_personal" class="form-label">Telefono</label>
-                    <input type="text" class="form-control" id="telefono_personal" name="telefono_personal"
-                         disabled required>
+                    <input type="text" class="form-control" id="telefono_personal" name="telefono_personal" disabled
+                        required>
                     <div class="invalid-feedback">
                         Favor de introducir un telefono valido
                     </div>
@@ -44,7 +43,7 @@
                 <div class="col-md-6">
                     <label for="email_personal" class="form-label">Correo</label>
                     <input type="text" class="form-control" id="email_personal" name="email_personal"
-                        change="onChangeRol"  disabled required>
+                        change="onChangeRol" disabled required>
                     <div class="invalid-feedback">
                         Favor de introducir un correo Valido
                     </div>
@@ -58,8 +57,7 @@
 
                 <div class="col-md-6">
                     <label for="rol_cliente" class="form-label">Rol</label>
-                    <input class="form-control" id="rol_cliente" name="rol_cliente"
-                         disabled required>
+                    <input class="form-control" id="rol_cliente" name="rol_cliente" disabled required>
                     <div class="invalid-feedback">
                     </div>
                 </div>
@@ -117,8 +115,12 @@
                 <!-- COL 2 -->
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="senaleticas" name="senaleticas" disabled
-                        required>
+                    <input class="form-check-input" type="checkbox" id="senaleticas" name="senaleticas" <?php
+                    // COndicional para validad el genero
+                    if (isset($_POST['senaleticas'])){
+                    echo $_POST['senaleticas']; // Muestra el CheckBox marcado.
+                    }
+                    ?>  disabled required>
                     <label class="form-check-label" for="senaleticas">
                         Señaleticas
                     </label>
@@ -388,10 +390,6 @@
 
         </div><!-- ROW -->
 
-        <input type="hidden" id="accion" name="accion" value="registrar">
-        <input type="hidden" id="id_personal_ckl" name="id_personal_ckl" value="<?php echo $datosusuario['id_personal']?>">
-
-
     </form>
     <br>
     <br>
@@ -444,7 +442,7 @@ function onChangeDetallecheckList(event) {
                 document.getElementById('instalaciones_sanitarias').checked = datos.valor_item;
 
                 document.getElementById('obs_check_general').value = datos.obs_check_general;
-        
+
 
 
             })

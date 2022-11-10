@@ -11,7 +11,7 @@ class ChecklistModel {
         p.rut_personal, p.telefono_personal, p.nombre_personal, p.apellidos_personal, p.email_personal, p.direccion_personal, p.fecha_nacimiento_p, p.usuario_personal, p.estado_usuario_personal, p.id_tipo_usuario_p, p.id_estado_civil, p.id_genero,
         c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.estado_usuario_cliente, c.usuario_cliente, c.tipo_usuario_c, 
         r.tipo_rubro,
-        d.nombre_item, d.valor_item
+        d.nombre_item, d.valor_item, d.id_check_list_dcl
         FROM check_list AS ck
         LEFT JOIN personal AS p ON p.id_personal = ck.id_personal_ckl
         LEFT JOIN cliente AS c ON c.id_cliente = ck.id_cliente_ckl
