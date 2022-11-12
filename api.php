@@ -27,6 +27,7 @@ require "models/TipoUsuarioModel.php";
 require "models/VisitaTerrenoModel.php";
 require "models/AsignacionProfesionalModel.php";
 require "models/DetalleChecklistModel.php";
+require "models/NotificacionModel.php";
 
 
 $configuration = [
@@ -122,6 +123,14 @@ $app->get('/personal/existente/{rut_personal}', function (Request $request, Resp
 
 });
 
+$app->get('/personal_administrativo', function (Request $request, Response $response, array $args) {
+    
+    $model = new PersonalModel();
+    $datos = $model->getAdministrativoAll();
+    return $response->withJson($datos);
+
+});
+
 $app->post('/personal', function (Request $request, Response $response, array $args) {
     
     $model = new PersonalModel();
@@ -145,6 +154,15 @@ $app->get('/check-list/{id_check_list}', function (Request $request, Response $r
     $id_check_list = $args['id_check_list'];    
     $model = new ChecklistModel();
     $datos = $model->getById($id_check_list);
+    return $response->withJson($datos);
+
+});
+
+$app->get('/detalle-check-list/id-check-list/{id_check_list_dcl}', function (Request $request, Response $response, array $args) {
+    
+    $id_check_list_dcl = $args['id_check_list_dcl'];    
+    $model = new DetalleChecklistModel();
+    $datos = $model->getByIdChecklist($id_check_list_dcl);
     return $response->withJson($datos);
 
 });
@@ -533,5 +551,38 @@ $app->post('/asignacion-profesional', function (Request $request, Response $resp
 
 });
 
+//MODELS NOTIFICACIONES
+
+$app->get('/notificaciones', function (Request $request, Response $response, array $args) {
+     
+    $model = new NotificacionModel();
+    $datos = $model->getAll();
+    return $response->withJson($datos);
+
+});
+$app->get('/notificaciones/{id_notificaciones}', function (Request $request, Response $response, array $args) {
+    
+    $id_notificaciones = $args["id_notificaciones"];    
+    $model = new NotificacionModel();
+    $datos = $model->getById($id_notificaciones);
+    return $response->withJson($datos);
+
+});
+
+$app->post('/notificaciones', function (Request $request, Response $response, array $args) {
+    
+    $model = new NotificacionModel();
+    $datos = $model->create($request->getParsedBody());
+    return $response->withJson($datos);
+
+});
+
+$app->put('/notificaciones', function (Request $request, Response $response, array $args) {
+    
+    $model = new NotificacionModel();
+    $datos = $model->update($request->getParsedBody());
+    return $response->withJson($datos);
+
+});
 
 $app->run();

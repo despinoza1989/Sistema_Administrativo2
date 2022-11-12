@@ -452,154 +452,154 @@ function registrarCheck() {
 
     var detalle_check_list = [];
     detalle_check_list.push({
-        nombre_item: 'Señaletica',
+        nombre_item: 'senaleticas',
         valor_item: document.getElementById("senaleticas").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Estado Contratos',
+        nombre_item: 'estado_contratos',
         valor_item: document.getElementById("estado_contratos").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Estado Extintores',
+        nombre_item: 'estado_extintores',
         valor_item: document.getElementById("estado_extintores").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Instalaciones Eléctricas',
+        nombre_item: 'instalaciones_electricas',
         valor_item: document.getElementById("instalaciones_electricas").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Instalaciones Sanitarias',
+        nombre_item: 'instalaciones_sanitarias',
         valor_item: document.getElementById("instalaciones_sanitarias").checked
     })
 
 
     detalle_check_list.push({
-        nombre_item: 'Libro Asistencia',
+        nombre_item: 'libro_asistencia',
         valor_item: document.getElementById("libro_asistencia").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Alarma Incendios',
+        nombre_item: 'alarma_incendios',
         valor_item: document.getElementById("alarma_incendios").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Alumbrado Emergencia',
+        nombre_item: 'alumbrado_emergencia',
         valor_item: document.getElementById("alumbrado_emergencia").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Salidas Emergencia',
+        nombre_item: 'salidas_emergencia',
         valor_item: document.getElementById("salidas_emergencia").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Documentación Trabajador',
+        nombre_item: 'documentacion_trabajador',
         valor_item: document.getElementById("documentacion_trabajador").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Agua Potable',
+        nombre_item: 'agua_potable',
         valor_item: document.getElementById("agua_potable").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Centro Mutual',
+        nombre_item: 'centro_mutual',
         valor_item: document.getElementById("centro_mutual").checked
     })
 
     var obs_check_general = document.getElementById("obs_check_general").value
 
     detalle_check_list.push({
-        nombre_item: 'Protectores Auditivos',
+        nombre_item: 'protectores_auditivos',
         valor_item: document.getElementById("protectores_auditivos").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Casco Seguridad',
+        nombre_item: 'casco_seguridad',
         valor_item: document.getElementById("casco_seguridad").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Zapato Seguridad',
+        nombre_item: 'zapato_seguridad',
         valor_item: document.getElementById("zapato_seguridad").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Guantes Protectores',
+        nombre_item: 'guantes_protectores',
         valor_item: document.getElementById("guantes_protectores").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Gafas Seguridad',
+        nombre_item: 'gafas_seguridad',
         valor_item: document.getElementById("gafas_seguridad").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Mascarilla Protectora',
+        nombre_item: 'mascarilla_respiratoria',
         valor_item: document.getElementById("mascarilla_respiratoria").checked
     })
 
     var obs_check_proteccion = document.getElementById("obs_check_proteccion").value
 
     detalle_check_list.push({
-        nombre_item: 'Herramientas Adecuadas',
+        nombre_item: 'herramientas_adecuadas',
         valor_item: document.getElementById("herramientas_adecuadas").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Inspecciones Materiales',
+        nombre_item: 'inspeccion_materiales',
         valor_item: document.getElementById("inspeccion_materiales").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Cableado Herramientas',
+        nombre_item: 'cableado_herramientas',
         valor_item: document.getElementById("cableado_herramientas").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Protección Herramientas',
+        nombre_item: 'proteccion_herramientas',
         valor_item: document.getElementById("proteccion_herramientas").checked
     })
 
     var obs_check_herramientas = document.getElementById("obs_check_herramientas").value
 
     detalle_check_list.push({
-        nombre_item: 'Luces Maquinarias',
+        nombre_item: 'luces_maquinarias',
         valor_item: document.getElementById("luces_maquinarias").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Estanque Combustible',
+        nombre_item: 'estanque_combustible',
         valor_item: document.getElementById("estanque_combustible").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Motor Maquinaria',
+        nombre_item: 'motor_maquinaria',
         valor_item: document.getElementById("motor_maquinaria").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Frenos Maquinaria',
+        nombre_item: 'frenos_maquinaria',
         valor_item: document.getElementById("frenos_maquinaria").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Botón Emergencia Maquinaria',
+        nombre_item: 'boton_emergencia_maq',
         valor_item: document.getElementById("boton_emergencia_maq").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Especies Técnicas Maquinaria',
+        nombre_item: 'esp_tecnicas_maq',
         valor_item: document.getElementById("esp_tecnicas_maq").checked
     })
 
     detalle_check_list.push({
-        nombre_item: 'Inspección Maquinaria',
+        nombre_item: 'insepeccion_maquinaria',
         valor_item: document.getElementById("insepeccion_maquinaria").checked
     })
 

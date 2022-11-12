@@ -39,6 +39,24 @@ class DetalleChecklistModel {
         return $response;
     }
 
+    function getByIdChecklist($id_check_list_dcl) {
+        
+        $conexion= Database::connect();
+        $query = "SELECT d.id_detalle_check_list, d.nombre_item, d.valor_item, d.id_check_list_dcl,
+        ck.fecha_check_list, ck.obs_check_general, ck.obs_check_proteccion, ck.obs_check_herramientas, ck.obs_check_maquinaria,
+        ck.id_personal_ckl, ck.id_cliente_ckl, ck.id_rubro_ckl
+        FROM detalle_check_list AS d 
+        LEFT JOIN check_list AS ck ON ck.id_check_list = d.id_check_list_dcl WHERE d.id_check_list_dcl  = '". $id_check_list_dcl ."'"; 
+        $result = $conexion->query($query);
+        $response = array();
+        while($row = mysqli_fetch_assoc($result)) { 
+            $response[] = $row; 
+        }
+        $result->close();
+        $conexion->close();
+        return $response;
+    }
+
     function create($data) {
 
         $conexion= Database::connect();
