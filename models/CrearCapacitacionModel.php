@@ -13,7 +13,8 @@ class CrearCapacitacionModel {
         p.id_estado_civil, p.id_genero, tpc.tipo_personal_capacitacion
         FROM crear_capacitacion AS cc
         LEFT JOIN personal AS p ON p.id_personal = cc.id_personal_cc
-        LEFT JOIN tipo_personal_capacitacion AS tpc ON tpc.id_tipo_personal_capacitacion = cc.id_tipo_personal_capacitacion_cc WHERE id_crear_capacitacion  = '". $id_crear_capacitacion ."'"; 
+        LEFT JOIN tipo_personal_capacitacion AS tpc ON tpc.id_tipo_personal_capacitacion = cc.id_tipo_personal_capacitacion_cc 
+        WHERE id_crear_capacitacion  = '". $id_crear_capacitacion ."'"; 
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }
@@ -76,7 +77,7 @@ class CrearCapacitacionModel {
         p.direccion_personal, p.fecha_nacimiento_p, p.usuario_personal, p.estado_usuario_personal, p.id_tipo_usuario_p,
         p.id_estado_civil, p.id_genero, tpc.tipo_personal_capacitacion,
         cc.id_personal_cc,
-        c.razon_social_cliente, c.direccion_cliente, c.email_cliente, c.telefono_cliente, c.rol_cliente
+        c.razon_social_cliente, c.direccion_cliente, c.email_cliente, c.telefono_cliente, c.rol_cliente, c.id_cliente
         FROM crear_capacitacion AS cc
         LEFT JOIN personal AS p ON p.id_personal = cc.id_personal_cc
         LEFT JOIN tipo_personal_capacitacion AS tpc ON tpc.id_tipo_personal_capacitacion = cc.id_tipo_personal_capacitacion_cc

@@ -543,10 +543,38 @@ $app->get('/asignacion-profesional/{id_asignacion_profesional}', function (Reque
 
 });
 
+$app->get('/asignacion-profesional-cliente/{id_cliente}', function (Request $request, Response $response, array $args) {
+    
+    $id_cliente = $args['id_cliente'];    
+    $model = new AsignacionProfesionalModel();
+    $datos = $model->getAllByCliente($id_cliente);
+    return $response->withJson($datos);
+
+});
+
 $app->post('/asignacion-profesional', function (Request $request, Response $response, array $args) {
     
     $model = new AsignacionProfesionalModel();
     $datos = $model->update($request->getParsedBody());
+    return $response->withJson($datos);
+
+});
+
+//MODELS DETALLE CHECKLIST
+
+$app->get('/detalle-check-list', function (Request $request, Response $response, array $args) {
+     
+    $model = new DetalleChecklistModel();
+    $datos = $model->getAll();
+    return $response->withJson($datos);
+
+});
+
+$app->get('/detalle-check-list/{id_detalle_check_list}', function (Request $request, Response $response, array $args) {
+    
+    $id_detalle_check_list = $args['id_detalle_check_list'];    
+    $model = new DetalleChecklistModel();
+    $datos = $model->getById($id_detalle_check_list);
     return $response->withJson($datos);
 
 });
