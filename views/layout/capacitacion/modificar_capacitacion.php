@@ -87,7 +87,8 @@
 
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_crear_capacitacion" name="id_crear_capacitacion" value="<?php echo $datos_capacitacion['id_crear_capacitacion'] ?>">
-
+        <input type="hidden" id="id_cliente" name="id_cliente" value="">
+        
     </form>
     <br>
     <br>
@@ -109,8 +110,6 @@
 
         var id_crear_capacitacion= document.getElementById('id_crear_capacitacion').value;
 
-        console.dir(id_crear_capacitacion)
-
         if(id_crear_capacitacion && id_crear_capacitacion>0){
 
             fetch("api.php/detalle-capacitacion/" + id_crear_capacitacion, {
@@ -118,6 +117,8 @@
             }).then(response=>response.json())
             .then((datos)=>{
 
+                console.log(datos)
+                document.getElementById('id_cliente').value=datos.id_cliente;
                 document.getElementById('nombre_capacitacion').value=datos.nombre_capacitacion;
                 document.getElementById('fecha_capacitacion').value=datos.fecha_capacitacion;
                 document.getElementById('rut_personal').value=datos.rut_personal;
@@ -219,26 +220,72 @@
         console.log(datos_formulario, "datos formulario")
 
         let formulario = new FormData(document.getElementById("modificar_capacitacion"))
-            fetch('api.php/modificar-capacitacion', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(datos_formulario)
-            }).then((response) => {
-            
-                Swal.fire({
-                    title: 'Capacitación modificada exitosamente',
-                    showDenyButton: false,
-                    showCancelButton: false,
-                    confirmButtonText: 'Ok',
-                    }).then((result) => {
-                        location.reload();
-                    })
-                /*acciones a realizar*/     
-            }).then((data) => {
-                /*mas acciones a realizar*/
+        fetch('api.php/modificar-capacitacion', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datos_formulario)
+        }).then((response) => {
+        
+            Swal.fire({
+                title: 'Capacitación modificada exitosamente',
+                showDenyButton: false,
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+            }).then((result) => {
+                location.reload();
             })
+            //Mensaje Cliente
+            crearNotificacion("Se ha modificado una capacitación", 0, 1, document.getElementById('id_cliente').value, 0, "modificar_capacitacion")
+
+            //Mensaje Administrativo
+            fetch("api.php/personal_administrativo", {
+                method: "get"
+            }).then(response => response.json())
+            .then((datos) => {
+
+                console.dir(datos)
+                
+                for (const key in datos) {
+
+                    crearNotificacion("El Profesional a modificado una capacitación", 0, 0, datos[key].id_personal, 0, "modificar_capacitacion")
+
+                }
+
+            })                
+            /*acciones a realizar*/     
+        }).then((data) => {
+            /*mas acciones a realizar*/
+        })
+    }
+
+    function crearNotificacion(mensaje_notificacion, estado_notificacion, is_cliente, custom_user_id, custom_option_id, tipo_notificacion){
+        
+        var request = {
+
+            mensaje_notificacion: mensaje_notificacion,
+            estado_notificacion: estado_notificacion,
+            is_cliente: is_cliente,
+            custom_user_id: custom_user_id,
+            custom_option_id: custom_option_id,
+            tipo_notificacion: tipo_notificacion
+
+        }
+
+        fetch('api.php/notificaciones', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
+        }).then((response) => {
+            
+            console.log(response)
+            /*acciones a realizar*/     
+        }).then((data) => {
+            /*mas acciones a realizar*/
+        })
     }
 
 </script>

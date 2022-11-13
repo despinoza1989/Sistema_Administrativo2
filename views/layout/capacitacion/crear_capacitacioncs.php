@@ -88,6 +88,8 @@
         <input type="hidden" id="id_personal_cc" name="id_personal_cc" value="<?php echo $datosusuario['id_personal'] ?>">
         <input type="hidden" id="nombre_capacitacion" name="nombre_capacitacion" value="<?php echo $datos_solicitud_capacitacion['nombre_solicitud_capacitacion'] ?>">
         <input type="hidden" id="fecha_capacitacion" name="fecha_capacitacion" value="<?php echo $datos_solicitud_capacitacion['fecha_solicitud_capacitacion'] ?>">
+        <input type="hidden" id="id_cliente_s" name="id_cliente_s" value="">
+           
     </form>
     <br>
     <br>
@@ -118,7 +120,7 @@
             .then((datos)=>{
 
                 console.dir(datos)
-
+                document.getElementById('id_cliente_s').value=datos.id_cliente_s;
                 document.getElementById('nombre_solicitud_capacitacion').value=datos.nombre_solicitud_capacitacion;
                 document.getElementById('fecha_solicitud_capacitacion').value=datos.fecha_solicitud_capacitacion;
                 document.getElementById('tipo_personal_capacitacion').value=datos.tipo_personal_capacitacion;  
@@ -169,7 +171,54 @@
             }).then((result) => {
                 location.reload();
             })
+
+            //Mensaje Cliente
+            crearNotificacion("Se le ah generado una capacitación por su solicitud", 0, 1, document.getElementById('id_cliente_s').value, 0, "crear_capacitacion_s")
+
+            //Mensaje Administrativo
+            fetch("api.php/personal_administrativo", {
+                method: "get"
+            }).then(response => response.json())
+            .then((datos) => {
+
+                console.dir(datos)
+                
+                for (const key in datos) {
+
+                    crearNotificacion("El Profesional a respondido una solicitud de capacitación", 0, 0, datos[key].id_personal, 0, "crear_capacitacion_s")
+
+                }
+
+            })
             /*acciones a realizar*/
+        }).then((data) => {
+            /*mas acciones a realizar*/
+        })
+    }
+
+    function crearNotificacion(mensaje_notificacion, estado_notificacion, is_cliente, custom_user_id, custom_option_id, tipo_notificacion){
+        
+        var request = {
+
+            mensaje_notificacion: mensaje_notificacion,
+            estado_notificacion: estado_notificacion,
+            is_cliente: is_cliente,
+            custom_user_id: custom_user_id,
+            custom_option_id: custom_option_id,
+            tipo_notificacion: tipo_notificacion
+
+        }
+
+        fetch('api.php/notificaciones', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
+        }).then((response) => {
+            
+            console.log(response)
+            /*acciones a realizar*/     
         }).then((data) => {
             /*mas acciones a realizar*/
         })

@@ -88,117 +88,102 @@
 
 <script>
 
+    (function(){
 
+    document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
 
-(function(){
+    })()
 
-document.getElementById('rol_cliente').addEventListener('change', onChangeRol)
+    function onChangeRol(event){
 
-})()
+        var id_cliente= document.getElementById('rol_cliente').value;
 
-function onChangeRol(event){
+        if(id_cliente && id_cliente>0){
 
-    var id_cliente= document.getElementById('rol_cliente').value;
+            fetch("api.php/cliente/" + id_cliente, {
+                method: "get"            
+            }).then(response=>response.json())
+            .then((datos)=>{
 
-    if(id_cliente && id_cliente>0){
+                console.dir(datos)
 
-        fetch("api.php/cliente/" + id_cliente, {
-            method: "get"            
-        }).then(response=>response.json())
-        .then((datos)=>{
+                document.getElementById('id_cliente_ap').value=datos.id_cliente;
+                document.getElementById('tipo_rubro').value=datos.tipo_rubro;
+                document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
+                document.getElementById('telefono_cliente').value=datos.telefono_cliente;
+                document.getElementById('direccion_cliente').value=datos.direccion_cliente;
+                document.getElementById('email_cliente').value=datos.email_cliente;
 
-            console.dir(datos)
+            })
 
-            document.getElementById('id_cliente_ap').value=datos.id_cliente;
-            document.getElementById('tipo_rubro').value=datos.tipo_rubro;
-            document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
-            document.getElementById('telefono_cliente').value=datos.telefono_cliente;
-            document.getElementById('direccion_cliente').value=datos.direccion_cliente;
-            document.getElementById('email_cliente').value=datos.email_cliente;
-
-        })
-
-    }
-
-}
-
-
-(function(){
-
-
-document.getElementById('id_personal_ap').addEventListener('change', onChangeRut);
-document.getElementById('id_personal_ap').value = document.getElementById('id_personal').value;
-
-onChangeRut({})
-
-})()
-
-function onChangeRut(event){
-
-    var id_personal= document.getElementById('id_personal_ap').value;
-    //var id_personal= document.getElementById('rut_personal').value;
-
-    if(id_personal && id_personal>1){
-
-        fetch("api.php/personal/" + id_personal, {
-            method: "get"            
-        }).then(response=>response.json())
-        .then((datos)=>{
-
-            console.log(datos, "Datos Que trae")
-
-            document.getElementById('id_personal_ap').value=datos.id_personal;
-            document.getElementById('telefono_personal').value=datos.telefono_personal;
-            document.getElementById('nombre_personal').value=datos.nombre_personal;
-            document.getElementById('apellidos_personal').value=datos.apellidos_personal;
-            document.getElementById('email_personal').value=datos.email_personal;
-            document.getElementById('direccion_personal').value=datos.direccion_personal;
-
-        })
-    }
-}
-
-function modificarProfesional(){
-
-    //var id_cliente_ap=document.getElementById("id_cliente_ap").value;
-    var id_personal_ap=document.getElementById("id_personal_ap").value;
-
-
-
-   /* if(id_cliente_ap==undefined || id_cliente_ap==null || id_cliente_ap.trim()=="" ){
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Debe seleccionar el Rol del Cliente',                
-            })            
-        return;
-
-    }*/
-
-    if(id_personal_ap==undefined || id_personal_ap==null || id_personal_ap.trim()=="" ){
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Se debe seleccionar el Rut del Profesional',                
-            })            
-        return;
+        }
 
     }
 
 
-    var datos_formulario = {
+    (function(){
 
-        id_personal_ap:document.getElementById('id_personal_ap').value,
-        id_asignacion_profesional:document.getElementById('id_asignacion_profesional').value
 
+    document.getElementById('id_personal_ap').addEventListener('change', onChangeRut);
+    document.getElementById('id_personal_ap').value = document.getElementById('id_personal').value;
+
+    onChangeRut({})
+
+    })()
+
+    function onChangeRut(event){
+
+        var id_personal= document.getElementById('id_personal_ap').value;
+        //var id_personal= document.getElementById('rut_personal').value;
+
+        if(id_personal && id_personal>1){
+
+            fetch("api.php/personal/" + id_personal, {
+                method: "get"            
+            }).then(response=>response.json())
+            .then((datos)=>{
+
+                console.log(datos, "Datos Que trae")
+
+                document.getElementById('id_personal_ap').value=datos.id_personal;
+                document.getElementById('telefono_personal').value=datos.telefono_personal;
+                document.getElementById('nombre_personal').value=datos.nombre_personal;
+                document.getElementById('apellidos_personal').value=datos.apellidos_personal;
+                document.getElementById('email_personal').value=datos.email_personal;
+                document.getElementById('direccion_personal').value=datos.direccion_personal;
+
+            })
+        }
     }
 
-    console.log(datos_formulario, "datos formulario")
-    //return
+    function modificarProfesional(){
 
-    let formulario = new FormData(document.getElementById("modificar_asignar"))
-        console.dir(formulario.values(), "Formulario")
-        console.log(id_personal_ap, "ID PERSONAL")
+        var id_personal_ap=document.getElementById("id_personal_ap").value;
+
+        if(id_personal_ap==undefined || id_personal_ap==null || id_personal_ap.trim()=="" ){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Se debe seleccionar el Rut del Profesional',                
+                })            
+            return;
+
+        }
+
+
+        var datos_formulario = {
+
+            id_personal_ap:document.getElementById('id_personal_ap').value,
+            id_asignacion_profesional:document.getElementById('id_asignacion_profesional').value
+
+        }
+
+        console.log(datos_formulario, "datos formulario")
+        //return
+
+        let formulario = new FormData(document.getElementById("modificar_asignar"))
+            console.dir(formulario.values(), "Formulario")
+            console.log(id_personal_ap, "ID PERSONAL")
         fetch('api.php/asignacion-profesional', {
             method: "POST",
             headers: {
@@ -212,14 +197,46 @@ function modificarProfesional(){
                 showDenyButton: false,
                 showCancelButton: false,
                 confirmButtonText: 'Ok',
-                }).then((result) => {
-                    //location.reload();
-                })
+            }).then((result) => {
+                //location.reload();
+            })
+            //Mensaje Cliente
+            crearNotificacion("Se actualizo el Profesional asignado", 0, 1, document.getElementById('id_cliente_ap').value, 0, "modificar_asignar")
+            
+            //Mensaje Profesional
+            crearNotificacion("Se le ha asignado un Cliente Nuevo", 0, 0, document.getElementById('id_personal').value, 0, "modificar_asignar")
             /*acciones a realizar*/     
         }).then((data) => {
             /*mas acciones a realizar*/
         })
 
-}
+    }
 
+    function crearNotificacion(mensaje_notificacion, estado_notificacion, is_cliente, custom_user_id, custom_option_id, tipo_notificacion){
+        
+        var request = {
+
+            mensaje_notificacion: mensaje_notificacion,
+            estado_notificacion: estado_notificacion,
+            is_cliente: is_cliente,
+            custom_user_id: custom_user_id,
+            custom_option_id: custom_option_id,
+            tipo_notificacion: tipo_notificacion
+
+        }
+
+        fetch('api.php/notificaciones', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
+        }).then((response) => {
+            
+            console.log(response)
+            /*acciones a realizar*/     
+        }).then((data) => {
+            /*mas acciones a realizar*/
+        })
+    }
 </script>

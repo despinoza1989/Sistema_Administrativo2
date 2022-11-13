@@ -62,7 +62,7 @@
         <br>
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_personal_sa" name="id_personal_sa" value="<?php echo $datosusuario['id_personal'] ?>">
-        
+        <input type="hidden" id="id_cliente_sa" name="id_cliente_sa" value="">
 
     </form>
     <br>
@@ -98,7 +98,7 @@
             .then((datos)=>{
 
                 console.dir(datos)
-
+                document.getElementById('id_cliente_sa').value=datos.id_cliente_sa;
                 document.getElementById('id_solicitud_asesoria_ra').value=datos.id_solicitud_asesoria;
                 document.getElementById('tipo_asesoria').value=datos.tipo_asesoria;
                 document.getElementById('rol_cliente').value=datos.rol_cliente;
@@ -114,10 +114,6 @@
         }
 
     }
-
-
-
-
 
     function respuestaAsesoria(){
         var respuesta_asesoria=document.getElementById("respuesta_asesoria").value;
@@ -149,11 +145,59 @@
                 }).then((result) => {
                     location.reload();
                 })
+
+                //Mensaje Cliente
+            crearNotificacion("El Profesional ha respondido su solicitud de asesoría", 0, 1, document.getElementById('id_cliente_sa').value, 0, "respuesta_asesoria")
+
+            //Mensaje Administrativo
+            fetch("api.php/personal_administrativo", {
+                method: "get"
+            }).then(response => response.json())
+            .then((datos) => {
+
+                console.dir(datos)
+                
+                for (const key in datos) {
+
+                    crearNotificacion("El Profesional a respondido una asesoría", 0, 0, datos[key].id_personal, 0, "respuesta_asesoria")
+
+                }
+
+            })
+
             /*acciones a realizar*/     
         }).then((data) => {
             /*mas acciones a realizar*/
         })
         
+    }
+
+    function crearNotificacion(mensaje_notificacion, estado_notificacion, is_cliente, custom_user_id, custom_option_id, tipo_notificacion){
+        
+        var request = {
+
+            mensaje_notificacion: mensaje_notificacion,
+            estado_notificacion: estado_notificacion,
+            is_cliente: is_cliente,
+            custom_user_id: custom_user_id,
+            custom_option_id: custom_option_id,
+            tipo_notificacion: tipo_notificacion
+
+        }
+
+        fetch('api.php/notificaciones', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
+        }).then((response) => {
+            
+            console.log(response)
+            /*acciones a realizar*/     
+        }).then((data) => {
+            /*mas acciones a realizar*/
+        })
     }
 
 </script>

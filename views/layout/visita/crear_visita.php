@@ -208,7 +208,7 @@
                 confirmButtonText: 'Ok',
             
             }).then((result) => {
-                    location.reload();
+                location.reload();
             })
 
             //Mensaje Cliente
@@ -230,7 +230,6 @@
 
             })
             
-
             /*acciones a realizar*/     
         }).then((data) => {
            
