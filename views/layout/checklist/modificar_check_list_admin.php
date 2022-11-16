@@ -4,10 +4,10 @@
     <br>
     <h2> Profesional a Cargo</h2>
     <br>
-    <form id="registro_check" class="row g-3 needs-validation">
+    <form id="modificar_check" class="row g-3 needs-validation">
 
         <input type="hidden" id="id_check_list" name="id_check_list" value="<?php echo $datos_check_list['id_check_list'] ?>">
-        
+
 
         <div class="container">
             <div class="row">
@@ -104,7 +104,7 @@
                     <div class="mb-2">
                         <label for="fecha_check_list" class="form-label">Fecha Check-List</label>
                         <input type="datetime-local" class="form-control" id="fecha_check_list" name="fecha_check_list"
-                            disabled required>
+                            required>
                     </div>
                 </div>
                 <br>
@@ -116,7 +116,7 @@
                 <!-- COL 2 -->
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="senaleticas" name="senaleticas"  disabled required>
+                    <input class="form-check-input" type="checkbox" id="senaleticas" name="senaleticas" required>
                     <label class="form-check-label" for="senaleticas">
                         Señaleticas
                     </label>
@@ -124,7 +124,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="estado_contratos" name="estado_contratos"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="estado_contratos">
                         Estado de contratos
                     </label>
@@ -133,7 +133,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="estado_extintores" name="estado_extintores"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="estado_extintores">
                         Estado de extintores
                     </label>
@@ -141,7 +141,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="instalaciones_electricas"
-                        name="instalaciones_electricas" disabled required>
+                        name="instalaciones_electricas" required>
                     <label class="form-check-label" for="instalaciones_electricas">
                         Instalaciones eléctricas
                     </label>
@@ -149,7 +149,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="instalaciones_sanitarias"
-                        name="instalaciones_sanitarias" disabled required>
+                        name="instalaciones_sanitarias" required>
                     <label class="form-check-label" for="instalaciones_sanitarias">
                         Instalaciones sanitarias
                     </label>
@@ -157,7 +157,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="libro_asistencia" name="libro_asistencia"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="libro_asistencia">
                         Libro de asistencia
                     </label>
@@ -165,7 +165,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="alarma_incendios" name="alarma_incendios"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="alarma_incendios">
                         Alarma de incendios
                     </label>
@@ -173,7 +173,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="alumbrado_emergencia"
-                        name="alumbrado_emergencia" disabled required>
+                        name="alumbrado_emergencia" required>
                     <label class="form-check-label" for="alumbrado_emergencia">
                         Alumbrado de emergencia
                     </label>
@@ -181,7 +181,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="salidas_emergencia" name="salidas_emergencia"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="salidas_emergencia">
                         Salidas de emergencia
                     </label>
@@ -189,23 +189,21 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="documentacion_trabajador"
-                        name="documentacion_trabajador" disabled required>
+                        name="documentacion_trabajador" required>
                     <label class="form-check-label" for="documentacion_trabajador">
                         Documentación trabajador
                     </label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="agua_potable" name="agua_potable" disabled
-                        required>
+                    <input class="form-check-input" type="checkbox" id="agua_potable" name="agua_potable" required>
                     <label class="form-check-label" for="agua_potable">
                         Agua potable
                     </label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="centro_mutual" name="centro_mutual" disabled
-                        required>
+                    <input class="form-check-input" type="checkbox" id="centro_mutual" name="centro_mutual" required>
                     <label class="form-check-label" for="centro_mutual">
                         Centro mutual
                     </label>
@@ -214,21 +212,21 @@
                 <div class="mb-2">
                     <label for="obs_check_general" class="form-label">Observación Chequeo General</label>
                     <textarea type="text" class="form-control" id="obs_check_general" name="obs_check_general" rows="3"
-                        required style="height: 200px;" disabled required></textarea>
+                        required style="height: 200px;" required></textarea>
                 </div>
                 <br>
                 <h2>Chequeos de Protección </h2>
                 <br>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="protectores_auditivos"
-                        name="protectores_auditivos" disabled required>
+                        name="protectores_auditivos" required>
                     <label class="form-check-label" for="protectores_auditivos">
                         Protectores auditivos
                     </label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="casco_seguridad" name="casco_seguridad" disabled
+                    <input class="form-check-input" type="checkbox" id="casco_seguridad" name="casco_seguridad"
                         required>
                     <label class="form-check-label" for="defaucasco_seguridadltCheck2">
                         Casco de seguridad
@@ -237,7 +235,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="zapato_seguridad" name="zapato_seguridad"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="zapato_seguridad">
                         Zapatos de seguridad
                     </label>
@@ -245,14 +243,14 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="guantes_protectores" name="guantes_protectores"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="guantes_protectores">
                         Guantes protectores
                     </label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gafas_seguridad" name="gafas_seguridad" disabled
+                    <input class="form-check-input" type="checkbox" id="gafas_seguridad" name="gafas_seguridad"
                         required>
                     <label class="form-check-label" for="gafas_seguridad">
                         Gafas de seguridad
@@ -261,7 +259,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="mascarilla_respiratoria"
-                        name="mascarilla_respiratoria" disabled required>
+                        name="mascarilla_respiratoria" required>
                     <label class="form-check-label" for="mascarilla_respiratoria">
                         Mascarilla respiratoria
                     </label>
@@ -271,7 +269,7 @@
                 <div class="mb-2">
                     <label for="obs_check_proteccion" class="form-label">Observación Chequeo Protección</label>
                     <textarea type="text" class="form-control" id="obs_check_proteccion" name="obs_check_proteccion"
-                        rows="3" required style="height: 200px;" disabled required></textarea>
+                        rows="3" required style="height: 200px;" required></textarea>
                 </div>
 
                 <br>
@@ -279,7 +277,7 @@
                 <br>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="herramientas_adecuadas"
-                        name="herramientas_adecuadas" disabled required>
+                        name="herramientas_adecuadas" required>
                     <label class="form-check-label" for="herramientas_adecuadas">
                         Herramientas adecuadas
                     </label>
@@ -287,7 +285,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="inspeccion_materiales"
-                        name="inspeccion_materiales" disabled required>
+                        name="inspeccion_materiales" required>
                     <label class="form-check-label" for="inspeccion_materiales">
                         Inspección materiales
                     </label>
@@ -295,7 +293,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="cableado_herramientas"
-                        name="cableado_herramientas" disabled required>
+                        name="cableado_herramientas" required>
                     <label class="form-check-label" for="cableado_herramientas">
                         Cableado de herramientas
                     </label>
@@ -303,7 +301,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="proteccion_herramientas"
-                        name="proteccion_herramientas" disabled required>
+                        name="proteccion_herramientas" required>
                     <label class="form-check-label" for="proteccion_herramientas">
                         Protección de herramientas
                     </label>
@@ -313,14 +311,14 @@
                 <div class="mb-2">
                     <label for="obs_check_herramientas" class="form-label">Observación Chequeo Herramientas</label>
                     <textarea type="text" class="form-control" id="obs_check_herramientas" name="obs_check_herramientas"
-                        rows="3" required style="height: 200px;" disabled required></textarea>
+                        rows="3" required style="height: 200px;" required></textarea>
                 </div>
                 <br>
                 <h2>Chequeos de Maquinarias </h2>
                 <br>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="luces_maquinarias" name="luces_maquinarias"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="luces_maquinarias">
                         Luces de maquinarias
                     </label>
@@ -328,7 +326,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="estanque_combustible"
-                        name="estanque_combustible" disabled required>
+                        name="estanque_combustible" required>
                     <label class="form-check-label" for="estanque_combustible">
                         Estanque de combustible
                     </label>
@@ -336,7 +334,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="motor_maquinaria" name="motor_maquinaria"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="motor_maquinaria">
                         Motor de maquinaria
                     </label>
@@ -344,7 +342,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="frenos_maquinaria" name="frenos_maquinaria"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="frenos_maquinaria">
                         Frenos de maquinaria
                     </label>
@@ -352,7 +350,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="boton_emergencia_maq"
-                        name="boton_emergencia_maq" disabled required>
+                        name="boton_emergencia_maq" required>
                     <label class="form-check-label" for="boton_emergencia_maq">
                         Boton de emergencia maquinaria
                     </label>
@@ -360,7 +358,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="esp_tecnicas_maq" name="esp_tecnicas_maq"
-                        disabled required>
+                        required>
                     <label class="form-check-label" for="esp_tecnicas_maq">
                         Especies tecnicas maquinaria
                     </label>
@@ -368,7 +366,7 @@
 
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="insepeccion_maquinaria"
-                        name="insepeccion_maquinaria" disabled required>
+                        name="insepeccion_maquinaria" required>
                     <label class="form-check-label" for="insepeccion_maquinaria">
                         Inspección maquinaria
                     </label>
@@ -378,7 +376,7 @@
                 <div class="mb-2">
                     <label for="obs_check_maquinaria" class="form-label">Observación Chequeo Maquinaria</label>
                     <textarea type="text" class="form-control" id="obs_check_maquinaria" name="obs_check_maquinaria"
-                        rows="3" required style="height: 200px;" disabled required></textarea>
+                        rows="3" required style="height: 200px;" required></textarea>
                 </div>
                 <br>
 
@@ -386,11 +384,15 @@
 
         </div><!-- ROW -->
 
+        <input type="hidden" id="accion" name="accion" value="registrar">
+        <input type="hidden" id="id_personal_ckl" name="id_personal_ckl" value="<?php echo $datosusuario['id_personal']?>">
+
     </form>
     <br>
     <br>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a class="btn btn-warning col-2" href="index.php?view=listado-check-list-admin">Volver Atrás</a>
+        <button class="btn btn-primary col-2" onclick="registrarCheck()">Guardar Check-List</button>
+        <button class="btn btn-warning col-2" onclick="location.reload()">Limpiar</button>
     </div>
 </div>
 
@@ -402,7 +404,7 @@
 
     onChangeCheckList({})
     getDetallecheckList()
-    
+
 
 })()
 
@@ -419,6 +421,7 @@ function onChangeCheckList(event) {
             .then((datos) => {
 
                 console.dir(datos)
+                cliente_seleccionado=datos;
                 document.getElementById('rut_personal').value = datos.rut_personal;
                 document.getElementById('nombre_personal').value = datos.nombre_personal;
                 document.getElementById('apellidos_personal').value = datos.apellidos_personal;
@@ -448,26 +451,297 @@ function onChangeCheckList(event) {
 
 function getDetallecheckList() {
 
-var id_check_list = document.getElementById('id_check_list').value;
-console.log(id_check_list)
-console.log('getDetallecheckList')
+    var id_check_list = document.getElementById('id_check_list').value;
+    console.log(id_check_list)
+    console.log('getDetallecheckList')
 
-if (id_check_list && id_check_list > 0) {
+    if (id_check_list && id_check_list > 0) {
 
-    fetch("api.php/detalle-check-list/id-check-list/" + id_check_list, {
-            method: "get"
-        }).then(response => response.json())
-        .then((datos) => {
+        fetch("api.php/detalle-check-list/id-check-list/" + id_check_list, {
+                method: "get"
+            }).then(response => response.json())
+            .then((datos) => {
 
-            console.dir(datos)
-            
-            for (const key in datos) {
-                document.getElementById(datos[key].nombre_item).checked=(datos[key].valor_item==1);
-            }
+                console.dir(datos)
 
-        })
+                for (const key in datos) {
+                    document.getElementById(datos[key].nombre_item).checked = (datos[key].valor_item == 1);
+                }
+
+            })
+
+    }
 
 }
+
+
+
+
+function registrarCheck() {
+
+    var fecha_check_list = document.getElementById("fecha_check_list").value;
+    var id_personal_ckl = document.getElementById("id_personal_ckl").value;
+    var id_cliente_ckl = cliente_seleccionado.id_cliente_ap;
+    var id_rubro_ckl = cliente_seleccionado.id_rubro;
+
+    console.log(id_personal_ckl, id_cliente_ckl, id_rubro_ckl);
+
+    /*var check_list={
+      fecha_check_list
+      obs_check_general
+      obs_check_proteccion
+      obs_check_herramientas
+      obs_check_maquinaria
+      id_personal_ckl
+      id_cliente_ckl
+      id_rubro_ckl
+    }*/
+
+    var detalle_check_list = [];
+    detalle_check_list.push({
+        nombre_item: 'senaleticas',
+        valor_item: document.getElementById("senaleticas").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'estado_contratos',
+        valor_item: document.getElementById("estado_contratos").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'estado_extintores',
+        valor_item: document.getElementById("estado_extintores").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'instalaciones_electricas',
+        valor_item: document.getElementById("instalaciones_electricas").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'instalaciones_sanitarias',
+        valor_item: document.getElementById("instalaciones_sanitarias").checked
+    })
+
+
+    detalle_check_list.push({
+        nombre_item: 'libro_asistencia',
+        valor_item: document.getElementById("libro_asistencia").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'alarma_incendios',
+        valor_item: document.getElementById("alarma_incendios").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'alumbrado_emergencia',
+        valor_item: document.getElementById("alumbrado_emergencia").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'salidas_emergencia',
+        valor_item: document.getElementById("salidas_emergencia").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'documentacion_trabajador',
+        valor_item: document.getElementById("documentacion_trabajador").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'agua_potable',
+        valor_item: document.getElementById("agua_potable").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'centro_mutual',
+        valor_item: document.getElementById("centro_mutual").checked
+    })
+
+    var obs_check_general = document.getElementById("obs_check_general").value
+
+    detalle_check_list.push({
+        nombre_item: 'protectores_auditivos',
+        valor_item: document.getElementById("protectores_auditivos").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'casco_seguridad',
+        valor_item: document.getElementById("casco_seguridad").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'zapato_seguridad',
+        valor_item: document.getElementById("zapato_seguridad").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'guantes_protectores',
+        valor_item: document.getElementById("guantes_protectores").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'gafas_seguridad',
+        valor_item: document.getElementById("gafas_seguridad").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'mascarilla_respiratoria',
+        valor_item: document.getElementById("mascarilla_respiratoria").checked
+    })
+
+    var obs_check_proteccion = document.getElementById("obs_check_proteccion").value
+
+    detalle_check_list.push({
+        nombre_item: 'herramientas_adecuadas',
+        valor_item: document.getElementById("herramientas_adecuadas").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'inspeccion_materiales',
+        valor_item: document.getElementById("inspeccion_materiales").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'cableado_herramientas',
+        valor_item: document.getElementById("cableado_herramientas").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'proteccion_herramientas',
+        valor_item: document.getElementById("proteccion_herramientas").checked
+    })
+
+    var obs_check_herramientas = document.getElementById("obs_check_herramientas").value
+
+    detalle_check_list.push({
+        nombre_item: 'luces_maquinarias',
+        valor_item: document.getElementById("luces_maquinarias").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'estanque_combustible',
+        valor_item: document.getElementById("estanque_combustible").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'motor_maquinaria',
+        valor_item: document.getElementById("motor_maquinaria").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'frenos_maquinaria',
+        valor_item: document.getElementById("frenos_maquinaria").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'boton_emergencia_maq',
+        valor_item: document.getElementById("boton_emergencia_maq").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'esp_tecnicas_maq',
+        valor_item: document.getElementById("esp_tecnicas_maq").checked
+    })
+
+    detalle_check_list.push({
+        nombre_item: 'insepeccion_maquinaria',
+        valor_item: document.getElementById("insepeccion_maquinaria").checked
+    })
+
+    var obs_check_maquinaria = document.getElementById("obs_check_maquinaria").value
+
+
+
+    console.log(fecha_check_list.replace('T', ' '))
+
+    if (fecha_check_list == undefined || fecha_check_list == null || fecha_check_list.trim() == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Se debe ingresar una fecha valida',
+        })
+        return;
+
+    }
+
+    var fecha = new Date(fecha_check_list);
+    var ahora = new Date();
+    var dias_milisegundos = fecha.getTime() - ahora.getTime();
+    var dias_diferencia = dias_milisegundos / (1000 * 60 * 60 * 24)
+
+    console.log(ahora, 'Fecha Ahora')
+    console.log(fecha_check_list, 'check')
+    console.log(dias_milisegundos, 'diferencia milisegundos')
+    console.log(dias_diferencia, 'diferencia dias')
+
+    if (dias_diferencia < 15) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'La fecha debe ser mayor o igual a 15 días',
+        })
+        return;
+    }
+
+    if (obs_check_general == undefined || obs_check_general == null || obs_check_general.trim() == "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Se debe ingresar una observación general',
+        })
+        return;
+
+    }
+
+    // Cambiar los hiden rubro y cliente por un combo box
+    // el hidden del personal por el cache del profesional 
+    // Enviar el request a la api
+
+    let request = {
+
+        accion: 'crear',
+
+        check_list: {
+            fecha_check_list: fecha_check_list,
+            obs_check_general: obs_check_general,
+            obs_check_proteccion: obs_check_proteccion,
+            obs_check_herramientas: obs_check_herramientas,
+            obs_check_maquinaria: obs_check_maquinaria,
+            id_personal_ckl: id_personal_ckl,
+            id_cliente_ckl: id_cliente_ckl,
+            id_rubro_ckl: id_rubro_ckl,
+
+        },
+
+        detalle_check_list: detalle_check_list,
+
+    }
+
+    console.log(request, "request")
+
+
+    fetch('api.php/modificar-check-list-admin', {
+        method: "post",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(request)
+    }).then((response) => {
+        console.log(response, "respuesta")
+        Swal.fire({
+            title: 'Check-List Modificado Exitosamente',
+            showDenyButton: false,
+            showCancelButton: false,
+            confirmButtonText: 'Ok',
+        }).then((result) => {
+            location.reload();
+        })
+        /*acciones a realizar*/
+    }).then((data) => {
+        /*mas acciones a realizar*/
+    })
 
 }
 </script>

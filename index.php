@@ -176,6 +176,11 @@ session_start();
                     $ctrl = new DetalleCheckListController();
                     break;
 
+                case 'modificar-check-list-admin':
+                    require_once "controllers/ModificarCheckListAdminController.php";
+                    $ctrl = new ModificarCheckListAdminController();
+                    break;
+
                 case 'listar-asesoria':
                     require_once "controllers/ListarAsesoriaController.php";
                     $ctrl = new ListarAsesoriaController();

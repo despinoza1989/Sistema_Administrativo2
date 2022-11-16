@@ -25,7 +25,7 @@
                     <td><?php echo $row["obs_check_general"]?></td>
                     <td>
                         <a href="index.php?view=detalle-check-list-admin&id_check_list=<?php echo $row["id_check_list"]?>" class="btn btn-info btn-sm">Ver Detalle</a>
-                        <a href="#" class="btn btn-warning">Modificar</a>
+                        <a href="index.php?view=modificar-check-list-admin&id_check_list=<?php echo $row["id_check_list"]?>" class="btn btn-warning">Modificar</a>
                     </td>         
                 </tr>
 

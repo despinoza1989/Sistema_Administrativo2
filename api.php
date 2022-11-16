@@ -183,6 +183,29 @@ $app->post('/check-list', function (Request $request, Response $response, array 
 
 });
 
+/*$app->post('/modificar-check-list-admin', function (Request $request, Response $response, array $args) {
+    
+    $model = new ChecklistModel();
+    $model2 = new DetalleChecklistModel();
+    $data_post = $request->getParsedBody();
+    $datos = $model->update($data_post['check_list']);
+
+    $detalles_checklist = $data_post['detalle_check_list'];
+    foreach($detalles_checklist as $detalle){
+        $detalle['id_check_list_dcl']=$datos['id'];
+        $model2->update($detalle);
+    }
+    return $response->withJson($datos);
+
+});
+
+/*$app->post('/modificar-check-list-admin', function (Request $request, Response $response, array $args) {
+    
+    $model = new ChecklistModel();
+    $datos = $model->update($request->getParsedBody());
+    return $response->withJson($datos);
+
+});*/
 
 //MODELS CREAR CAPACITACIÓN
 
