@@ -1,6 +1,6 @@
 <?php
 
-class ModificarCheckListAdminController{
+class ModificarCheckListController{
     function __construct(){
         //echo "esto funciona";
 
@@ -20,10 +20,8 @@ class ModificarCheckListAdminController{
         $model_detalle_check_list = new DetalleChecklistModel();
 
         //Llamar datos del modelo
-
-        if(!empty($_POST)){
-
-            $model_check_list->update($_POST);
+        if(isset($_POST["accion"])){
+            $model_check_list->create($_POST['check_list']);            
             return;
         }
 
@@ -34,7 +32,7 @@ class ModificarCheckListAdminController{
 
         //Llamar a la vista 
         require_once "views/layout/header.php";
-        require_once "views/layout/checklist/modificar_check_list_admin.php";
+        require_once "views/layout/checklist/modificar_check_list.php";
         require_once "views/layout/footer.php";
 
     }

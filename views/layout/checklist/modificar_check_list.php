@@ -1,5 +1,5 @@
 <div class="card-body" style="margin: 2em 5em;">
-    <h1> Lista de Check </h1>
+    <h1> Modificar Check-List </h1>
     <br>
     <br>
     <h2> Profesional a Cargo</h2>
@@ -397,351 +397,386 @@
 </div>
 
 <script>
-(function() {
+    var cliente_seleccionado={};
 
-    document.getElementById('id_check_list').addEventListener('change', onChangeCheckList)
-    document.getElementById('id_check_list').value = document.getElementById('id_check_list').value;
+    (function() {
 
-    onChangeCheckList({})
-    getDetallecheckList()
+        document.getElementById('id_check_list').addEventListener('change', onChangeCheckList)
+        document.getElementById('id_check_list').value = document.getElementById('id_check_list').value;
 
-
-})()
-
-function onChangeCheckList(event) {
-
-    var id_check_list = document.getElementById('id_check_list').value;
-    console.log(id_check_list)
-
-    if (id_check_list && id_check_list > 1) {
-
-        fetch("api.php/check-list/" + id_check_list, {
-                method: "get"
-            }).then(response => response.json())
-            .then((datos) => {
-
-                console.dir(datos)
-                cliente_seleccionado=datos;
-                document.getElementById('rut_personal').value = datos.rut_personal;
-                document.getElementById('nombre_personal').value = datos.nombre_personal;
-                document.getElementById('apellidos_personal').value = datos.apellidos_personal;
-                document.getElementById('telefono_personal').value = datos.telefono_personal;
-                document.getElementById('email_personal').value = datos.email_personal;
-
-                document.getElementById('rol_cliente').value = datos.rol_cliente;
-                document.getElementById('razon_social_cliente').value = datos.razon_social_cliente;
-                document.getElementById('telefono_cliente').value = datos.telefono_cliente;
-                document.getElementById('direccion_cliente').value = datos.direccion_cliente;
-                document.getElementById('email_cliente').value = datos.email_cliente;
-
-                document.getElementById('fecha_check_list').value = datos.fecha_check_list;
-                document.getElementById('obs_check_general').value = datos.obs_check_general;
-                document.getElementById('obs_check_proteccion').value = datos.obs_check_proteccion;
-                document.getElementById('obs_check_herramientas').value = datos.obs_check_herramientas;
-                document.getElementById('obs_check_maquinaria').value = datos.obs_check_maquinaria;
+        onChangeCheckList({})
+        getDetallecheckList()
 
 
+    })()
 
-            })
+    function onChangeCheckList(event) {
+
+        var id_check_list = document.getElementById('id_check_list').value;
+        console.log(id_check_list)
+
+        if (id_check_list && id_check_list > 1) {
+
+            fetch("api.php/check-list/" + id_check_list, {
+                    method: "get"
+                }).then(response => response.json())
+                .then((datos) => {
+
+                    console.dir(datos)
+                    cliente_seleccionado=datos;
+                    document.getElementById('rut_personal').value = datos.rut_personal;
+                    document.getElementById('nombre_personal').value = datos.nombre_personal;
+                    document.getElementById('apellidos_personal').value = datos.apellidos_personal;
+                    document.getElementById('telefono_personal').value = datos.telefono_personal;
+                    document.getElementById('email_personal').value = datos.email_personal;
+
+                    document.getElementById('rol_cliente').value = datos.rol_cliente;
+                    document.getElementById('razon_social_cliente').value = datos.razon_social_cliente;
+                    document.getElementById('telefono_cliente').value = datos.telefono_cliente;
+                    document.getElementById('direccion_cliente').value = datos.direccion_cliente;
+                    document.getElementById('email_cliente').value = datos.email_cliente;
+
+                    document.getElementById('fecha_check_list').value = datos.fecha_check_list;
+                    document.getElementById('obs_check_general').value = datos.obs_check_general;
+                    document.getElementById('obs_check_proteccion').value = datos.obs_check_proteccion;
+                    document.getElementById('obs_check_herramientas').value = datos.obs_check_herramientas;
+                    document.getElementById('obs_check_maquinaria').value = datos.obs_check_maquinaria;
+
+
+
+                })
+
+        }
 
     }
 
-}
+
+    function getDetallecheckList() {
+
+        var id_check_list = document.getElementById('id_check_list').value;
+        console.log(id_check_list)
+        console.log('getDetallecheckList')
+
+        if (id_check_list && id_check_list > 0) {
+
+            fetch("api.php/detalle-check-list/id-check-list/" + id_check_list, {
+                    method: "get"
+                }).then(response => response.json())
+                .then((datos) => {
+
+                    console.dir(datos)
+
+                    for (const key in datos) {
+                        document.getElementById(datos[key].nombre_item).checked = (datos[key].valor_item == 1);
+                    }
+
+                })
+
+        }
+
+    }
 
 
-function getDetallecheckList() {
+    function registrarCheck() {
 
-    var id_check_list = document.getElementById('id_check_list').value;
-    console.log(id_check_list)
-    console.log('getDetallecheckList')
+        var fecha_check_list = document.getElementById("fecha_check_list").value;
+        var id_personal_ckl = document.getElementById("id_personal_ckl").value;
+        var id_cliente_ckl = cliente_seleccionado.id_cliente_ckl;
+        var id_rubro_ckl = cliente_seleccionado.id_rubro_ckl;
 
-    if (id_check_list && id_check_list > 0) {
+        console.log(id_personal_ckl, id_cliente_ckl, id_rubro_ckl);
 
-        fetch("api.php/detalle-check-list/id-check-list/" + id_check_list, {
+        var detalle_check_list = [];
+        detalle_check_list.push({
+            nombre_item: 'senaleticas',
+            valor_item: document.getElementById("senaleticas").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'estado_contratos',
+            valor_item: document.getElementById("estado_contratos").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'estado_extintores',
+            valor_item: document.getElementById("estado_extintores").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'instalaciones_electricas',
+            valor_item: document.getElementById("instalaciones_electricas").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'instalaciones_sanitarias',
+            valor_item: document.getElementById("instalaciones_sanitarias").checked
+        })
+
+
+        detalle_check_list.push({
+            nombre_item: 'libro_asistencia',
+            valor_item: document.getElementById("libro_asistencia").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'alarma_incendios',
+            valor_item: document.getElementById("alarma_incendios").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'alumbrado_emergencia',
+            valor_item: document.getElementById("alumbrado_emergencia").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'salidas_emergencia',
+            valor_item: document.getElementById("salidas_emergencia").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'documentacion_trabajador',
+            valor_item: document.getElementById("documentacion_trabajador").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'agua_potable',
+            valor_item: document.getElementById("agua_potable").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'centro_mutual',
+            valor_item: document.getElementById("centro_mutual").checked
+        })
+
+        var obs_check_general = document.getElementById("obs_check_general").value
+
+        detalle_check_list.push({
+            nombre_item: 'protectores_auditivos',
+            valor_item: document.getElementById("protectores_auditivos").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'casco_seguridad',
+            valor_item: document.getElementById("casco_seguridad").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'zapato_seguridad',
+            valor_item: document.getElementById("zapato_seguridad").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'guantes_protectores',
+            valor_item: document.getElementById("guantes_protectores").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'gafas_seguridad',
+            valor_item: document.getElementById("gafas_seguridad").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'mascarilla_respiratoria',
+            valor_item: document.getElementById("mascarilla_respiratoria").checked
+        })
+
+        var obs_check_proteccion = document.getElementById("obs_check_proteccion").value
+
+        detalle_check_list.push({
+            nombre_item: 'herramientas_adecuadas',
+            valor_item: document.getElementById("herramientas_adecuadas").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'inspeccion_materiales',
+            valor_item: document.getElementById("inspeccion_materiales").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'cableado_herramientas',
+            valor_item: document.getElementById("cableado_herramientas").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'proteccion_herramientas',
+            valor_item: document.getElementById("proteccion_herramientas").checked
+        })
+
+        var obs_check_herramientas = document.getElementById("obs_check_herramientas").value
+
+        detalle_check_list.push({
+            nombre_item: 'luces_maquinarias',
+            valor_item: document.getElementById("luces_maquinarias").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'estanque_combustible',
+            valor_item: document.getElementById("estanque_combustible").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'motor_maquinaria',
+            valor_item: document.getElementById("motor_maquinaria").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'frenos_maquinaria',
+            valor_item: document.getElementById("frenos_maquinaria").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'boton_emergencia_maq',
+            valor_item: document.getElementById("boton_emergencia_maq").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'esp_tecnicas_maq',
+            valor_item: document.getElementById("esp_tecnicas_maq").checked
+        })
+
+        detalle_check_list.push({
+            nombre_item: 'insepeccion_maquinaria',
+            valor_item: document.getElementById("insepeccion_maquinaria").checked
+        })
+
+        var obs_check_maquinaria = document.getElementById("obs_check_maquinaria").value
+
+
+
+        console.log(fecha_check_list.replace('T', ' '))
+
+        if (fecha_check_list == undefined || fecha_check_list == null || fecha_check_list.trim() == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Se debe ingresar una fecha valida',
+            })
+            return;
+
+        }
+
+        var fecha = new Date(fecha_check_list);
+        var ahora = new Date();
+        var dias_milisegundos = fecha.getTime() - ahora.getTime();
+        var dias_diferencia = dias_milisegundos / (1000 * 60 * 60 * 24)
+
+        console.log(ahora, 'Fecha Ahora')
+        console.log(fecha_check_list, 'check')
+        console.log(dias_milisegundos, 'diferencia milisegundos')
+        console.log(dias_diferencia, 'diferencia dias')
+
+        if (dias_diferencia < 15) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'La fecha debe ser mayor o igual a 15 días',
+            })
+            return;
+        }
+
+        if (obs_check_general == undefined || obs_check_general == null || obs_check_general.trim() == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Se debe ingresar una observación general',
+            })
+            return;
+
+        }
+
+        // Cambiar los hiden rubro y cliente por un combo box
+        // el hidden del personal por el cache del profesional 
+        // Enviar el request a la api
+
+        let request = {
+
+            accion: 'crear',
+
+            check_list: {
+                fecha_check_list: fecha_check_list,
+                obs_check_general: obs_check_general,
+                obs_check_proteccion: obs_check_proteccion,
+                obs_check_herramientas: obs_check_herramientas,
+                obs_check_maquinaria: obs_check_maquinaria,
+                id_personal_ckl: id_personal_ckl,
+                id_cliente_ckl: id_cliente_ckl,
+                id_rubro_ckl: id_rubro_ckl,
+
+            },
+
+            detalle_check_list: detalle_check_list,
+
+        }
+
+        console.log(request, "request")
+
+        fetch('api.php/check-list', {
+            method: "post",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
+        }).then((response) => {
+            console.log(response,"respuesta")
+            Swal.fire({
+                title: 'Check-List Registrado Exitosamente',
+                showDenyButton: false,
+                showCancelButton: false,
+                confirmButtonText: 'Ok',
+            }).then((result) => {
+                window.location.href = "index.php?view=listado-check-list";
+            })
+
+            //Mensaje Cliente
+            crearNotificacion("Se le genero una actualización de un Check-List", 0, 1, id_cliente_ckl, 0, "modificar_checklist")
+
+            //Mensaje Administrativo
+            fetch("api.php/personal_administrativo", {
                 method: "get"
             }).then(response => response.json())
             .then((datos) => {
 
                 console.dir(datos)
-
+                
                 for (const key in datos) {
-                    document.getElementById(datos[key].nombre_item).checked = (datos[key].valor_item == 1);
+
+                    crearNotificacion("El Profesional a actualizado un Check-List", 0, 0, datos[key].id_personal, 0, "modificar_checklist")
+
                 }
 
             })
 
-    }
-
-}
-
-
-
-
-function registrarCheck() {
-
-    var fecha_check_list = document.getElementById("fecha_check_list").value;
-    var id_personal_ckl = document.getElementById("id_personal_ckl").value;
-    var id_cliente_ckl = cliente_seleccionado.id_cliente_ap;
-    var id_rubro_ckl = cliente_seleccionado.id_rubro;
-
-    console.log(id_personal_ckl, id_cliente_ckl, id_rubro_ckl);
-
-    /*var check_list={
-      fecha_check_list
-      obs_check_general
-      obs_check_proteccion
-      obs_check_herramientas
-      obs_check_maquinaria
-      id_personal_ckl
-      id_cliente_ckl
-      id_rubro_ckl
-    }*/
-
-    var detalle_check_list = [];
-    detalle_check_list.push({
-        nombre_item: 'senaleticas',
-        valor_item: document.getElementById("senaleticas").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'estado_contratos',
-        valor_item: document.getElementById("estado_contratos").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'estado_extintores',
-        valor_item: document.getElementById("estado_extintores").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'instalaciones_electricas',
-        valor_item: document.getElementById("instalaciones_electricas").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'instalaciones_sanitarias',
-        valor_item: document.getElementById("instalaciones_sanitarias").checked
-    })
-
-
-    detalle_check_list.push({
-        nombre_item: 'libro_asistencia',
-        valor_item: document.getElementById("libro_asistencia").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'alarma_incendios',
-        valor_item: document.getElementById("alarma_incendios").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'alumbrado_emergencia',
-        valor_item: document.getElementById("alumbrado_emergencia").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'salidas_emergencia',
-        valor_item: document.getElementById("salidas_emergencia").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'documentacion_trabajador',
-        valor_item: document.getElementById("documentacion_trabajador").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'agua_potable',
-        valor_item: document.getElementById("agua_potable").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'centro_mutual',
-        valor_item: document.getElementById("centro_mutual").checked
-    })
-
-    var obs_check_general = document.getElementById("obs_check_general").value
-
-    detalle_check_list.push({
-        nombre_item: 'protectores_auditivos',
-        valor_item: document.getElementById("protectores_auditivos").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'casco_seguridad',
-        valor_item: document.getElementById("casco_seguridad").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'zapato_seguridad',
-        valor_item: document.getElementById("zapato_seguridad").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'guantes_protectores',
-        valor_item: document.getElementById("guantes_protectores").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'gafas_seguridad',
-        valor_item: document.getElementById("gafas_seguridad").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'mascarilla_respiratoria',
-        valor_item: document.getElementById("mascarilla_respiratoria").checked
-    })
-
-    var obs_check_proteccion = document.getElementById("obs_check_proteccion").value
-
-    detalle_check_list.push({
-        nombre_item: 'herramientas_adecuadas',
-        valor_item: document.getElementById("herramientas_adecuadas").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'inspeccion_materiales',
-        valor_item: document.getElementById("inspeccion_materiales").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'cableado_herramientas',
-        valor_item: document.getElementById("cableado_herramientas").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'proteccion_herramientas',
-        valor_item: document.getElementById("proteccion_herramientas").checked
-    })
-
-    var obs_check_herramientas = document.getElementById("obs_check_herramientas").value
-
-    detalle_check_list.push({
-        nombre_item: 'luces_maquinarias',
-        valor_item: document.getElementById("luces_maquinarias").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'estanque_combustible',
-        valor_item: document.getElementById("estanque_combustible").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'motor_maquinaria',
-        valor_item: document.getElementById("motor_maquinaria").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'frenos_maquinaria',
-        valor_item: document.getElementById("frenos_maquinaria").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'boton_emergencia_maq',
-        valor_item: document.getElementById("boton_emergencia_maq").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'esp_tecnicas_maq',
-        valor_item: document.getElementById("esp_tecnicas_maq").checked
-    })
-
-    detalle_check_list.push({
-        nombre_item: 'insepeccion_maquinaria',
-        valor_item: document.getElementById("insepeccion_maquinaria").checked
-    })
-
-    var obs_check_maquinaria = document.getElementById("obs_check_maquinaria").value
-
-
-
-    console.log(fecha_check_list.replace('T', ' '))
-
-    if (fecha_check_list == undefined || fecha_check_list == null || fecha_check_list.trim() == "") {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Se debe ingresar una fecha valida',
-        })
-        return;
-
-    }
-
-    var fecha = new Date(fecha_check_list);
-    var ahora = new Date();
-    var dias_milisegundos = fecha.getTime() - ahora.getTime();
-    var dias_diferencia = dias_milisegundos / (1000 * 60 * 60 * 24)
-
-    console.log(ahora, 'Fecha Ahora')
-    console.log(fecha_check_list, 'check')
-    console.log(dias_milisegundos, 'diferencia milisegundos')
-    console.log(dias_diferencia, 'diferencia dias')
-
-    if (dias_diferencia < 15) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'La fecha debe ser mayor o igual a 15 días',
-        })
-        return;
-    }
-
-    if (obs_check_general == undefined || obs_check_general == null || obs_check_general.trim() == "") {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Se debe ingresar una observación general',
-        })
-        return;
-
-    }
-
-    // Cambiar los hiden rubro y cliente por un combo box
-    // el hidden del personal por el cache del profesional 
-    // Enviar el request a la api
-
-    let request = {
-
-        accion: 'crear',
-
-        check_list: {
-            fecha_check_list: fecha_check_list,
-            obs_check_general: obs_check_general,
-            obs_check_proteccion: obs_check_proteccion,
-            obs_check_herramientas: obs_check_herramientas,
-            obs_check_maquinaria: obs_check_maquinaria,
-            id_personal_ckl: id_personal_ckl,
-            id_cliente_ckl: id_cliente_ckl,
-            id_rubro_ckl: id_rubro_ckl,
-
-        },
-
-        detalle_check_list: detalle_check_list,
-
-    }
-
-    console.log(request, "request")
-
-
-    fetch('api.php/modificar-check-list-admin', {
-        method: "post",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(request)
-    }).then((response) => {
-        console.log(response, "respuesta")
-        Swal.fire({
-            title: 'Check-List Modificado Exitosamente',
-            showDenyButton: false,
-            showCancelButton: false,
-            confirmButtonText: 'Ok',
-        }).then((result) => {
-            location.reload();
-        })
-        /*acciones a realizar*/
-    }).then((data) => {
+            /*acciones a realizar*/
+        }).then((data) => {
         /*mas acciones a realizar*/
-    })
+        })
+    }
 
-}
+    function crearNotificacion(mensaje_notificacion, estado_notificacion, is_cliente, custom_user_id, custom_option_id, tipo_notificacion){
+        
+        var request = {
+
+            mensaje_notificacion: mensaje_notificacion,
+            estado_notificacion: estado_notificacion,
+            is_cliente: is_cliente,
+            custom_user_id: custom_user_id,
+            custom_option_id: custom_option_id,
+            tipo_notificacion: tipo_notificacion
+
+        }
+
+        fetch('api.php/notificaciones', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
+        }).then((response) => {
+            
+            console.log(response)
+            /*acciones a realizar*/     
+        }).then((data) => {
+            /*mas acciones a realizar*/
+        })
+    }   
 </script>
