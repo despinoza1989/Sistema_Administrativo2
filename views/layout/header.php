@@ -94,6 +94,10 @@
                     <ul class="dropdown-menu">
 
                         <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
+                        <li><a class="dropdown-item" href="index.php?view=listado-check-mejora">Crear Mejora</a></li>
+                        <?php } ?>
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
                         <li><a class="dropdown-item" href="index.php?view=listado-mejora">Lista de Mejoras</a></li>
                         <?php } ?>
 
