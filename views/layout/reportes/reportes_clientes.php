@@ -5,7 +5,7 @@
             <strong>Reportes y Estadísticas de Clientes</strong>
             </div>
             <div class="card-body">
-            <iframe title="Reportes Sistema administrativo" width="1280" height="1024" src="https://app.powerbi.com/view?r=eyJrIjoiNGRhNjU4NjktMmEwMy00MzQyLTg2M2MtZmViMmMwYjAyODY3IiwidCI6IjcyZmQwYjVhLThhNmEtNGNmZi04OWY2LWJkZTk2MWY3ZTI1MCIsImMiOjR9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+            <iframe title="Reportes Sistema administrativoClientes" width="1280" height="1024" src="https://app.powerbi.com/view?r=eyJrIjoiZWYzNTQ2OTctMzk3OC00ZDU5LWFkNjktNGQ1MjBkNDVjYjZkIiwidCI6IjcyZmQwYjVhLThhNmEtNGNmZi04OWY2LWJkZTk2MWY3ZTI1MCIsImMiOjR9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
             </div>
         </div>
     </div>
