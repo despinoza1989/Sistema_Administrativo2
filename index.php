@@ -266,6 +266,10 @@ session_start();
                     $ctrl = new ReportesGlobalesController();
                     break;
                             
+                case 'notificaciones':
+                    require_once "controllers/NotificacionesController.php";
+                    $ctrl = new NotificacionesController();
+                    break;
                 
                 case 'logout':
                     session_unset();

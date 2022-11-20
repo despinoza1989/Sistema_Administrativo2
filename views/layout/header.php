@@ -177,6 +177,11 @@
                     </ul>
                 </li>
 
+                <!-- PESTAÑA NOTIFICACIONES -->
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.php?view=notificaciones">Notificaciones <span class="badge bg-primary rounded-pill" id="cantidad">0</span></a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index.php?view=logout">Salir</a>
                 </li>
@@ -187,3 +192,34 @@
     </div>
 </nav>
 
+<script>
+
+    var id = <?php echo $_SESSION['usuario']['id_personal']; ?>
+
+
+    function init (){
+
+        fetch('api.php/notificaciones/cantidad/' + id, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response=>response.json())
+        .then((data) => {
+
+
+            document.getElementById('cantidad').innerHTML=data.cantidad;
+            setTimeout(() => {
+                init()
+            }, 5000);
+        })
+
+
+
+    }
+    
+    init()
+
+
+
+</script>

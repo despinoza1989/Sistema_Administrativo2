@@ -96,6 +96,8 @@ class ChecklistModel {
         return $response;
     }
 
+    //Ejemplo para ultimo ID
+
     function create($data) {
 
         $conexion= Database::connect();
