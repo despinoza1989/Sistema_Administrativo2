@@ -47,6 +47,8 @@ class NotificacionesController{
             return 'Check-List Modificado';
         }elseif ($tipo_notificacion == 'crear_visita') {
             return 'Visita en Terreno';
+        }elseif ($tipo_notificacion == 'crear_mejora') {
+            return 'Mejora Creada';
         }else{
             return 'Desconocido';
         }

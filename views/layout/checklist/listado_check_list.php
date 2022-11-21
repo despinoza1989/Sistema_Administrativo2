@@ -10,7 +10,6 @@
                 <th>Email Cliente</th>
                 <th>Teléfono Cliente</th>
                 <th>Fecha/Hora Check-List</th>
-                <th>Observación General</th>
                 <th>Opciones</th>
             </tr>
 
@@ -24,7 +23,6 @@
                     <td><?php echo $row["email_cliente"]?></td>
                     <td><?php echo $row["telefono_cliente"]?></td>
                     <td><?php echo $row["fecha_check_list"]?></td>
-                    <td><?php echo $row["ob_check_general"]?></td>
                     <td>
                         <a href="index.php?view=detalle-check-list&id_check_list=<?php echo $row["id_check_list"]?>" class="btn btn-info btn-sm">Ver Detalle</a>
                         <a href="index.php?view=modificar-check-list&id_check_list=<?php echo $row["id_check_list"]?>" class="btn btn-warning btn-sm">Modificar</a>

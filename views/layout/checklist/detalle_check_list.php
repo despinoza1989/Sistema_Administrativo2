@@ -53,7 +53,7 @@
                 <br>
                 <br>
                 <br>
-                <h2>Selección de Cliente</h2>
+                <h2>Datos de Cliente</h2>
                 <br>
 
                 <div class="col-md-6">
