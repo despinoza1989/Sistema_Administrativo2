@@ -13,7 +13,6 @@ require "models/GeneroModel.php";
 require "models/MejoraModel.php";
 require "models/PagoServicioModel.php";
 require "models/PlanServicioModel.php";
-require "models/RegistroContrato.php";
 require "models/ReporteAccidenteModel.php";
 require "models/RespuestaAsesoriaModel.php";
 require "models/RubroModel.php";
@@ -21,13 +20,13 @@ require "models/SolicitudAsesoriaModel.php";
 require "models/SolicitudCapacitacionModel.php";
 require "models/TipoAsesoriaModel.php";
 require "models/TipoDocumentoModel.php";
-require "models/TipoPagoModel.php";
 require "models/TipoPersonalCapacitacionModel.php";
 require "models/TipoUsuarioModel.php";
 require "models/VisitaTerrenoModel.php";
 require "models/AsignacionProfesionalModel.php";
 require "models/DetalleChecklistModel.php";
 require "models/NotificacionModel.php";
+require "models/ContratoModel.php";
 
 
 $configuration = [
@@ -320,25 +319,6 @@ $app->get('/pago-servicio/{id_pago_servicio}', function (Request $request, Respo
 
 });
 
-//MODELS PLAN SERVICIO
-
-$app->get('/registro-contrato', function (Request $request, Response $response, array $args) {
-     
-    $model = new RegistroContrato();
-    $datos = $model->getAll();
-    return $response->withJson($datos);
-
-});
-
-$app->get('/registro-contrato/{id_registro_contrato}', function (Request $request, Response $response, array $args) {
-    
-    $id_registro_contrato = $args['id_registro_contrato'];    
-    $model = new RegistroContrato();
-    $datos = $model->getById($id_registro_contrato);
-    return $response->withJson($datos);
-
-});
-
 //MODELS REPORTE ACCIDENTE
 
 $app->get('/reporte-accidente', function (Request $request, Response $response, array $args) {
@@ -472,24 +452,6 @@ $app->get('/tipo-documento/{id_tipo_documento}', function (Request $request, Res
 
 });
 
-//MODELS TIPO PAGO
-
-$app->get('/tipo-pago', function (Request $request, Response $response, array $args) {
-     
-    $model = new TipoPagoModel();
-    $datos = $model->getAll();
-    return $response->withJson($datos);
-
-});
-
-$app->get('/tipo-pago/{id_tipo_pago}', function (Request $request, Response $response, array $args) {
-    
-    $id_tipo_pago = $args['id_tipo_pago'];    
-    $model = new TipoPagoModel();
-    $datos = $model->getById($id_tipo_pago);
-    return $response->withJson($datos);
-
-});
 
 //TIPO PERSONAL CAPACITACION
 
@@ -646,6 +608,68 @@ $app->put('/notificaciones/{id_notificaciones}', function (Request $request, Res
     $id_notificaciones = $args["id_notificaciones"];
     $model = new NotificacionModel();
     $datos = $model->updateEstado($id_notificaciones);
+    return $response->withJson($datos);
+
+});
+
+//MODELS CONTRATO
+
+$app->get('/contrato', function (Request $request, Response $response, array $args) {
+     
+    $model_cliente = new ContratoModel();
+    $datos = $model_cliente->getAll();
+    return $response->withJson($datos);
+
+});
+
+$app->get('/contrato/{id_contrato}', function (Request $request, Response $response, array $args) {
+    
+    $id_contrato = $args['id_contrato'];    
+    $model_contrato = new ContratoModel();
+    $datos_contrato = $model_contrato->getById($id_contrato);
+    return $response->withJson($datos_contrato);
+
+});
+
+$app->put('/contrato', function (Request $request, Response $response, array $args) {
+    
+    $model = new ContratoModel();
+    $datos = $model->update($request->getParsedBody());
+    return $response->withJson($datos);
+
+});
+
+$app->post('/contrato', function (Request $request, Response $response, array $args) {
+    
+    $model = new ContratoModel();
+    $datos = $model->create($request->getParsedBody());
+    return $response->withJson($datos);
+
+});
+
+//MODEL PLAN DE SERVICIO
+
+$app->get('/plan-servicio', function (Request $request, Response $response, array $args) {
+     
+    $model_cliente = new PlanServicioModel();
+    $datos = $model_cliente->getAll();
+    return $response->withJson($datos);
+
+});
+
+$app->get('/plan-servicio/{id_plan_servicio}', function (Request $request, Response $response, array $args) {
+    
+    $id_plan_servicio = $args['id_plan_servicio'];    
+    $model_contrato = new PlanServicioModel();
+    $datos_contrato = $model_contrato->getById($id_plan_servicio);
+    return $response->withJson($datos_contrato);
+
+});
+
+$app->post('/plan-servicio', function (Request $request, Response $response, array $args) {
+    
+    $model = new PlanServicioModel();
+    $datos = $model->update($request->getParsedBody());
     return $response->withJson($datos);
 
 });

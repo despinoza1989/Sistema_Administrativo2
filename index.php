@@ -255,11 +255,6 @@ session_start();
                     require_once "controllers/DetalleAccidenteController.php";
                     $ctrl = new DetalleAccidenteController();
                     break;
-                        
-                case 'listar-pagos':
-                    require_once "controllers/ListarCapacitacionesController.php";
-                    $ctrl = new ListarCapacitacionesController();
-                    break;
 
                 case 'reportes-clientes':
                     require_once "controllers/ReportesClientesController.php";
@@ -275,7 +270,12 @@ session_start();
                     require_once "controllers/NotificacionesController.php";
                     $ctrl = new NotificacionesController();
                     break;
-                
+
+                case 'contrato':
+                    require_once "controllers/ContratoController.php";
+                    $ctrl = new ContratoController();
+                    break;
+                    
                 case 'logout':
                     session_unset();
                     header("refresh: 1; url=index.php");
