@@ -728,7 +728,7 @@
             })
 
             //Mensaje Cliente
-            crearNotificacion("Se le genero una actualización de un Check-List", 0, 1, id_cliente_ckl, 0, "modificar_checklist")
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " genero una actualización de un Check-List, con fecha de creación el " + document.getElementById("fecha_check_list").value.replace('T', ' '), 0, 1, id_cliente_ckl, 0, "modificar_checklist")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {
@@ -740,7 +740,7 @@
                 
                 for (const key in datos) {
 
-                    crearNotificacion("El Profesional a actualizado un Check-List", 0, 0, datos[key].id_personal, 0, "modificar_checklist")
+                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " genero una actualización de un Check-List, con fecha de creación el " + document.getElementById("fecha_check_list").value.replace('T', ' ') + " al cliente " + document.getElementById("razon_social_cliente").value, 0, 0, datos[key].id_personal, 0, "modificar_checklist")
 
                 }
 

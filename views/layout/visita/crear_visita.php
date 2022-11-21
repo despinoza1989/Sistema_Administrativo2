@@ -212,7 +212,7 @@
             })
 
             //Mensaje Cliente
-            crearNotificacion("Se ah generado una visita en terreno para el: " + document.getElementById('fecha_visita').value.replace('T', ' '), 0, 1, document.getElementById('id_cliente_vt').value, 0, "crear_visita")
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ah generado una visita en terreno para el: " + document.getElementById('fecha_visita').value.replace('T', ' '), 0, 1, document.getElementById('id_cliente_vt').value, 0, "crear_visita")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {
@@ -224,7 +224,7 @@
                 
                 for (const key in datos) {
 
-                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " a generado una visita en terreno para el: " + document.getElementById('fecha_visita').value.replace('T', ' '), 0, 0, datos[key].id_personal, 0, "crear_visita")
+                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a generado una visita en terreno para el: " + document.getElementById('fecha_visita').value.replace('T', ' ') + " al cliente " + document.getElementById("razon_social_cliente").value, 0, 0, datos[key].id_personal, 0, "crear_visita")
 
                 }
 

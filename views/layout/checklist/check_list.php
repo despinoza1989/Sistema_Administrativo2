@@ -37,7 +37,7 @@
                 <div class="col-md-6">
                     <label for="telefono_personal" class="form-label">Telefono</label>
                     <input type="text" class="form-control" id="telefono_personal" name="telefono_personal"
-                        value="<?php echo $datosusuario['apellidos_personal']?>" disabled required>
+                        value="<?php echo $datosusuario['telefono_personal']?>" disabled required>
                     <div class="invalid-feedback">
                         Favor de introducir un telefono valido
                     </div>
@@ -684,7 +684,7 @@
             })
 
             //Mensaje Cliente
-            crearNotificacion("Se le ah generado un Check-List", 0, 1, id_cliente_ckl, 0, "crear_checklist")
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ah generado un Check-List, con fecha de creación el "+ document.getElementById("fecha_check_list").value.replace('T', ' '), 0, 1, id_cliente_ckl, 0, "crear_checklist")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {
@@ -696,7 +696,7 @@
                 
                 for (const key in datos) {
 
-                    crearNotificacion("El Profesional a generado un Check-List", 0, 0, datos[key].id_personal, 0, "crear_checklist")
+                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ah generado un Check-List, con fecha de creación el "+ document.getElementById("fecha_check_list").value.replace('T', ' ') + " al cliente " + document.getElementById("razon_social_cliente").value, 0, 0, datos[key].id_personal, 0, "crear_checklist")
 
                 }
 

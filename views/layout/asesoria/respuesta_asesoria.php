@@ -62,6 +62,8 @@
         <br>
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_personal_sa" name="id_personal_sa" value="<?php echo $datosusuario['id_personal'] ?>">
+        <input type="hidden" id="nombre_personal" name="nombre_personal" value="<?php echo $datosusuario['nombre_personal'] ?>">
+        <input type="hidden" id="apellidos_personal" name="apellidos_personal" value="<?php echo $datosusuario['apellidos_personal'] ?>">
         <input type="hidden" id="id_cliente_sa" name="id_cliente_sa" value="">
 
     </form>
@@ -135,7 +137,9 @@
         fetch('index.php?view=respuesta-asesoria', {
             method: "post",
             body: formulario
-        }).then((response) => {
+        }).then((datos) => {
+            
+            console.log(datos)
             
             Swal.fire({
                 title: 'Asesoria reportada exitosamente',
@@ -146,8 +150,8 @@
                     location.reload();
                 })
 
-                //Mensaje Cliente
-            crearNotificacion("El Profesional ha respondido su solicitud de asesoría", 0, 1, document.getElementById('id_cliente_sa').value, 0, "respuesta_asesoria")
+            //Mensaje Cliente
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ha respondido su solicitud de asesoría " + document.getElementById('tipo_asesoria').value, 0, 1, document.getElementById('id_cliente_sa').value, 0, "respuesta_asesoria")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {
@@ -155,19 +159,15 @@
             }).then(response => response.json())
             .then((datos) => {
 
-                console.dir(datos)
-                
+
                 for (const key in datos) {
 
-                    crearNotificacion("El Profesional a respondido una asesoría", 0, 0, datos[key].id_personal, 0, "respuesta_asesoria")
+                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ha respondido una solicitud de asesoría", 0, 0, datos[key].id_personal, 0, "respuesta_asesoria")
 
                 }
 
             })
-
-            /*acciones a realizar*/     
-        }).then((data) => {
-            /*mas acciones a realizar*/
+   
         })
         
     }

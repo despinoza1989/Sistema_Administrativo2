@@ -173,7 +173,7 @@
             })
 
             //Mensaje Cliente
-            crearNotificacion("Se le ah generado una capacitación por su solicitud", 0, 1, document.getElementById('id_cliente_s').value, 0, "crear_capacitacion_s")
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a respondido su solicitud de capacitación " + document.getElementById('nombre_solicitud_capacitacion').value, 0, 1, document.getElementById('id_cliente_s').value, 0, "crear_capacitacion_s")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {
@@ -185,7 +185,7 @@
                 
                 for (const key in datos) {
 
-                    crearNotificacion("El Profesional a respondido una solicitud de capacitación", 0, 0, datos[key].id_personal, 0, "crear_capacitacion_s")
+                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a respondido la solicitud de capacitación " + document.getElementById('nombre_solicitud_capacitacion').value, 0, 0, datos[key].id_personal, 0, "crear_capacitacion_s")
 
                 }
 

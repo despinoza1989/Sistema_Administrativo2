@@ -56,8 +56,8 @@ class CrearCapacitacionModel {
         FROM crear_capacitacion AS cc
         LEFT JOIN personal AS p ON p.id_personal = cc.id_personal_cc
         LEFT JOIN tipo_personal_capacitacion AS tpc ON tpc.id_tipo_personal_capacitacion = cc.id_tipo_personal_capacitacion_cc
-        LEFT JOIN asignacion_profesional AS ap ON ap.id_personal_ap = cc.id_personal_cc
-        LEFT JOIN cliente AS c ON c.id_cliente = ap.id_cliente_ap WHERE cc.id_personal_cc = '". $id_personal ."' GROUP BY cc.id_crear_capacitacion";
+        LEFT JOIN cliente AS c ON c.id_cliente = cc.id_cliente_cc 
+        WHERE cc.id_personal_cc = '". $id_personal ."'";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) {
@@ -81,8 +81,8 @@ class CrearCapacitacionModel {
         FROM crear_capacitacion AS cc
         LEFT JOIN personal AS p ON p.id_personal = cc.id_personal_cc
         LEFT JOIN tipo_personal_capacitacion AS tpc ON tpc.id_tipo_personal_capacitacion = cc.id_tipo_personal_capacitacion_cc
-        LEFT JOIN asignacion_profesional AS ap ON ap.id_personal_ap = cc.id_personal_cc
-        LEFT JOIN cliente AS c ON c.id_cliente = ap.id_cliente_ap WHERE id_crear_capacitacion  = '". $id_crear_capacitacion ."' GROUP BY cc.id_crear_capacitacion"; 
+        LEFT JOIN cliente AS c ON c.id_cliente = cc.id_cliente_cc
+        WHERE id_crear_capacitacion  = '". $id_crear_capacitacion ."'"; 
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }

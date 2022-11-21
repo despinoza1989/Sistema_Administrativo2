@@ -52,6 +52,23 @@ class RespuestaAsesoriaModel {
         return $result;
     }
 
+
+    /*function create($data) {
+
+        $conexion= Database::connect();
+        $queryInsert = "INSERT INTO respuesta_asesoria (respuesta_asesoria, id_solicitud_asesoria_ra, id_personal_sa) VALUES ('". $data['respuesta_asesoria']."', '". $data['id_solicitud_asesoria_ra']."', '". $data['id_personal_sa']."')";
+        $result = $conexion->query($queryInsert);
+
+        $query2 = "SELECT LAST_INSERT_ID() as id";
+        $result2 = $conexion->query($query2);
+        $response=array();
+        while ($row = mysqli_fetch_assoc($result2)) { $response = $row; }
+        $result2->close();
+
+        $conexion->close();
+        return array('resultado_insert'=>$result,'id'=>$response['id']);
+    }*/
+
     function update($data) {
 
         $conexion= Database::connect();

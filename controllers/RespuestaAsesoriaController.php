@@ -5,7 +5,7 @@ class RespuestaAsesoriaController{
         //echo "esto funciona";
         $id_solicitud_asesoria = "";
 
-        if(isset($_GET['id_solicitud_asesoria']) || !is_null($_GET['id_solicitud_asesoria'])){
+        if(key_exists('id_solicitud_asesoria',$_GET) && isset($_GET['id_solicitud_asesoria']) && !is_null($_GET['id_solicitud_asesoria'])){
 
             $id_solicitud_asesoria = $_GET['id_solicitud_asesoria'];
 
@@ -15,7 +15,7 @@ class RespuestaAsesoriaController{
 
         require_once "models/SolicitudAsesoriaModel.php";
         $model_solicitud = new SolicitudAsesoriaModel();
-        require_once "models/RespuestaAsesoriaModel.php";
+        require_once "models/RespuestaAsesoriaModel.php"; 
         $model_resp_asesoria = new RespuestaAsesoriaModel();
     
 

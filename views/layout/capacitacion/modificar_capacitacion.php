@@ -87,7 +87,7 @@
 
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_crear_capacitacion" name="id_crear_capacitacion" value="<?php echo $datos_capacitacion['id_crear_capacitacion'] ?>">
-        <input type="hidden" id="id_cliente" name="id_cliente" value="">
+        <input type="hidden" id="id_cliente_s" name="id_cliente_s" value="">
         
     </form>
     <br>
@@ -118,7 +118,7 @@
             .then((datos)=>{
 
                 console.log(datos)
-                document.getElementById('id_cliente').value=datos.id_cliente;
+                document.getElementById('id_cliente_s').value=datos.id_cliente_s;
                 document.getElementById('nombre_capacitacion').value=datos.nombre_capacitacion;
                 document.getElementById('fecha_capacitacion').value=datos.fecha_capacitacion;
                 document.getElementById('rut_personal').value=datos.rut_personal;
@@ -237,7 +237,7 @@
                 location.reload();
             })
             //Mensaje Cliente
-            crearNotificacion("Se ha modificado una capacitación", 0, 1, document.getElementById('id_cliente').value, 0, "modificar_capacitacion")
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a modificado la capacitación " + document.getElementById("nombre_capacitacion").value + " para el " + document.getElementById("fecha_capacitacion").value.replace('T', ' '), 0, 1, document.getElementById('id_cliente_s').value, 0, "modificar_capacitacion")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {
@@ -249,8 +249,8 @@
                 
                 for (const key in datos) {
 
-                    crearNotificacion("El Profesional a modificado una capacitación", 0, 0, datos[key].id_personal, 0, "modificar_capacitacion")
-
+                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a modificado la capacitación " + document.getElementById("nombre_capacitacion").value + " para el " + document.getElementById("fecha_capacitacion").value.replace('T', ' ') + " al cliente " + document.getElementById('razon_social_cliente').value, 0, 0, datos[key].id_personal, 0, "modificar_capacitacion")
+                    
                 }
 
             })                
