@@ -40,7 +40,7 @@ class NotificacionModel {
         $conexion= Database::connect();
         $query = "SELECT 
         id_notificaciones, mensaje_notificacion, estado_notificacion, fecha_notificacion, is_cliente, custom_user_id, custom_option_id, tipo_notificacion 
-        FROM notificaciones WHERE custom_user_id  = '". $custom_user_id ."' ORDER BY fecha_notificacion DESC"; 
+        FROM notificaciones WHERE custom_user_id  = '". $custom_user_id ."' AND is_cliente = 0 ORDER BY fecha_notificacion DESC"; 
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { 
@@ -56,7 +56,7 @@ class NotificacionModel {
         $conexion= Database::connect();
         $query = "SELECT 
         COUNT(*) AS cantidad
-        FROM notificaciones WHERE custom_user_id  = '". $custom_user_id ."' AND estado_notificacion = 0"; 
+        FROM notificaciones WHERE custom_user_id  = '". $custom_user_id ."' AND estado_notificacion = 0 AND is_cliente = 0"; 
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) {$response = $row;}
