@@ -156,6 +156,11 @@ session_start();
                     $ctrl = new ListadoCheckMejoraController();
                     break;
 
+                case 'modificar-mejora':
+                    require_once "controllers/ModificarMejoraController.php";
+                    $ctrl = new ModificarMejoraController();
+                    break;
+
                 case 'check-list':
                     require_once "controllers/CheckListController.php";
                     $ctrl = new CheckListController();

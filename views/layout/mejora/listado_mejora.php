@@ -23,6 +23,7 @@
             <td><?php echo $row["telefono_cliente"]?></td>
             <td>
                 <a href="index.php?view=detalle-mejora&id_mejoras=<?php echo $row["id_mejoras"]?>" class="btn btn-info btn-sm">Ver Detalle</a>
+                <a href="index.php?view=modificar-mejora&id_mejoras=<?php echo $row["id_mejoras"]?>" class="btn btn-warning btn-sm">Modificar Mejora</a> 
             </td>
         </tr>
 
