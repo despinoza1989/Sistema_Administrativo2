@@ -301,6 +301,14 @@ $app->get('/mejoras/{id_mejoras}', function (Request $request, Response $respons
 
 });
 
+$app->post('/modificar-mejora', function (Request $request, Response $response, array $args) {
+    
+    $model = new MejoraModel();
+    $datos = $model->update($request->getParsedBody());
+    return $response->withJson($datos);
+
+});
+
 //MODELS PAGO SERVICIOS
 
 $app->get('/pago-servicio', function (Request $request, Response $response, array $args) {

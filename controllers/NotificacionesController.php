@@ -49,6 +49,8 @@ class NotificacionesController{
             return 'Visita en Terreno';
         }elseif ($tipo_notificacion == 'crear_mejora') {
             return 'Mejora Creada';
+        }elseif ($tipo_notificacion == 'modificar_mejora') {
+            return 'Mejora Modificada';
         }else{
             return 'Desconocido';
         }
