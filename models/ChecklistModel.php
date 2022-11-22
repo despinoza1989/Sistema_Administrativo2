@@ -60,7 +60,7 @@ class ChecklistModel {
         LEFT JOIN cliente AS c ON c.id_cliente = ck.id_cliente_ckl
         LEFT JOIN rubro AS r ON r.id_rubro = ck.id_rubro_ckl
         LEFT JOIN asignacion_profesional AS ap ON ap.id_cliente_ap = ck.id_cliente_ckl
-        WHERE ap.id_personal_ap  = '". $id_personal ."'"; 
+        WHERE ck.id_personal_ckl  = '". $id_personal ."'"; 
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) {
