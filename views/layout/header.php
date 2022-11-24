@@ -45,7 +45,7 @@
                     <ul class="dropdown-menu">
                         <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
                         <li><a class="dropdown-item" href="index.php?view=contrato">Registro de Contrato</a></li>
-                        <li><a class="dropdown-item" href="#">Esado de Pago</a></li>
+                        <li><a class="dropdown-item" href="#">Estado de Pago</a></li>
                         <li><a class="dropdown-item" href="index.php?view=listar-accidentes">Accidentabilidad de Cliente</a></li>
 
                         <?php } ?>
