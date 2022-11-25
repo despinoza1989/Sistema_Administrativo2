@@ -177,8 +177,13 @@
                         Manuales
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Manual de Usuarios</a></li>
-                        <li><a class="dropdown-item" href="#">Manual de Requerimientos</a></li>
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
+                            <li><a class="dropdown-item" href="#" onclick="openManualProfesional()">Manual de Usuarios</a></li>
+                        <?php } ?>
+
+                        <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
+                            <li><a class="dropdown-item" href="#" onclick="openManualAdministrativo()">Manual de Usuarios</a></li>
+                        <?php } ?>
                     </ul>
                 </li>
 
@@ -225,6 +230,18 @@
     
     init()
 
+    function openManualAdministrativo(){
+                
+	    window.open('http://localhost/sistema_administrativo/assents/manual/ManualFerme.pdf');
 
+    }
+
+
+    function openManualProfesional(){
+                
+        window.open('http://localhost/sistema_administrativo/assents/manual/ManualFerme.pdf');
+        
+    }   
+  
 
 </script>
