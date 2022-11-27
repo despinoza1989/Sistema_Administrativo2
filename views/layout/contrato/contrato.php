@@ -75,12 +75,12 @@
             </div>
         </div>
         <div class="col-md-2">
-            <label for="fecha_inicio_c" class="form-label">Fecha de Incio del Contrato</label>
+            <label for="fecha_inicio_c" class="form-label">Fecha de Inicio del Contrato</label>
             <input type="date" class="form-control" id="fecha_inicio_c" name="fecha_inicio_c" required>
         </div>
 
         <div class="col-md-2">
-            <label for="fecha_fin_c" class="form-label">Fecha de Termino del Contrato</label>
+            <label for="fecha_fin_c" class="form-label">Fecha de Término del Contrato</label>
             <input type="date" class="form-control" id="fecha_fin_c" name="fecha_fin_c" required>
         </div>
 
@@ -260,7 +260,7 @@
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Se debe establecer la Fecha de Termino del Contrato',                
+                text: 'Se debe establecer la Fecha de Término del Contrato',                
                 })            
             return;
 
