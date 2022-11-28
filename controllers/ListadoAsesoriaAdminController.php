@@ -7,16 +7,15 @@ class ListarAsesoriaAdminController{
         //Lo primero es llamar el modelo
 
 
-        require_once "models/SolicitudAsesoriaModel.php";
-        $model_asesoria = new SolicitudAsesoriaModel();
+        require_once "models/RespuestaAsesoriaModel.php";
+        $model_respuesta = new RespuestaAsesoriaModel();
 
 
         //$model = new ClienteModel();
 
         //Llamar datos del modelo
 
-        $datosusuario = $_SESSION['usuario'];
-        $datos_asesoria = $model_asesoria->getByListadoAdmin();
+        $datos_asesoria = $model_respuesta->getAll();
         //$datos = $model->getAllBy();
         
 
@@ -27,12 +26,6 @@ class ListarAsesoriaAdminController{
 
     }
 
-    public function registropersonal(){
 
-        //Llamar models del Personal
-        
-        require_once "models/AutentificacionModel.php";
-   
-    }
 
 }

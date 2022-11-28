@@ -66,11 +66,22 @@ session_start();
                     $ctrl = new AsignacionProfesionalController();
                     break;
 
+                case 'listado-asignaciones-profesional':
+                    require_once "controllers/ListadoAsignacionProfesionalController.php";
+                    $ctrl = new ListadoAsignacionProfesionalController();
+                    break;
+
                 case 'modificar-asignaciones':
                     require_once "controllers/ModificarAsignacionController.php";
                     $ctrl = new ModificarAsignacionController();
                     break;   
-                    
+                
+                case 'datos-cliente':
+                    require_once "controllers/DatosClienteController.php";
+                    $ctrl = new DatosClienteController();
+                    break;   
+                        
+
                 case 'clientes-activos':
                     require_once "controllers/ClienteActivosController.php";
                     $ctrl = new ClienteActivosController();
@@ -280,7 +291,22 @@ session_start();
                     require_once "controllers/ContratoController.php";
                     $ctrl = new ContratoController();
                     break;
+                
+                case 'estado-pago':
+                    require_once "controllers/ListadoPagoController.php";
+                    $ctrl = new ListadoPagoController();
+                    break;
+
+                case 'listado-contrato':
+                    require_once "controllers/ListadoContratosController.php";
+                    $ctrl = new ListadoContratosController();
+                    break;
                     
+                case 'actualizar-contrato':
+                    require_once "controllers/ActualizarContratoController.php";
+                    $ctrl = new ActualizarContratoController();
+                    break;
+
                 case 'logout':
                     session_unset();
                     header("refresh: 1; url=index.php");

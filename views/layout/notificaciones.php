@@ -38,9 +38,15 @@
             console.log(data)
             //GENERAR LINK AL HACER CLICK
             //index.php?view=detalle-check-list-admin&id_check_list=12
-            /*if(data.tipo_notificacion=='crear_checklist'){
-                location.href="index.php?view=detalle-check-list-admin&id_check_list="+data.custom_option_id;
-            }*/
+            if(data.tipo_notificacion=='modificar_asignar'){
+                location.href="index.php?view=datos-cliente&id_cliente="+data.custom_option_id;
+            } 
+            if (data.tipo_notificacion=='modificar_capacitacion') {
+                location.href="index.php?view=detalle-capacitaciones&id_crear_capacitacion="+data.custom_option_id;
+            } 
+            if (data.tipo_notificacion=='modificar_mejora') {
+                location.href="index.php?view=detalle-mejoras-admin&id_mejoras="+data.custom_option_id;
+            } 
 
         /*mas acciones a realizar*/
         })

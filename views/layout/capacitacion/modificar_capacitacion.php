@@ -237,7 +237,7 @@
                 location.reload();
             })
             //Mensaje Cliente
-            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a modificado la capacitación " + document.getElementById("nombre_capacitacion").value + " para el " + document.getElementById("fecha_capacitacion").value.replace('T', ' '), 0, 1, document.getElementById('id_cliente_s').value, 0, "modificar_capacitacion")
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a modificado la capacitación " + document.getElementById("nombre_capacitacion").value + " para el " + document.getElementById("fecha_capacitacion").value.replace('T', ' '), 0, 1, document.getElementById('id_cliente_s').value, document.getElementById('id_crear_capacitacion').value, "modificar_capacitacion")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {
@@ -249,7 +249,7 @@
                 
                 for (const key in datos) {
 
-                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a modificado la capacitación " + document.getElementById("nombre_capacitacion").value + " para el " + document.getElementById("fecha_capacitacion").value.replace('T', ' ') + " al cliente " + document.getElementById('razon_social_cliente').value, 0, 0, datos[key].id_personal, 0, "modificar_capacitacion")
+                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a modificado la capacitación " + document.getElementById("nombre_capacitacion").value + " para el " + document.getElementById("fecha_capacitacion").value.replace('T', ' ') + " al cliente " + document.getElementById('razon_social_cliente').value, 0, 0, datos[key].id_personal, document.getElementById('id_crear_capacitacion').value, "modificar_capacitacion")
                     
                 }
 

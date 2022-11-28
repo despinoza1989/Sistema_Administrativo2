@@ -7,15 +7,17 @@ class PagoServicioModel {
     function getById($id_pago_servicio) {
         
         $conexion= Database::connect();
-        $query = "SELECT ps.id_pago_servicio, ps.estado_pago, ps.fecha_pago, ps.monto_pago, ps.id_cliente_ps, ps.id_plan_servicio_ps, ps.id_tipo_documento_ps, ps.id_tipo_pago_ps,
-        tp.tipo_pago, td.tipo_documento, pss.valor_visita_mensual, pss.valor_asesorias, pss.valor_capacitaciones, pss.valor_mejoras, pss.valor_check_list, 
-        c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.estado_usuario_cliente,
-        c.usuario_cliente, c.tipo_usuario_c, c.id_rubro
+        $query = "SELECT 
+        ps.id_pago_servicio, ps.estado_pago, ps.fecha_pago, ps.monto_pago, ps.fecha_vencimiento, ps.id_contrato_ps,
+        co.id_contrato, co.fecha_inicio_c, co.fecha_fin_c, co.dia_pago, co.finalizado, co.id_cliente_c, co.id_plan_servicio_c, co.id_tipo_documento_c,
+        pls.nombre_plan, pls.descripcion_plan, pls.monto_plan,
+        td.tipo_documento,
+        cl.rol_cliente, cl.razon_social_cliente, cl.telefono_cliente, cl.email_cliente, cl.direccion_cliente
         FROM pago_servicio AS ps
-        LEFT JOIN tipo_pago AS tp ON tp.id_tipo_pago = ps.id_tipo_pago_ps
-        LEFT JOIN tipo_documento AS td ON td.id_tipo_documento = ps.id_tipo_documento_ps
-        LEFT JOIN plan_servicio AS pss ON pss.id_plan_servicio = ps.id_plan_servicio_ps
-        LEFT JOIN cliente AS c ON c.id_cliente = ps.id_cliente_ps WHERE id_pago_servicio = '". $id_pago_servicio ."'"; 
+        LEFT JOIN contrato AS co ON co.id_contrato = ps.id_contrato_ps
+        LEFT JOIN plan_servicio AS pls ON pls.id_plan_servicio = co.id_plan_servicio_c
+        LEFT JOIN tipo_documento AS td ON td.id_tipo_documento = id_tipo_documento_c
+        LEFT JOIN cliente AS cl ON cl.id_cliente = co.id_cliente_c WHERE ps.id_pago_servicio = '". $id_pago_servicio ."'"; 
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) { $response = $row; }
@@ -27,15 +29,17 @@ class PagoServicioModel {
     function getAll() {
 
         $conexion= Database::connect();
-        $query = "SELECT ps.id_pago_servicio, ps.estado_pago, ps.fecha_pago, ps.monto_pago, ps.id_cliente_ps, ps.id_plan_servicio_ps, ps.id_tipo_documento_ps, ps.id_tipo_pago_ps,
-        tp.tipo_pago, td.tipo_documento, pss.valor_visita_mensual, pss.valor_asesorias, pss.valor_capacitaciones, pss.valor_mejoras, pss.valor_check_list, 
-        c.rol_cliente, c.razon_social_cliente, c.telefono_cliente, c.email_cliente, c.direccion_cliente, c.estado_usuario_cliente,
-        c.usuario_cliente, c.tipo_usuario_c, c.id_rubro
+        $query = "SELECT 
+        ps.id_pago_servicio, ps.estado_pago, ps.fecha_pago, ps.monto_pago, ps.fecha_vencimiento, ps.id_contrato_ps,
+        co.id_contrato, co.fecha_inicio_c, co.fecha_fin_c, co.dia_pago, co.finalizado, co.id_cliente_c, co.id_plan_servicio_c, co.id_tipo_documento_c,
+        pls.nombre_plan, pls.descripcion_plan, pls.monto_plan,
+        td.tipo_documento,
+        cl.rol_cliente, cl.razon_social_cliente, cl.telefono_cliente, cl.email_cliente, cl.direccion_cliente
         FROM pago_servicio AS ps
-        LEFT JOIN tipo_pago AS tp ON tp.id_tipo_pago = ps.id_tipo_pago_ps
-        LEFT JOIN tipo_documento AS td ON td.id_tipo_documento = ps.id_tipo_documento_ps
-        LEFT JOIN plan_servicio AS pss ON pss.id_plan_servicio = ps.id_plan_servicio_ps
-        LEFT JOIN cliente AS c ON c.id_cliente = ps.id_cliente_ps";
+        LEFT JOIN contrato AS co ON co.id_contrato = ps.id_contrato_ps
+        LEFT JOIN plan_servicio AS pls ON pls.id_plan_servicio = co.id_plan_servicio_c
+        LEFT JOIN tipo_documento AS td ON td.id_tipo_documento = id_tipo_documento_c
+        LEFT JOIN cliente AS cl ON cl.id_cliente = co.id_cliente_c";
         $result = $conexion->query($query);
         $response = array();
         while($row = mysqli_fetch_assoc($result)) {
@@ -47,10 +51,34 @@ class PagoServicioModel {
         return $response;
     }
 
+
+    function getByIdCliente($id_cliente_c) {
+        
+        $conexion= Database::connect();
+        $query = "SELECT 
+        ps.id_pago_servicio, ps.estado_pago, ps.fecha_pago, ps.monto_pago, ps.fecha_vencimiento, ps.id_contrato_ps,
+        co.id_contrato, co.fecha_inicio_c, co.fecha_fin_c, co.dia_pago, co.finalizado, co.id_cliente_c, co.id_plan_servicio_c, co.id_tipo_documento_c,
+        pls.nombre_plan, pls.descripcion_plan, pls.monto_plan,
+        td.tipo_documento,
+        cl.rol_cliente, cl.razon_social_cliente, cl.telefono_cliente, cl.email_cliente, cl.direccion_cliente
+        FROM pago_servicio AS ps
+        LEFT JOIN contrato AS co ON co.id_contrato = ps.id_contrato_ps
+        LEFT JOIN plan_servicio AS pls ON pls.id_plan_servicio = co.id_plan_servicio_c
+        LEFT JOIN tipo_documento AS td ON td.id_tipo_documento = id_tipo_documento_c
+        LEFT JOIN cliente AS cl ON cl.id_cliente = co.id_cliente_c WHERE co.id_cliente_c = '". $id_cliente_c ."'"; 
+        $result = $conexion->query($query);
+        $response = array();
+        while($row = mysqli_fetch_assoc($result)) { $response = $row; }
+        $result->close();
+        $conexion->close();
+        return $response;
+    }
+
     function create($data) {
 
         $conexion= Database::connect();
-        $queryInsert = "INSERT INTO pago_servicio (estado_pago, fecha_pago, monto_pago, id_cliente_ps, id_plan_servicio_ps, id_tipo_documento_ps, id_tipo_pago_ps, ) VALUES ('". $data['estado_pago']."', '". $data['fecha_pago']."', '". $data['monto_pago']."', '". $data['id_cliente_ps']."', '". $data['id_plan_servicio_ps']."', '". $data['id_tipo_documento_ps']."', '". $data['id_tipo_pago_ps']."')";
+        $queryInsert = "INSERT INTO pago_servicio (estado_pago, fecha_pago, monto_pago, fecha_vencimiento, id_contrato_ps) 
+        VALUES ('". $data['estado_pago']."', '". $data['fecha_pago']."', '". $data['monto_pago']."', '". $data['fecha_vencimiento']."', '". $data['id_contrato_ps']."'')";
         $result = $conexion->query($queryInsert);
         $conexion->close();
         return $result;
@@ -59,7 +87,7 @@ class PagoServicioModel {
     function update($data) {
 
         $conexion= Database::connect();
-        $queryUpdate = "UPDATE pago_servicio SET estado_pago = '". $data['estado_pago']."', fecha_pago = '". $data['fecha_pago']."', monto_pago = '". $data['monto_pago']."', id_cliente_ps = '". $data['id_cliente_ps']."', id_plan_servicio_ps = '". $data['id_plan_servicio_ps']."', id_tipo_documento_ps = '". $data['id_tipo_documento_ps']."', id_tipo_pago_ps = '". $data['id_tipo_pago_ps']."', WHERE id_pago_servicio = '".$data['id_pago_servicio']."'";
+        $queryUpdate = "UPDATE pago_servicio SET estado_pago = '". $data['estado_pago']."' WHERE id_pago_servicio = '".$data['id_pago_servicio']."'";
         $result = $conexion->query($queryUpdate);
         $conexion->close();
         return $result;

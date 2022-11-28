@@ -45,13 +45,15 @@
                     <ul class="dropdown-menu">
                         <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==2){?>
                         <li><a class="dropdown-item" href="index.php?view=contrato">Registro de Contrato</a></li>
-                        <li><a class="dropdown-item" href="#">Estado de Pago</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listado-contrato">Listado de Contratos</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=estado-pago">Estado de Pago</a></li>
                         <li><a class="dropdown-item" href="index.php?view=listar-accidentes">Accidentabilidad de Cliente</a></li>
 
                         <?php } ?>
 
                         <?php if ($_SESSION['usuario']['id_tipo_usuario_p']==1){?>
                         <li><a class="dropdown-item" href="index.php?view=listar-accidentes-detalle">Accidentabilidad de Cliente</a></li>
+                        <li><a class="dropdown-item" href="index.php?view=listado-asignaciones-profesional">Listado de Asignaciones</a></li>
                         <?php } ?>
                     </ul>
                 </li>

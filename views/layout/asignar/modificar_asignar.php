@@ -201,10 +201,10 @@
                 //location.reload();
             })
             //Mensaje Cliente
-            crearNotificacion("Se actualizo el Profesional asignado, el nuevo profesional es " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value, 0, 1, document.getElementById('id_cliente_ap').value, 0, "modificar_asignar")
+            crearNotificacion("Se actualizo el Profesional asignado, el nuevo profesional es " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value, 0, 1, document.getElementById('id_cliente_ap').value, document.getElementById('id_personal_ap').value, "modificar_asignar")
             
             //Mensaje Profesional 
-            crearNotificacion("Se le ha asignado al Cliente " + document.getElementById('razon_social_cliente').value, 0, 0, document.getElementById('id_personal').value, 0, "modificar_asignar")
+            crearNotificacion("Se le ha asignado al Cliente " + document.getElementById('razon_social_cliente').value, 0, 0, document.getElementById('id_personal_ap').value, document.getElementById('id_cliente_ap').value, "modificar_asignar")
             /*acciones a realizar*/     
         }).then((data) => {
             /*mas acciones a realizar*/

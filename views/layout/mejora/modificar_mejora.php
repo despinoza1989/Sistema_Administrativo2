@@ -398,7 +398,7 @@ function modificarMejora() {
         })
 
         //Mensaje Cliente
-        crearNotificacion("Se ah modificado una mejora", 0, 1, document.getElementById('id_cliente_m').value, 0, "modificar_mejora")
+        crearNotificacion("Se ah modificado una mejora", 0, 1, document.getElementById('id_cliente_m').value, document.getElementById('id_mejoras').value, "modificar_mejora")
 
         //Mensaje Administrativo
         fetch("api.php/personal_administrativo", {
@@ -410,7 +410,7 @@ function modificarMejora() {
 
                 for (const key in datos) {
 
-                    crearNotificacion("El Profesional a modificado una mejora", 0, 0, datos[key].id_personal, 0, "modificar_mejora")
+                    crearNotificacion("El Profesional a modificado una mejora", 0, 0, datos[key].id_personal, document.getElementById('id_mejoras').value, "modificar_mejora")
 
                 }
 

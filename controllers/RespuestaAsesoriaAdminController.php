@@ -3,33 +3,24 @@
 class RespuestaAsesoriaAdminController{
     function __construct(){
         //echo "esto funciona";
-        $id_solicitud_asesoria = "";
+        $id_respuesta_asesoria = "";
 
-        if(isset($_GET['id_solicitud_asesoria']) || !is_null($_GET['id_solicitud_asesoria'])){
+        if(isset($_GET['id_respuesta_asesoria']) || !is_null($_GET['id_respuesta_asesoria'])){
 
-            $id_solicitud_asesoria = $_GET['id_solicitud_asesoria'];
+            $id_respuesta_asesoria = $_GET['id_respuesta_asesoria'];
 
         }
 
         //Lo primero es llamar el modelo
 
-        require_once "models/SolicitudAsesoriaModel.php";
-        $model_solicitud = new SolicitudAsesoriaModel();
         require_once "models/RespuestaAsesoriaModel.php";
         $model_resp_asesoria = new RespuestaAsesoriaModel();
     
 
         //Llamar datos del modelo
-
-        if(isset($_POST["accion"])){
-            $model_resp_asesoria->create($_POST);            
-            return;
-        }
-
-        //$datosusuariocliente = $_SESSION['usuarioCliente'];
-        
-        $datosusuario = $_SESSION['usuario'];
-        $datos_solicitud = $model_solicitud->getById($id_solicitud_asesoria);
+      
+    
+        $datos_asesoria = $model_resp_asesoria->getById($id_respuesta_asesoria);
 
         //Llamar a la vista 
         require_once "views/layout/header.php";

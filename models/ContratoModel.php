@@ -65,8 +65,8 @@ class ContratoModel {
 
         $conexion= Database::connect();
         $queryUpdate = "UPDATE contrato SET fecha_inicio_c = '". $data['fecha_inicio_c']."', fecha_fin_c = '". $data['fecha_fin_c']."', 
-        dia_pago = '". $data['dia_pago']."', finalizado = '1', id_cliente_c = '". $data['id_cliente_c']."', 
-        id_plan_servicio_c = '". $data['id_plan_servicio_c']."', id_tipo_documento_c = '". $data['id_tipo_documento_c']."' WHERE id_contrato = '".$data['id_contrato']."'";
+        dia_pago = '". $data['dia_pago']."', finalizado = '0', id_plan_servicio_c = '". $data['id_plan_servicio_c']."', id_tipo_documento_c = '". $data['id_tipo_documento_c']."' 
+        WHERE id_contrato = '".$data['id_contrato']."'";
         $result = $conexion->query($queryUpdate);
         $conexion->close();
         return $result;
