@@ -108,7 +108,7 @@
         </div>
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_personal_cc" name="id_personal_cc" value="<?php echo $datosusuario['id_personal'] ?>">
-        <input type="hidden" id="id_cliente_ap" name="id_cliente_ap" value="">
+        <input type="hidden" id="id_cliente_cc" name="id_cliente_cc" value="">
         
     </form>
     <br>
@@ -143,7 +143,7 @@
 
                 console.dir(datos)
 
-                document.getElementById('id_cliente_ap').value=datos.id_cliente_ap;
+                document.getElementById('id_cliente_cc').value=datos.id_cliente_ap;
                 document.getElementById('razon_social_cliente').value=datos.razon_social_cliente;
                 document.getElementById('telefono_cliente').value=datos.telefono_cliente;
                 document.getElementById('direccion_cliente').value=datos.direccion_cliente;
@@ -156,12 +156,13 @@
     }
 
     function crearCapacitacion() {
+
         var nombre_capacitacion = document.getElementById("nombre_capacitacion").value;
         var fecha_capacitacion = document.getElementById("fecha_capacitacion").value;
         var link_capacitacion = document.getElementById("link_capacitacion").value;
         var id_tipo_personal_capacitacion_cc = document.getElementById("id_tipo_personal_capacitacion_cc").value;
         var rol_cliente = document.getElementById("rol_cliente").value;
-        console.log(nombre_capacitacion, fecha_capacitacion, link_capacitacion, id_tipo_personal_capacitacion_cc)
+        console.log(id_cliente_cc, nombre_capacitacion, fecha_capacitacion, link_capacitacion, id_tipo_personal_capacitacion_cc)
 
         if (rol_cliente == undefined || rol_cliente == null || rol_cliente.trim() == "") {
             Swal.fire({
@@ -235,6 +236,8 @@
 
 
         let formulario = new FormData(document.getElementById("crear_capacitacion"))
+
+        console.log (formulario)
         fetch('index.php?view=crear-capacitacion', {
             method: "post",
             body: formulario
@@ -250,7 +253,7 @@
             })
 
             //Mensaje Cliente
-            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a generado la capacitación " + document.getElementById("nombre_capacitacion").value + " para el " + document.getElementById("fecha_capacitacion").value.replace('T', ' '), 0, 1, document.getElementById('id_cliente_ap').value, 0, "crear_capacitacion")
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a generado la capacitación " + document.getElementById("nombre_capacitacion").value + " para el " + document.getElementById("fecha_capacitacion").value.replace('T', ' '), 0, 1, document.getElementById('id_cliente_cc').value, 0, "crear_capacitacion")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {

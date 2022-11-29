@@ -119,7 +119,7 @@ class CrearCapacitacionModel {
     function create($data) {
 
         $conexion= Database::connect();
-        $queryInsert = "INSERT INTO crear_capacitacion (nombre_capacitacion, fecha_capacitacion, link_capacitacion, id_personal_cc, id_tipo_personal_capacitacion_cc) VALUES ('". $data['nombre_capacitacion']."', '". $data['fecha_capacitacion']."','". $data['link_capacitacion']."', '". $data['id_personal_cc']."', '". $data['id_tipo_personal_capacitacion_cc']."')";
+        $queryInsert = "INSERT INTO crear_capacitacion (nombre_capacitacion, fecha_capacitacion, link_capacitacion, id_personal_cc, id_tipo_personal_capacitacion_cc, id_cliente_cc) VALUES ('". $data['nombre_capacitacion']."', '". $data['fecha_capacitacion']."','". $data['link_capacitacion']."', '". $data['id_personal_cc']."', '". $data['id_tipo_personal_capacitacion_cc']."', '". $data['id_cliente_cc']."' )";
         $result = $conexion->query($queryInsert);
         $conexion->close();
         return $result;

@@ -20,13 +20,6 @@ class DatosClienteController{
 
         //Llamar datos del modelo
 
-        if(!empty($_POST)){
-
-            $model_cliente->update($_POST); 
-                       
-            return;
-        }
-
         $datos_cliente = $model_cliente->getById($id_cliente);
         $datos_rubro = $model_rubro->getAll();
 
