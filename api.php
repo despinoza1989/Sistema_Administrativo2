@@ -650,7 +650,16 @@ $app->put('/contrato', function (Request $request, Response $response, array $ar
 $app->post('/contrato', function (Request $request, Response $response, array $args) {
     
     $model = new ContratoModel();
-    $datos = $model->create($request->getParsedBody());
+    $model2 = new PagoServicioModel();
+    $data_post = $request->getParsedBody();
+    $datos = $model->create($data_post['contrato']);
+
+    $pago_servicio = $data_post['pago_servicio'];
+    foreach($pago_servicio as $pago){
+        $pago['id_contrato_ps']=$datos['id'];
+        $model2->create($pago);
+    }
+    
     return $response->withJson($datos);
 
 });

@@ -51,7 +51,7 @@ class ContratoModel {
         return $response;
     }
 
-    function create($data) {
+    /*function create($data) {
 
         $conexion= Database::connect();
         $queryInsert = "INSERT INTO contrato (fecha_inicio_c, fecha_fin_c, dia_pago, id_cliente_c, id_plan_servicio_c, id_tipo_documento_c) 
@@ -59,8 +59,25 @@ class ContratoModel {
         $result = $conexion->query($queryInsert);
         $conexion->close();
         return $result;
-    }
+    }*/
 
+    function create($data) {
+
+        $conexion= Database::connect();
+        $queryInsert = "INSERT INTO contrato (fecha_inicio_c, fecha_fin_c, dia_pago, id_cliente_c, id_plan_servicio_c, id_tipo_documento_c) 
+        VALUES ('". $data['fecha_inicio_c']."', '". $data['fecha_fin_c']."', '". $data['dia_pago']."', '". $data['id_cliente_c']."', '". $data['id_plan_servicio_c']."', '". $data['id_tipo_documento_c']."')";
+        $result = $conexion->query($queryInsert);
+
+        $query2 = "SELECT LAST_INSERT_ID() as id";
+        $result2 = $conexion->query($query2);
+        $response=array(); 
+        while ($row = mysqli_fetch_assoc($result2)) { $response = $row; }
+        $result2->close();
+
+        $conexion->close();
+        return array('resultado insert'=>$result,'id'=>$response['id']);
+    }
+    
     function update($data) {
 
         $conexion= Database::connect();

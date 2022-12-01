@@ -295,11 +295,34 @@
 
         }
 
+        let request = {
+
+            accion: 'crear',
+
+            contrato: {
+
+                fecha_inicio_c: fecha_inicio_c,
+                fecha_fin_c: fecha_fin_c,
+                dia_pago: dia_pago,
+                id_cliente_c: id_cliente_c,
+                id_plan_servicio_c: id_plan_servicio_c,
+                id_tipo_documento_c: id_tipo_documento_c,
+                
+            },
+
+            pago_servicio: pago_servicio,
+
+        }
+
+
         let formulario = new FormData(document.getElementById("registro_contrato"))
         
-        fetch('index.php?view=contrato', {
+        fetch('api.php/contrato', {
             method: "post",
-            body: formulario
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
         }).then((response) => {
             console.log(response)
             Swal.fire({

@@ -118,7 +118,7 @@
             .then((datos)=>{
 
                 console.log(datos)
-                document.getElementById('id_cliente_s').value=datos.id_cliente_s;
+                document.getElementById('id_cliente_s').value=datos.id_cliente;
                 document.getElementById('nombre_capacitacion').value=datos.nombre_capacitacion;
                 document.getElementById('fecha_capacitacion').value=datos.fecha_capacitacion;
                 document.getElementById('rut_personal').value=datos.rut_personal;
@@ -145,7 +145,7 @@
         var link_capacitacion = document.getElementById("link_capacitacion").value;
         var id_tipo_personal_capacitacion_cc = document.getElementById("id_tipo_personal_capacitacion_cc").value;
 
-        console.log(nombre_capacitacion, fecha_capacitacion, link_capacitacion, id_tipo_personal_capacitacion_cc)
+        //console.log(id_cliente_s, nombre_capacitacion, fecha_capacitacion, link_capacitacion, id_tipo_personal_capacitacion_cc)
 
         if (nombre_capacitacion == undefined || nombre_capacitacion == null || nombre_capacitacion.trim() == "") {
             Swal.fire({
@@ -217,7 +217,7 @@
 
         }
 
-        console.log(datos_formulario, "datos formulario")
+        //console.log(datos_formulario, "datos formulario")
 
         let formulario = new FormData(document.getElementById("modificar_capacitacion"))
         fetch('api.php/modificar-capacitacion', {
@@ -245,7 +245,7 @@
             }).then(response => response.json())
             .then((datos) => {
 
-                console.dir(datos)
+                //console.dir(datos)
                 
                 for (const key in datos) {
 
