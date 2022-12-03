@@ -127,7 +127,7 @@ function onChangeDetalleVisitaTerrenoProfesional(event) {
     var id_visita_terreno=document.getElementById('id_visita_terreno').value;
     console.log(id_visita_terreno)
 
-    if (id_visita_terreno && id_visita_terreno > 1) {
+    if (id_visita_terreno && id_visita_terreno > 0) {
 
         fetch("api.php/visita-terreno/" + id_visita_terreno, {
                 method: "get"
