@@ -79,7 +79,7 @@ function onChangeRut(event){
     
     console.log(id_reporte_accidente)
 
-    if(id_reporte_accidente && id_reporte_accidente>1){
+    if(id_reporte_accidente && id_reporte_accidente>0){
 
         fetch("api.php/reporte-accidente/" + id_reporte_accidente, {
             method: "get"            
