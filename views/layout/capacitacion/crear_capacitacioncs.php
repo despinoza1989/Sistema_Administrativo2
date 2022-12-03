@@ -88,7 +88,7 @@
         <input type="hidden" id="id_personal_cc" name="id_personal_cc" value="<?php echo $datosusuario['id_personal'] ?>">
         <input type="hidden" id="nombre_capacitacion" name="nombre_capacitacion" value="<?php echo $datos_solicitud_capacitacion['nombre_solicitud_capacitacion'] ?>">
         <input type="hidden" id="fecha_capacitacion" name="fecha_capacitacion" value="<?php echo $datos_solicitud_capacitacion['fecha_solicitud_capacitacion'] ?>">
-        <input type="hidden" id="id_cliente_s" name="id_cliente_s" value="">
+        <input type="hidden" id="id_cliente_cc" name="id_cliente_cc" value="">
            
     </form>
     <br>
@@ -120,7 +120,7 @@
             .then((datos)=>{
 
                 console.dir(datos)
-                document.getElementById('id_cliente_s').value=datos.id_cliente_s;
+                document.getElementById('id_cliente_cc').value=datos.id_cliente_s;
                 document.getElementById('nombre_solicitud_capacitacion').value=datos.nombre_solicitud_capacitacion;
                 document.getElementById('fecha_solicitud_capacitacion').value=datos.fecha_solicitud_capacitacion;
                 document.getElementById('tipo_personal_capacitacion').value=datos.tipo_personal_capacitacion;  
@@ -136,7 +136,7 @@
     }
 
     function crearCapacitacion() {
-
+        var id_cliente = document.getElementById('id_cliente_cc').value;
         var nombre_capacitacion = document.getElementById("nombre_capacitacion").value;
         var fecha_capacitacion = document.getElementById("fecha_capacitacion").value;
         var link_capacitacion = document.getElementById("link_capacitacion").value;
@@ -173,7 +173,7 @@
             })
 
             //Mensaje Cliente
-            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a respondido su solicitud de capacitación " + document.getElementById('nombre_solicitud_capacitacion').value, 0, 1, document.getElementById('id_cliente_s').value, 0, "crear_capacitacion_s")
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " a respondido su solicitud de capacitación " + document.getElementById('nombre_solicitud_capacitacion').value, 0, 1, document.getElementById('id_cliente_cc').value, 0, "crear_capacitacion_s")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {
