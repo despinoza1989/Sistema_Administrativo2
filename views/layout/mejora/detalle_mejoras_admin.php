@@ -1,8 +1,8 @@
 <div class="card-body" style="margin: 2em 5em;">
-    <h1> Crear Mejora</h1>
+    <h1> Detalle Mejora</h1>
     <br>
     <br>
-    <h2>Selección de Cliente</h2>
+    <h2>Datos Cliente</h2>
     <br>
     <form class="row g-3 needs-validation">
 
@@ -52,7 +52,7 @@
         <br>
         <br>
         <br>
-        <h2>Ingrese los datos y/o documentos y/o imágenes</h2>
+        <h2>Datos documentos e imágenes</h2>
         <br>
         <br>
         <br>
