@@ -51,7 +51,7 @@
             </select>
         </div>
                
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label for="id_tipo_documento_c" class="form-label">Tipo Documento</label>
             <select class="form-select" id="id_tipo_documento_c" name="id_tipo_documento_c" required>
                 <option selected disabled value="">Seleccione el Tipo de Documento</option>
@@ -61,7 +61,7 @@
             </select>
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-1">
             <label for="monto_plan" class="form-label">Monto del Plan</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend">$</span>
@@ -75,8 +75,13 @@
         </div>
 
         <div class="col-md-2">
-            <label for="fecha_fin_c" class="form-label">Fecha de Termino del Contrato</label>
-            <input type="date" class="form-control" id="fecha_fin_c" name="fecha_fin_c" required>
+            <label for="fecha_fin_c" class="form-label">Fecha de Fin del Contrato</label>
+            <input type="date" class="form-control" id="fecha_fin_c" name="fecha_fin_c" disabled required>
+        </div>
+
+        <div class="col-md-2">
+            <label for="cantidad_meses" class="form-label">Cant. Meses de Vigencias</label>
+            <input type="number" class="form-control" id="cantidad_meses" name="cantidad_meses" maxlength="2" min="1" max="12" required>
         </div>
 
         <div class="col-md-1">
@@ -95,7 +100,7 @@
         <input type="hidden" id="accion" name="accion" value="registrar">
         <input type="hidden" id="id_contrato" name="id_contrato" value="<?php echo $datos_contrato['id_contrato'] ?>">
         <input type="hidden" id="finalizado" name="finalizado" value="">
-        
+        <input type="hidden" id="id_cliente_c" name="id_cliente_c" value="">
 
     </form>
     <br><br><br>
@@ -131,6 +136,7 @@
 
                     console.dir(datos)
                     document.getElementById('id_contrato').value = datos.id_contrato;
+                    document.getElementById('id_cliente_c').value = datos.id_cliente_c;
                     document.getElementById('rol_cliente').value = datos.rol_cliente;
                     document.getElementById('tipo_rubro').value = datos.tipo_rubro;
                     document.getElementById('razon_social_cliente').value = datos.razon_social_cliente;
@@ -159,27 +165,14 @@
     
     function actualizarContrato(){
 
-        var finalizado=document.getElementById('finalizado').value;
         var fecha_inicio_c=document.getElementById("fecha_inicio_c").value;
         var fecha_fin_c=document.getElementById("fecha_fin_c").value;
+        var cantidad_meses=document.getElementById("cantidad_meses").value;
         var dia_pago=document.getElementById("dia_pago").value;
+        var id_cliente_c=document.getElementById("id_cliente_c").value;
         var id_plan_servicio_c=document.getElementById("id_plan_servicio_c").value;
         var id_tipo_documento_c=document.getElementById("id_tipo_documento_c").value;
         
-        
-        
-
-        console.log(id_plan_servicio_c, id_tipo_documento_c, fecha_inicio_c, fecha_fin_c, dia_pago)
-
-        if(finalizado==undefined || finalizado==null || finalizado.trim()=="" || finalizado==0){
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Contrato aun Vigente',                
-                })            
-            return;
-
-        }
 
         if(id_plan_servicio_c==undefined || id_plan_servicio_c==null || id_plan_servicio_c.trim()==""){
             Swal.fire({
@@ -211,33 +204,53 @@
 
         }
 
-        if(fecha_fin_c==undefined || fecha_fin_c==null || fecha_fin_c.trim()=="" ){
+        if(fecha_inicio_c<fecha_fin_c ){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Se debe establecer la Fecha de Termino del Contrato',                
+                text: 'Contrato Aun Vigente',                
                 })            
             return;
 
         }
 
-        var fecha_fin = new Date(fecha_fin_c);
-        var fecha_inicio = new Date(fecha_inicio_c);
-        var dias_milisegundos = fecha_fin.getTime() - fecha_inicio.getTime();
-        var dias_diferencia = dias_milisegundos / (1000 * 60 * 60 * 24)
-
-        console.log(fecha_inicio, 'Fecha Inicio')
-        console.log(fecha_fin, 'Fecha Fin')
-        console.log(dias_milisegundos, 'diferencia milisegundos')
-        console.log(dias_diferencia, 'diferencia dias')
-
-        if (dias_diferencia < 30) {
+        if(cantidad_meses==undefined || cantidad_meses==null || cantidad_meses.trim()=="" || cantidad_meses>12){
             Swal.fire({
                 icon: 'error',
-                title: 'Error',
-                text: 'La fecha debe ser mayor o igual a 30 días',
-            })
+                title: 'Oops...',
+                text: 'El contrato no puede ser por una vigencia mayor a los 12 Meses',                
+                })            
             return;
+
+        }
+
+        
+
+        var fecha_inicio = new Date(fecha_inicio_c);
+        fecha_inicio.setHours(fecha_inicio.getHours() + 3);
+        var fecha_fin = new Date(fecha_inicio_c);
+        fecha_fin.setHours(fecha_fin.getHours() + 3);
+        fecha_fin.setMonth(fecha_fin.getMonth() + (new Number(cantidad_meses)));
+        
+        console.log(fecha_inicio, 'fecha inicio');
+        console.log(fecha_fin, 'fecha fin');
+        
+        var pago_servicio=[];
+
+        for (let index = 0; index < (new Number(cantidad_meses)); index++) {
+
+            var fecha_vencimiento=new Date(fecha_inicio_c);
+
+            fecha_vencimiento.setHours(fecha_vencimiento.getHours() + 3);
+            fecha_vencimiento.setMonth(fecha_vencimiento.getMonth() + (index + 1));            
+            fecha_vencimiento.setDate(dia_pago);
+            
+            pago_servicio.push({
+                estado_pago:0,
+                monto_pago:document.getElementById("monto_plan").value,
+                fecha_vencimiento:fecha_vencimiento.toISOString(),
+                id_contrato_ps:0,
+            })
         }
         
         if(dia_pago==undefined || dia_pago==null || dia_pago.trim()==""){
@@ -250,29 +263,38 @@
 
         }
 
-        var datos_formulario = {
+        let request = {
 
-            id_contrato:document.getElementById('id_contrato').value,
-            fecha_inicio_c:document.getElementById("fecha_inicio_c").value,
-            fecha_fin_c:document.getElementById("fecha_fin_c").value,
-            dia_pago:document.getElementById("dia_pago").value,
-            id_plan_servicio_c:document.getElementById("id_plan_servicio_c").value,
-            id_tipo_documento_c:document.getElementById("id_tipo_documento_c").value,
+            accion: 'crear',
+
+            contrato: {
+
+                fecha_inicio_c: fecha_inicio.toISOString(),
+                fecha_fin_c: fecha_fin.toISOString(),
+                dia_pago: dia_pago,
+                id_cliente_c: id_cliente_c,
+                id_plan_servicio_c: id_plan_servicio_c,
+                id_tipo_documento_c: id_tipo_documento_c,
+                
+            },
+
+            pago_servicio: pago_servicio,
 
         }
-        
+
+
         let formulario = new FormData(document.getElementById("actualizar_contrato"))
         
         fetch('api.php/contrato', {
-            method: "POST",
+            method: "post",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(datos_formulario)
+            body: JSON.stringify(request)
         }).then((response) => {
             console.log(response)
             Swal.fire({
-                title: 'Contrato actualizado exitosamente',
+                title: 'Contrato registrado exitosamente',
                 showDenyButton: false,
                 showCancelButton: false,
                 confirmButtonText: 'Ok',

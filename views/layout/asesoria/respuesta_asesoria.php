@@ -131,15 +131,32 @@
             return;
 
         }
+        let request = {
 
+            accion: 'crear',
+
+            respuesta_asesorias: {
+
+                respuesta_asesoria: respuesta_asesoria,
+                id_solicitud_asesoria_ra:document.getElementById("id_solicitud_asesoria_ra").value,
+                id_personal_sa:document.getElementById("id_personal_sa").value,
+
+ 
+            },
+
+
+        }
 
         let formulario = new FormData(document.getElementById("reportar_asesoria"))
-        fetch('index.php?view=respuesta-asesoria', {
+        fetch('api.php/respuesta-asesoria', {
             method: "post",
-            body: formulario
-        }).then((datos) => {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
+        }).then(response=>response.json()).then((response) => {
             
-            console.log(datos)
+            console.log(response)
             
             Swal.fire({
                 title: 'Asesoria reportada exitosamente',
@@ -151,7 +168,7 @@
                 })
 
             //Mensaje Cliente
-            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ha respondido su solicitud de asesoría " + document.getElementById('tipo_asesoria').value, 0, 1, document.getElementById('id_cliente_sa').value, 0, "respuesta_asesoria")
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ha respondido su solicitud de asesoría " + document.getElementById('tipo_asesoria').value, 0, 1, document.getElementById('id_cliente_sa').value, response.id, "respuesta_asesoria")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {
@@ -162,7 +179,7 @@
 
                 for (const key in datos) {
 
-                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ha respondido una solicitud de asesoría", 0, 0, datos[key].id_personal, 0, "respuesta_asesoria")
+                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ha respondido una solicitud de asesoría", 0, 0, datos[key].id_personal, response.id, "respuesta_asesoria")
 
                 }
 

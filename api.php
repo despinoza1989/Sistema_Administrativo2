@@ -365,6 +365,15 @@ $app->get('/respuesta-asesoria/{id_respuesta_asesoria}', function (Request $requ
 
 });
 
+$app->post('/respuesta-asesoria', function (Request $request, Response $response, array $args) {
+        
+    $model = new RespuestaAsesoriaModel();
+    $data_post = $request->getParsedBody();
+    $datos = $model->create($data_post['respuesta_asesorias']);
+    return $response->withJson($datos);
+
+});
+
 //MODELS RUBRO 
 
 $app->get('/rubro', function (Request $request, Response $response, array $args) {
@@ -656,6 +665,7 @@ $app->post('/contrato', function (Request $request, Response $response, array $a
 
     $pago_servicio = $data_post['pago_servicio'];
     foreach($pago_servicio as $pago){
+    
         $pago['id_contrato_ps']=$datos['id'];
         $model2->create($pago);
     }

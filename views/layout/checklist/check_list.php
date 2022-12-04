@@ -672,8 +672,10 @@
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(request)
-        }).then((response) => {
+        }).then(response=>response.json()).then((response) => {
+
             console.log(response,"respuesta")
+
             Swal.fire({
                 title: 'Check-List Registrado Exitosamente',
                 showDenyButton: false,
@@ -684,7 +686,7 @@
             })
 
             //Mensaje Cliente
-            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ah generado un Check-List, con fecha de creación el "+ document.getElementById("fecha_check_list").value.replace('T', ' '), 0, 1, id_cliente_ckl, 0, "crear_checklist")
+            crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ah generado un Check-List, con fecha de creación el "+ document.getElementById("fecha_check_list").value.replace('T', ' '), 0, 1, id_cliente_ckl, response.id, "crear_checklist")
 
             //Mensaje Administrativo
             fetch("api.php/personal_administrativo", {
@@ -696,7 +698,7 @@
                 
                 for (const key in datos) {
 
-                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ah generado un Check-List, con fecha de creación el "+ document.getElementById("fecha_check_list").value.replace('T', ' ') + " al cliente " + document.getElementById("razon_social_cliente").value, 0, 0, datos[key].id_personal, 0, "crear_checklist")
+                    crearNotificacion("El Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value + " ah generado un Check-List, con fecha de creación el "+ document.getElementById("fecha_check_list").value.replace('T', ' ') + " al cliente " + document.getElementById("razon_social_cliente").value, 0, 0, datos[key].id_personal, response.id, "crear_checklist")
 
                 }
 

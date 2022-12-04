@@ -77,8 +77,8 @@ class PagoServicioModel {
     function create($data) {
 
         $conexion= Database::connect();
-        $queryInsert = "INSERT INTO pago_servicio (estado_pago, fecha_pago, monto_pago, fecha_vencimiento, id_contrato_ps) 
-        VALUES ('". $data['estado_pago']."', '". $data['fecha_pago']."', '". $data['monto_pago']."', '". $data['fecha_vencimiento']."', '". $data['id_contrato_ps']."'')";
+        $queryInsert = "INSERT INTO pago_servicio (estado_pago, monto_pago, fecha_vencimiento, id_contrato_ps) 
+        VALUES ('". $data['estado_pago']."', '". $data['monto_pago']."', '". $data['fecha_vencimiento']."', '". $data['id_contrato_ps']."')";
         $result = $conexion->query($queryInsert);
         $conexion->close();
         return $result;

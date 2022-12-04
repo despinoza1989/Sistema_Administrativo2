@@ -28,12 +28,12 @@
                     <td><?php echo $row["fecha_vencimiento"]?></td>
                     <td><?php 
                             if($row["fecha_pago"]==null) {
-                                echo "Pago no realizado";
+                                echo "Pago pendiente";
                             } else {
                                 echo $row["fecha_pago"];
                             }
                         ?>
-                    </td>      
+                    </td>    
                 </tr>
 
             <?php }?>

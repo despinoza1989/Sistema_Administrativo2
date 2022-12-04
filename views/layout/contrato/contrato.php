@@ -80,8 +80,8 @@
         </div>
 
         <div class="col-md-2">
-            <label for="fecha_fin_c" class="form-label">Fecha de Término del Contrato</label>
-            <input type="date" class="form-control" id="fecha_fin_c" name="fecha_fin_c" required>
+            <label for="cantidad_meses" class="form-label">Cant. Meses de Vigencias</label>
+            <input type="number" class="form-control" id="cantidad_meses" name="cantidad_meses" maxlength="2" min="1" max="12" required>
         </div>
 
         <div class="col-md-1">
@@ -164,8 +164,7 @@
                 console.dir(datos)                
                 document.getElementById('descripcion_plan').value = datos.descripcion_plan;
                 document.getElementById('monto_plan').value = datos.monto_plan;
-                document.getElementById('direccion_cliente').value = datos.direccion_cliente;
-                document.getElementById('email_cliente').value = datos.email_cliente;
+
 
             })
 
@@ -192,7 +191,7 @@
     function registrarContrato(){
 
         var fecha_inicio_c=document.getElementById("fecha_inicio_c").value;
-        var fecha_fin_c=document.getElementById("fecha_fin_c").value;
+        var cantidad_meses=document.getElementById("cantidad_meses").value;
         var dia_pago=document.getElementById("dia_pago").value;
         var id_cliente_c=document.getElementById("id_cliente_c").value;
         var id_plan_servicio_c=document.getElementById("id_plan_servicio_c").value;
@@ -201,7 +200,7 @@
         
         
 
-        console.log(id_plan_servicio_c, id_cliente_c, id_tipo_documento_c, fecha_inicio_c, fecha_fin_c, dia_pago)
+        //console.log(fecha_inicio_c)
 
         if(id_cliente_c==undefined || id_cliente_c==null || id_cliente_c.trim()==""){
             Swal.fire({
@@ -256,33 +255,41 @@
 
         }
 
-        if(fecha_fin_c==undefined || fecha_fin_c==null || fecha_fin_c.trim()=="" ){
+        var fecha_inicio = new Date(fecha_inicio_c);
+        fecha_inicio.setHours(fecha_inicio.getHours() + 3);
+        var fecha_fin = new Date(fecha_inicio_c);
+        fecha_fin.setHours(fecha_fin.getHours() + 3);
+        fecha_fin.setMonth(fecha_fin.getMonth() + (new Number(cantidad_meses)));
+        
+        console.log(fecha_inicio, 'fecha inicio');
+        console.log(fecha_fin, 'fecha fin');
+        
+        if(cantidad_meses==undefined || cantidad_meses==null || cantidad_meses.trim()=="" || cantidad_meses>12){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Se debe establecer la Fecha de Término del Contrato',                
+                text: 'El contrato no puede ser por una vigencia mayor a los 12 Meses',                
                 })            
             return;
 
         }
 
-        var fecha_fin = new Date(fecha_fin_c);
-        var fecha_inicio = new Date(fecha_inicio_c);
-        var dias_milisegundos = fecha_fin.getTime() - fecha_inicio.getTime();
-        var dias_diferencia = dias_milisegundos / (1000 * 60 * 60 * 24)
+        var pago_servicio=[];
 
-        console.log(fecha_inicio, 'Fecha Inicio')
-        console.log(fecha_fin, 'Fecha Fin')
-        console.log(dias_milisegundos, 'diferencia milisegundos')
-        console.log(dias_diferencia, 'diferencia dias')
+        for (let index = 0; index < (new Number(cantidad_meses)); index++) {
 
-        if (dias_diferencia < 30) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'La fecha debe ser mayor o igual a 30 días',
+            var fecha_vencimiento=new Date(fecha_inicio_c);
+
+            fecha_vencimiento.setHours(fecha_vencimiento.getHours() + 3);
+            fecha_vencimiento.setMonth(fecha_vencimiento.getMonth() + (index + 1));            
+            fecha_vencimiento.setDate(dia_pago);
+            
+            pago_servicio.push({
+                estado_pago:0,
+                monto_pago:document.getElementById("monto_plan").value,
+                fecha_vencimiento:fecha_vencimiento.toISOString(),
+                id_contrato_ps:0,
             })
-            return;
         }
         
         if(dia_pago==undefined || dia_pago==null || dia_pago.trim()==""){
@@ -295,14 +302,15 @@
 
         }
 
+
         let request = {
 
             accion: 'crear',
 
             contrato: {
 
-                fecha_inicio_c: fecha_inicio_c,
-                fecha_fin_c: fecha_fin_c,
+                fecha_inicio_c: fecha_inicio.toISOString(),
+                fecha_fin_c: fecha_fin.toISOString(),
                 dia_pago: dia_pago,
                 id_cliente_c: id_cliente_c,
                 id_plan_servicio_c: id_plan_servicio_c,
