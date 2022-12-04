@@ -1,8 +1,8 @@
 <div class="card-body" style="margin: 2em 5em;">
-    <h1> Crear Mejora</h1>
+    <h1> Modificar Mejora</h1>
     <br>
     <br>
-    <h2>Selección de Cliente</h2>
+    <h2>Datos de Cliente</h2>
     <br>
     <form id="modificar_mejora" class="row g-3 needs-validation">
 
