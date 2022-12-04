@@ -331,7 +331,7 @@
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(request)
-        }).then((response) => {
+        }).then(response=>response.json()).then((response) => {
             console.log(response)
             Swal.fire({
                 title: 'Contrato registrado exitosamente',
@@ -341,10 +341,42 @@
                 }).then((result) => {
                     location.reload();
                 })
+            
+            //Mensaje Cliente
+            crearNotificacion("Se ha generado un contrato a su nombre con fecha de inicio " + document.getElementById("fecha_inicio_c").value + " por un tiempo de " + document.getElementById("cantidad_meses").value + " meses", 0, 1, document.getElementById("id_cliente_c").value, response.id, "crear_contrato")
             /*acciones a realizar*/     
         }).then((data) => {
             /*mas acciones a realizar*/
         })
         
     }
+
+    function crearNotificacion(mensaje_notificacion, estado_notificacion, is_cliente, custom_user_id, custom_option_id, tipo_notificacion){
+        
+        var request = {
+
+            mensaje_notificacion: mensaje_notificacion,
+            estado_notificacion: estado_notificacion,
+            is_cliente: is_cliente,
+            custom_user_id: custom_user_id,
+            custom_option_id: custom_option_id,
+            tipo_notificacion: tipo_notificacion
+
+        }
+
+        fetch('api.php/notificaciones', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(request)
+        }).then((response) => {
+            
+            console.log(response)
+            /*acciones a realizar*/     
+        }).then((data) => {
+            /*mas acciones a realizar*/
+        })
+    }
+
 </script>

@@ -51,6 +51,8 @@ class NotificacionesController{
             return 'Mejora Creada';
         }elseif ($tipo_notificacion == 'modificar_mejora') {
             return 'Mejora Modificada';
+        }elseif ($tipo_notificacion == 'pago') {
+            return 'Pago Realizado';
         }else{
             return 'Desconocido';
         }
