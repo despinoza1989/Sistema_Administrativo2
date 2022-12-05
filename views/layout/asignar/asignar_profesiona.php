@@ -201,10 +201,10 @@
             })
 
             //Mensaje Cliente
-            crearNotificacion("Se le ha asignado al Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value, 0, 1, document.getElementById('id_cliente_ap').value, 0, "asignar_profesional")
+            crearNotificacion("Se le ha asignado al Profesional " + document.getElementById('nombre_personal').value + " " + document.getElementById('apellidos_personal').value, 0, 1, document.getElementById('id_cliente_ap').value, document.getElementById('id_personal_ap').value, "asignar_profesional")
 
             //Mensaje Profesional
-            crearNotificacion("Se le ha asignado al Cliente " + document.getElementById('razon_social_cliente').value, 0, 0, document.getElementById('id_personal_ap').value, 0, "asignar_profesional")
+            crearNotificacion("Se le ha asignado al Cliente " + document.getElementById('razon_social_cliente').value, 0, 0, document.getElementById('id_personal_ap').value, document.getElementById('id_cliente_ap').value, "asignar_profesional")
             
             /*acciones a realizar*/     
         }).then((data) => {
