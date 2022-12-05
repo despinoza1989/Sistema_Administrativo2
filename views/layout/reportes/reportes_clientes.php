@@ -2,10 +2,9 @@
     <div class="col-md-10" class="card">
         <div class="card border-secondary mb-3">
             <div class="card-header text-center">
-            <strong>Reportes y Estadísticas de Clientes</strong>
             </div>
             <div class="card-body">
-            <iframe title="Reportes Sistema administrativoClientes" width="1280" height="1024" src="https://app.powerbi.com/view?r=eyJrIjoiZWYzNTQ2OTctMzk3OC00ZDU5LWFkNjktNGQ1MjBkNDVjYjZkIiwidCI6IjcyZmQwYjVhLThhNmEtNGNmZi04OWY2LWJkZTk2MWY3ZTI1MCIsImMiOjR9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+            <iframe title="Reportes no mas accidentes Clientes - Página 1" width="1280" height="1024" src="https://app.powerbi.com/view?r=eyJrIjoiMmNiMjhmMzAtZmNmYy00MTk5LTlmMWYtNGZiOWE0OWNhYzJhIiwidCI6IjcyZmQwYjVhLThhNmEtNGNmZi04OWY2LWJkZTk2MWY3ZTI1MCIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
             </div>
         </div>
     </div>
