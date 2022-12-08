@@ -21,7 +21,7 @@ init()
 function openManualAdministrativo() {
 
     window.open(
-        'http://localhost/Portafolio/sistema_administrativo2/assents/reportes/ReportesnomasaccidentesGlobales.pdf');
+        'http://localhost/sistema_administrativo/assents/reportes/ReportesnomasaccidentesGlobales.pdf');
 
 }
 

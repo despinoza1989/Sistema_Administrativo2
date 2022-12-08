@@ -234,14 +234,14 @@
 
     function openManualAdministrativo(){
                 
-	    window.open('http://localhost/sistema_administrativo/assents/manual/ManualFerme.pdf');
+	    window.open('http://localhost/sistema_administrativo/assents/manual/Manual de Usuario NMA_Administrativo.pdf');
 
     }
 
 
     function openManualProfesional(){
                 
-        window.open('http://localhost/sistema_administrativo/assents/manual/ManualFerme.pdf');
+        window.open('http://localhost/sistema_administrativo/assents/manual/Manual de Usuario NMA_Profesional.pdf');
         
     }   
   
