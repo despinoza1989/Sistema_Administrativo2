@@ -4,9 +4,11 @@
             <div class="card-header text-center">
             </div>
             <div class="card-body">
-                <iframe title="Reportes no mas accidentes Clientes" width="1280" height="1024"
-                    src="https://app.powerbi.com/view?r=eyJrIjoiMmNiMjhmMzAtZmNmYy00MTk5LTlmMWYtNGZiOWE0OWNhYzJhIiwidCI6IjcyZmQwYjVhLThhNmEtNGNmZi04OWY2LWJkZTk2MWY3ZTI1MCIsImMiOjR9&pageName=ReportSection"
-                    frameborder="0" allowFullScreen="true"></iframe>
+                <div class="ratio ratio-16x9">
+                    <iframe title="Reportes no mas accidentes Clientes"
+                        src="https://app.powerbi.com/view?r=eyJrIjoiMmNiMjhmMzAtZmNmYy00MTk5LTlmMWYtNGZiOWE0OWNhYzJhIiwidCI6IjcyZmQwYjVhLThhNmEtNGNmZi04OWY2LWJkZTk2MWY3ZTI1MCIsImMiOjR9&pageName=ReportSection"
+                        allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
