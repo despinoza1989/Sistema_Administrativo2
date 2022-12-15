@@ -64,7 +64,7 @@ class ClienteModel {
     function create($data) {
 
         $conexion= Database::connect();
-        $queryInsert = "INSERT INTO cliente (rol_cliente, razon_social_cliente, telefono_cliente, email_cliente, direccion_cliente, estado_usuario_cliente,  usuario_cliente, password_cliente, tipo_usuario_c, id_rubro) VALUES ('". $data['rol_cliente']."', '". $data['razon_social_cliente']."', '". $data['telefono_cliente']."', '". $data['email_cliente']."', '". $data['direccion_cliente']."', '". $data['estado_usuario_cliente']."', '". $data['usuario_cliente']."', '". $data['password_cliente']."', '". $data['tipo_usuario_c']."', '". $data['id_rubro']."')";
+        $queryInsert = "INSERT INTO cliente (rol_cliente, razon_social_cliente, telefono_cliente, email_cliente, direccion_cliente, estado_usuario_cliente,  usuario_cliente, password_cliente, tipo_usuario_c, id_rubro) VALUES ('". $data['rol_cliente']."', '". $data['razon_social_cliente']."', '". $data['telefono_cliente']."', '". $data['email_cliente']."', '". $data['direccion_cliente']."', '". $data['estado_usuario_cliente']."', '". $data['usuario_cliente']."', md5('". $data['password_cliente']."'), '". $data['tipo_usuario_c']."', '". $data['id_rubro']."')";
         $result = $conexion->query($queryInsert);
         $conexion->close();
         return $result;
@@ -76,7 +76,7 @@ class ClienteModel {
         $queryUpdate = "UPDATE cliente SET rol_cliente = '". $data['rol_cliente']."', razon_social_cliente = '". $data['razon_social_cliente']."', 
         telefono_cliente = '". $data['telefono_cliente']."', email_cliente = '". $data['email_cliente']."', direccion_cliente = '". $data['direccion_cliente']."', 
         estado_usuario_cliente = '". $data['estado_usuario_cliente']."', usuario_cliente = '". $data['usuario_cliente']."', 
-        password_cliente = '". $data['password_cliente']."', tipo_usuario_c = '". $data['tipo_usuario_c']."', id_rubro = '". $data['id_rubro']."' 
+        password_cliente = md5('". $data['password_cliente']."'), tipo_usuario_c = '". $data['tipo_usuario_c']."', id_rubro = '". $data['id_rubro']."' 
         WHERE id_cliente = '".$data['id_cliente']."'";
         $result = $conexion->query($queryUpdate);
         $conexion->close();

@@ -176,7 +176,7 @@
 
         }
 
-        if(telefono==undefined || telefono==null || telefono.trim()=="" || !validacion.validarTelefono(telefono)){
+        if(telefono==undefined || telefono==null || telefono.trim()=="" || validacion.validarTelefono(telefono)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
