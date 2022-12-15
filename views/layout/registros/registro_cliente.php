@@ -167,7 +167,7 @@
 
         }
 
-        if(razon_social==undefined || razon_social==null || razon_social.trim()=="" || !validacion.validarRazonSocial(razon_social)){
+        if(razon_social==undefined || razon_social==null || razon_social.trim()=="" || validacion.validarRazonSocial(razon_social)){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

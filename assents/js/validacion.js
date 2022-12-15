@@ -49,7 +49,7 @@ var validacion = {
 	},
 
 	validarRazonSocial: function(valor) {
-		var texto = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ.' ]*$/;
+		var texto = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ-.'-"@_ ]*$/;
 		if(valor.search(texto)){
 			return false;
 		} else {
